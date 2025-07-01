@@ -1,6 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const FeaturedInsight = () => {
   const features = [
     {
@@ -58,8 +61,40 @@ const FeaturedInsight = () => {
       link: "Read more →",
     },
   ];
+  const gridRef = useRef(null);
 
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  useEffect(() => {
+    const cards: any = gsap.utils.toArray(".featured-card");
+
+    gsap.set(cards, { opacity: 0, y: 100 });
+
+    ScrollTrigger.batch(cards, {
+      start: "top 85%",
+      onEnter: (batch) => {
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power3.out",
+        });
+      },
+      onLeaveBack: (batch) => {
+        gsap.to(batch, {
+          opacity: 0,
+          y: 100,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.inOut",
+        });
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="py-10 bg-slate-700 text-white">
@@ -67,13 +102,16 @@ const FeaturedInsight = () => {
         Featured Insights
       </h1>
       <div className="">
-        <div className="grid grid-cols-3 gap-5 mt-5 w-[1320px] container mx-auto">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-3 gap-5 mt-5 w-[1320px] container mx-auto"
+        >
           {features.map((feature, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoverIndex(index)}
               onMouseLeave={() => setHoverIndex(null)}
-              className="w-[332px] h-[512px] relative overflow-hidden cursor-pointer group"
+              className="featured-card w-[332px] h-[512px] relative overflow-hidden cursor-pointer group"
             >
               {/* Background Image */}
               <img

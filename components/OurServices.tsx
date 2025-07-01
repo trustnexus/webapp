@@ -11,8 +11,12 @@ const OurServices = () => {
   const impactRef = useRef(null);
   const innovationRef = useRef(null);
   const possibilitiesRef = useRef(null);
+  const redefiningLineRef = useRef(null);
+  const globeLineRef = useRef(null);
+  const servicesRef = useRef(null);
+
   const headingRef = useRef(null); // already used for the section
-const text = ['impact','innovative','possiblities']
+  // const text = ["impact", "innovative", "possiblities"];
   const services = [
     {
       heading: "AI Transformation",
@@ -38,86 +42,106 @@ const text = ['impact','innovative','possiblities']
 
   useEffect(() => {
     gsap.to(headingRef.current, {
-      y: 290, // move 100px down
-      x: -599,
+      y: 390, // move 100px down
+      x: -590,
       ease: "power2.out",
       duration: 10,
-      fontSize: "45px",
+      fontSize: "49px",
       scrollTrigger: {
         trigger: headingRef.current,
         start: "top 50px", // when heading hits center of screen
         // end: "bottom center", // adjust as needed
         markers: true,
+        // pin: headingRef.current,
         scrub: 1, // smooth scrolling
         toggleActions: "restart pause reverse none",
       },
     });
   }, []);
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: redefiningLineRef.current, // 👈 actual element as trigger
+        start: "bottom 80%", // 👈 when it enters 80% from top of viewport
+        end: "bottom 60%", // optional, for scroll control
+        scrub: true,
+        toggleActions: "play pause reverse pause",
+      },
+    });
 
-  // useEffect(() => {
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: headingRef.current,
-  //       start: "top 70%",
-  //       markers: false,
-  //     },
-  //   });
+    tl.fromTo(
+      redefiningLineRef.current,
+      { x: -100, opacity: 0 },
+      { x: 0, opacity: 1, duration: 10, ease: "power3.out" }
+    ).fromTo(
+      globeLineRef.current,
+      { x: -100, opacity: 0 },
+      { x: 0, opacity: 1, duration: 10, ease: "power3.out" },
+      "+=0.3"
+    );
+  }, []);
 
-  //   // impact: show → hide
-  //   tl.fromTo(
-  //     impactRef.current,
-  //     { y: 100, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-  //   ).to(impactRef.current, {
-  //     opacity: 0,
-  //     duration: 0.5,
-  //     delay: 1, // keeps it visible for 1s
-  //   });
+  useEffect(() => {
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
-  //   // innovation: show → hide
-  //   tl.fromTo(
-  //     innovationRef.current,
-  //     { y: 100, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-  //   ).to(innovationRef.current, {
-  //     opacity: 0,
-  //     duration: 0.5,
-  //     delay: 1,
-  //   });
+    tl.fromTo(
+      impactRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    )
+      .to(impactRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 1,
+      })
+      .fromTo(
+        innovationRef.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      )
+      .to(innovationRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 1,
+      })
+      .fromTo(
+        possibilitiesRef.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      )
+      .to(possibilitiesRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        delay: 1,
+      });
+  }, []);
+  useEffect(() => {
+    const elements: any = gsap.utils.toArray(".service-card");
 
-  //   // possibilities: show only (no hide if it's last)
-  //   tl.fromTo(
-  //     possibilitiesRef.current,
-  //     { y: 100, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
-  //   );
-  //   // tl.from(impactRef.current, {
-  //   //   y: 100,
-  //   //   opacity: 0,
-  //   //   duration: 1,
-  //   //   ease: "power3.out",
-  //   // })
-  //   //   .from(
-  //   //     innovationRef.current,
-  //   //     {
-  //   //       y: 100,
-  //   //       opacity: 0,
-  //   //       duration: 1,
-  //   //       ease: "power3.out",
-  //   //     },
-  //   //     "+=1.5"
-  //   //   )
-  //   //   .from(
-  //   //     possibilitiesRef.current,
-  //   //     {
-  //   //       y: 100,
-  //   //       opacity: 0,
-  //   //       duration: 1,
-  //   //       ease: "power3.out",
-  //   //     },
-  //   //     "+=1.5"
-  //   //   );
-  // }, []);
+    gsap.set(elements, { opacity: 0, y: 100 }); // Initial state
+
+    ScrollTrigger.batch(elements, {
+      start: "top 80%",
+      onEnter: (batch) => {
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power3.out",
+        });
+      },
+      onLeaveBack: (batch) => {
+        gsap.to(batch, {
+          opacity: 0,
+          y: 100,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power3.inOut",
+        });
+      },
+    });
+  }, []);
 
   return (
     <>
@@ -136,48 +160,59 @@ const text = ['impact','innovative','possiblities']
       {/* Section Below */}
       <div className="w-[1432px] text-start mx-auto flex gap-10">
         <div className="w-[80%] flex flex-col gap-10">
-          <h1 className="redefining flex flex-col gap-8">
-            <div className="flex gap-2">
-              <span className="[background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000)] inline-block bg-clip-text text-transparent">
-                Redefining
-              </span>
-              <span
-                ref={impactRef}
-                className="[background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] inline-block bg-clip-text text-transparent"
+          <h1 className=" flex flex-col gap-8">
+            <div className="my-14 ">
+              <div
+                ref={redefiningLineRef}
+                className="redefining my-14 relative"
               >
-                impact
-              </span>
+                <span className="border-2 text-[49px] [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000)] inline-block py-1 bg-clip-text text-transparent">
+                  Redefining
+                </span>
+                <span
+                  ref={impactRef}
+                  className="text-[49px] absolute top-0 left-62 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] py-1 inline-block bg-clip-text text-transparent"
+                >
+                  impact
+                </span>
+                <span
+                  ref={innovationRef}
+                  className="text-[49px] py-1  absolute top-0 left-62 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                >
+                  innovation
+                </span>
+                <span
+                  ref={possibilitiesRef}
+                  className="text-[49px] py-1  absolute top-0 left-62  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                >
+                  possiblities
+                </span>
+              </div>
               <span
-                ref={innovationRef}
-                className="[background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                ref={globeLineRef}
+                className="text-[49px] py-1  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
               >
-                innovation
-              </span>
-              <span
-                ref={possibilitiesRef}
-                className="[background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
-              >
-                possiblities
+                across the globe
               </span>
             </div>
-            <span className="[background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent">
-              across the globe
-            </span>
           </h1>
-          <span className="text-orange-300 flex items-start justify-start gap-2">
+          <span className="text-orange-500 flex items-center hover:underline cursor-pointer gap-2">
             GET IN TOUCH <BiRightArrowAlt />
           </span>
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div
+          ref={servicesRef}
+          className="flex w-[661px] mx-[54px]  flex-col gap-6"
+        >
           {services.map((service, index) => (
-            <div key={index}>
-              <div className="">
+            <div className="w-[661px] service-card" key={index}>
+              <div className="p-[54px]">
                 <h4>{service.heading}</h4>
                 <p>{service.desc}</p>
                 <Link
                   style={{ color: "orange", textDecoration: "none" }}
-                  className="flex items-center gap-1"
+                  className="flex hover:underline cursor-pointer items-center gap-1"
                   href="/"
                 >
                   {service.link} <BiRightArrowAlt size={20} />
