@@ -213,7 +213,7 @@ const Technology = () => {
       {/* Section Container */}
       <div
         ref={technologyRef}
-        className="max-w-screen-xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-start flex-wrap py-16"
+        className="max-w-screen-xl  mx-auto px-4 flex flex-col lg:flex-row justify-between items-start flex-wrap py-16"
       >
         {/* Left Content */}
         <div className="lg:w-1/2 border-b lg:border-b-0 lg:border-r border-gray-300 pr-0 lg:pr-12 pb-10 lg:pb-0">
@@ -234,7 +234,7 @@ const Technology = () => {
         </div>
 
         {/* Right Stats */}
-        <div className="lg:w-1/2 pt-10 lg:pt-0 flex flex-col gap-10 px-0 lg:px-8">
+        <div className="lg:w-1/2 pt-10  lg:pt-0 flex flex-col gap-10 px-0 lg:px-8">
           <div className="flex gap-10 flex-wrap">
             <div>
               <h1 className="text-4xl sm:text-5xl font-bold text-black">

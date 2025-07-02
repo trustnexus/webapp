@@ -13,7 +13,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="border-b   hover:backdrop-blur-lg bg-gray-500 hover:transition-all duration-200 ease-in-out cursor-pointer border-gray-500  fixed top-0 w-full z-50 text-white">
+    <div className="border-b   hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out cursor-pointer border-gray-500  fixed top-0 w-full z-50 text-white">
       <div className="max-w-[1320px] mx-auto w-full h-[70px] px-4 md:px-10 flex items-center justify-between">
         {/* Left Section */}
         <div className="flex items-center justify-between w-full lg:w-auto gap-3">
