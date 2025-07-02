@@ -104,7 +104,7 @@ const FeaturedInsight = () => {
       <div className="">
         <div
           ref={gridRef}
-          className="grid grid-cols-3 gap-5 mt-5 w-[1320px] container mx-auto"
+          className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 gap-5 mt-5 w-[1320px] container mx-auto"
         >
           {features.map((feature, index) => (
             <div

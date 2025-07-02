@@ -43,7 +43,7 @@ const OurServices = () => {
   useEffect(() => {
     gsap.to(headingRef.current, {
       y: 390, // move 100px down
-      x: -590,
+      x: -550,
       ease: "power2.out",
       duration: 10,
       fontSize: "49px",
@@ -51,7 +51,7 @@ const OurServices = () => {
         trigger: headingRef.current,
         start: "top 50px", // when heading hits center of screen
         // end: "bottom center", // adjust as needed
-        markers: true,
+        // markers: true,
         // pin: headingRef.current,
         scrub: 1, // smooth scrolling
         toggleActions: "restart pause reverse none",
@@ -146,11 +146,11 @@ const OurServices = () => {
   return (
     <>
       {/* Heading with GSAP animation */}
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="flex border-2 flex-col  items-center justify-center h-screen">
         <div className="">
           <p
             ref={headingRef}
-            className="inline-block select-none font-semibold bg-clip-text text-transparent text-[102px] md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)] [word-spacing:-7px] tracking-tight"
+            className="inline-block sm:text-[102px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)] [word-spacing:-7px] tracking-tight"
           >
             Our Services
           </p>
@@ -158,45 +158,51 @@ const OurServices = () => {
       </div>
 
       {/* Section Below */}
-      <div className="w-[1432px] text-start mx-auto flex gap-10">
-        <div className="w-[80%] flex flex-col gap-10">
-          <h1 className=" flex flex-col gap-8">
-            <div className="my-14 ">
+      <div className="max-w-[1432px]  border-2 text-start mx-auto flex-wrap flex gap-10">
+        <div className="md:w-[40%] w-full border-2 flex flex-col gap-10">
+          <div className="flex flex-col gap-8">
+            <div className="my-10 p-5">
               <div
                 ref={redefiningLineRef}
-                className="redefining my-14 relative"
+                className="redefining my-10 relative"
               >
-                <span className="border-2 text-[49px] [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000)] inline-block py-1 bg-clip-text text-transparent">
+                <span
+                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+ font-semibold [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000)] inline-block py-1 bg-clip-text text-transparent"
+                >
                   Redefining
                 </span>
                 <span
                   ref={impactRef}
-                  className="text-[49px] absolute top-0 left-62 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] py-1 inline-block bg-clip-text text-transparent"
+                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+ absolute font-semibold top-0 sm:left-62 left-42 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] py-1 inline-block bg-clip-text text-transparent"
                 >
                   impact
                 </span>
                 <span
                   ref={innovationRef}
-                  className="text-[49px] py-1  absolute top-0 left-62 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+ py-1 font-semibold  absolute top-0 sm:left-62 left-42 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
                 >
                   innovation
                 </span>
                 <span
                   ref={possibilitiesRef}
-                  className="text-[49px] py-1  absolute top-0 left-62  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px] py-1 font-semibold absolute top-0 sm:left-62 left-40  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
                 >
                   possiblities
                 </span>
               </div>
               <span
                 ref={globeLineRef}
-                className="text-[49px] py-1  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                className=" text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+ py-1 -my-10  font-semibold [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
               >
                 across the globe
               </span>
             </div>
-          </h1>
-          <span className="text-orange-500 flex items-center hover:underline cursor-pointer gap-2">
+          </div>
+          <span className="text-orange-500 px-10 -my-10 flex items-center hover:underline cursor-pointer gap-2">
             GET IN TOUCH <BiRightArrowAlt />
           </span>
         </div>
@@ -206,7 +212,7 @@ const OurServices = () => {
           className="flex w-[661px] mx-[54px]  flex-col gap-6"
         >
           {services.map((service, index) => (
-            <div className="w-[661px] service-card" key={index}>
+            <div className="max-w-[661px] service-card" key={index}>
               <div className="p-[54px]">
                 <h4>{service.heading}</h4>
                 <p>{service.desc}</p>
