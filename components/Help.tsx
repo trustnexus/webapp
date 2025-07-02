@@ -2,7 +2,7 @@ import React from "react";
 
 const Help = () => {
   return (
-    <div className="flex border-2 items-center justify-center h-[460px] max-w-[1468px] p-[140px]">
+    <div className="flex items-center justify-center h-[460px] max-w-[1468px] p-[140px]">
       <div className="flex items-center flex-col gap-3">
         <div className="text-center">
           <h1>How can we help you?</h1>

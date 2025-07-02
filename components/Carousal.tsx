@@ -149,13 +149,13 @@ export default function VideoCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 z-[99] text-gray-500 cursor-pointer left-4 sm:-left-10 transform -translate-y-1/2  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
+        className="absolute top-1/2 z-[10] text-gray-500 cursor-pointer left-4 sm:-left-10 transform -translate-y-1/2  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
       >
         <ChevronLeft size={38} className="sm:size-30" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 z-[99] right-0 transform cursor-pointer -translate-y-1/2 text-gray-500  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
+        className="absolute top-1/2 z-[10] right-0 transform cursor-pointer -translate-y-1/2 text-gray-500  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
       >
         <ChevronRight size={38} className="sm:size-30" />
       </button>

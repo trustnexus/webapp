@@ -146,7 +146,7 @@ const OurServices = () => {
   return (
     <>
       {/* Heading with GSAP animation */}
-      <div className="flex border-2 flex-col  items-center justify-center h-screen">
+      <div className="flex flex-col  items-center justify-center h-screen">
         <div className="">
           <p
             ref={headingRef}
@@ -158,8 +158,8 @@ const OurServices = () => {
       </div>
 
       {/* Section Below */}
-      <div className="max-w-[1432px]  border-2 text-start mx-auto flex-wrap flex gap-10">
-        <div className="md:w-[40%] w-full border-2 flex flex-col gap-10">
+      <div className="max-w-[1432px]   text-start mx-auto flex-wrap flex gap-10">
+        <div className="md:w-[40%] w-full flex flex-col gap-10">
           <div className="flex flex-col gap-8">
             <div className="my-10 p-5">
               <div
