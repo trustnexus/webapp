@@ -7,17 +7,18 @@ import { GrLanguage } from "react-icons/gr";
 import { FaArrowDown } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="border-b border-white bg-transparent fixed top-0 w-full z-50 text-white">
+    <div className="border-b   hover:backdrop-blur-lg bg-gray-500 hover:transition-all duration-200 ease-in-out cursor-pointer border-gray-500  fixed top-0 w-full z-50 text-white">
       <div className="max-w-[1320px] mx-auto w-full h-[70px] px-4 md:px-10 flex items-center justify-between">
         {/* Left Section */}
         <div className="flex items-center justify-between w-full lg:w-auto gap-3">
           <Link
-            className="text-xl sm:text-2xl italic font-semibold text-white"
+            className="text-xl sm:text-2xl underline-no italic font-semibold text-white"
             href="/"
           >
             TrustNexus
@@ -43,10 +44,10 @@ const Navbar = () => {
 
           {/* Desktop Nav Links */}
           <ul className="hidden lg:flex my-auto items-center gap-8 ml-10">
-            <li className="cursor-pointer">Services 🔻</li>
-            <li className="cursor-pointer">Industries 🔻</li>
-            <li className="cursor-pointer">Insight 🔻</li>
-            <li className="cursor-pointer">About 🔻</li>
+            <li className="cursor-pointer flex items-center gap-1">Services  <TiArrowSortedDown/></li>
+            <li className="cursor-pointer flex items-center gap-1">Industries <TiArrowSortedDown/></li>
+            <li className="cursor-pointer flex items-center gap-1">Insight <TiArrowSortedDown/></li>
+            <li className="cursor-pointer flex items-center gap-1">About <TiArrowSortedDown/></li>
           </ul>
         </div>
 
@@ -54,7 +55,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center my-auto gap-6">
             <li className="cursor-pointer">Careers</li>
-            <li className="cursor-pointer">Investors 🔻</li>
+            <li className="cursor-pointer flex items-center gap-1">Investors <TiArrowSortedDown/></li>
           </ul>
 
           <div className="flex items-center gap-4 ml-4">
