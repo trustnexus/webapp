@@ -34,9 +34,7 @@ const page = () => {
 
   return (
     <>
-      <div className="bg-transparent">
-        <Navbar />
-      </div>
+      
       {showProgressBar && (
         <div className="fixed top-0 left-0 w-full h-[6px] z-50 bg-gray-200">
           <div
@@ -53,7 +51,7 @@ const page = () => {
       <Technology />
       <Careers />
       <Help />
-      <Footer />
+      
     </>
   );
 };
