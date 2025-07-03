@@ -72,7 +72,8 @@ const Technology = () => {
           </p>
           <Link
             href="/"
-            className="text-orange-500 font-medium flex items-center gap-1 hover:underline"
+            style={{textDecoration:'none'}}
+            className="text-orange-500 font-medium flex items-center gap-1 "
           >
             Learn more <BiRightArrowAlt size={18} />
           </Link>

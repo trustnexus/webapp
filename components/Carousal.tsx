@@ -60,6 +60,7 @@ export default function VideoCarousel() {
                 {slide.text}
               </p>
               <Link
+              style={{textDecoration:'none'}}
                 href={
                   slide.button === "Get in Touch"
                     ? ("/contact-us")
