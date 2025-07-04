@@ -38,7 +38,7 @@ const page = () => {
         end: "top -150%",
         scrub: 1,
         pin: true,
-        markers: true,
+        
       },
     });
     tl.to(".countries", {
@@ -63,7 +63,7 @@ const page = () => {
         start: "top center",
         end: "bottom 100%",
         scrub: 2,
-        markers: true,
+        
       },
     });
 
@@ -84,7 +84,7 @@ const tl = gsap.timeline({
         trigger:'.careerSection',
            start: "top center",
         end: "bottom 100%",
-        markers: true,
+        
     }
 })
 
@@ -102,7 +102,6 @@ tl.from('.careerDiv p',{
       start: "top 80%",
       end: "bottom 100%",
       scrub: true,
-      markers: true, // Remove this in production
     },
   });
 
@@ -122,7 +121,7 @@ const tl = gsap.timeline({
         start:'top 0%',
         end:'bottom 0%',
         scrub: 2,
-        markers:true
+        
     }
 })
 
