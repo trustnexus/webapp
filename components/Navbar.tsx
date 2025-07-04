@@ -14,10 +14,12 @@ import Insight from "./NavComponents/Insight";
 import About from "./NavComponents/About";
 import Investor from "./NavComponents/Investor";
 import useAppStore from "@/store/store";
+import { TiArrowSortedUp } from "react-icons/ti";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const { hovered, setHovered } = useAppStore();
+  const [showServices, setShowServices] = useState(false);
 
   // ref for detecting outside clicks
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -58,7 +60,7 @@ const Navbar = () => {
               className="text-xl sm:text-2xl italic font-semibold text-white"
               href="/"
             >
-              TrustNexus
+              Trust Nexus
             </Link>
 
             {/* Desktop Nav Links */}
@@ -221,7 +223,7 @@ const Navbar = () => {
             />
           </div>
 
-          <div className="flex my-4 w-full flex-col text-lg">
+          {/* <div className="flex my-4 w-full flex-col text-lg">
             <Link
               style={{ textDecoration: "none" }}
               href={"/"}
@@ -264,7 +266,84 @@ const Navbar = () => {
             >
               Investors <TiArrowSortedDown />
             </Link>
-          </div>
+          </div> */}
+
+          <div className="flex my-4 w-full flex-col text-lg">
+      {/* SERVICES DROPDOWN */}
+      <div className="w-full">
+        <button
+          onClick={() => setShowServices(!showServices)}
+          className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+        >
+          Services {showServices ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
+        </button>
+
+        {showServices && (
+    <div className="flex flex-col text-sm bg-gray-800">
+  <Link style={{color:'white',textDecoration:'none'}} href="/webapps" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Webapps
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/mobile-apps" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Mobile Applications
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/desktop-apps" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Desktop Applications
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/point-of-sale" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    POS
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/dapps" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Dapps (Blockchain)
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/ai-automation" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Intelligent Automation (AI/ML)
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/ai-analytics" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Predictive Analytics (AI/ML)
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/ai-chatbots" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    AI Chatbots
+  </Link>
+  <Link style={{color:'white',textDecoration:'none'}} href="/ai-custom-models" className="px-6 py-2 text-gray-300 hover:text-white hover:bg-blue-600">
+    Custom AI/ML Models
+  </Link>
+</div>
+
+        )}
+      </div>
+
+      {/* Other Main Menu Items */}
+      <Link
+        href="/"
+        className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+      >
+        Industries <TiArrowSortedDown />
+      </Link>
+      <Link
+        href="/"
+        className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+      >
+        Insight <TiArrowSortedDown />
+      </Link>
+      <Link
+        href="/"
+        className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+      >
+        About <TiArrowSortedDown />
+      </Link>
+      <Link
+        href="/career"
+        className="list-none text-white cursor-pointer w-full px-4 py-3 border-b border-gray-600"
+      >
+        Careers
+      </Link>
+      <Link
+        href="/"
+        className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+      >
+        Investors <TiArrowSortedDown />
+      </Link>
+    </div>
         </div>
       </div>
       {/* {hovered === "services" && <Services onHovered={hovered} setHovered={setHovered} />}
