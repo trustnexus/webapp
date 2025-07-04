@@ -36,9 +36,9 @@ const Industries = () => {
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="">
-            <h5 className="text-[20px] mb-[100px] font-semibold">
+            <Link style={{textDecoration:'none',color:'black'}} href={'/industries/communication'} className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400">
               Communication{" "}
-            </h5>
+            </Link>
           </div>
           <div className="">
             <h5 className="text-[20px] font-semibold">
