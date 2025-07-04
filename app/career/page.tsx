@@ -33,32 +33,32 @@ const page = () => {
     { name: "FAISALABAD" },
   ];
 
-const hiringProcess = [
-  {
-    icon: <BsHandIndexThumb size={60} className="text-blue-600" />,
-    number: "01",
-    name: "APPLY",
-    desc: "Submit your application for a role that fits your skills and passion.",
-  },
-  {
-    icon: <CiRedo size={60} className="text-blue-600" />,
-    number: "02",
-    name: "REVIEW",
-    desc: "Our team evaluates your application and shortlisted profiles.",
-  },
-  {
-    icon: <HiOutlineUsers size={60} className="text-blue-600" />,
-    number: "03",
-    name: "INTERVIEWS",
-    desc: "Engage in interviews to showcase your experience and potential.",
-  },
-  {
-    icon: <MdOutlineCelebration size={60} className="text-blue-600" />,
-    number: "04",
-    name: "ONBOARDING",
-    desc: "Receive your offer and begin your journey with us.",
-  },
-];
+  const hiringProcess = [
+    {
+      icon: <BsHandIndexThumb size={60} className="text-blue-600" />,
+      number: "01",
+      name: "APPLY",
+      desc: "Submit your application for a role that fits your skills and passion.",
+    },
+    {
+      icon: <CiRedo size={60} className="text-blue-600" />,
+      number: "02",
+      name: "REVIEW",
+      desc: "Our team evaluates your application and shortlisted profiles.",
+    },
+    {
+      icon: <HiOutlineUsers size={60} className="text-blue-600" />,
+      number: "03",
+      name: "INTERVIEWS",
+      desc: "Engage in interviews to showcase your experience and potential.",
+    },
+    {
+      icon: <MdOutlineCelebration size={60} className="text-blue-600" />,
+      number: "04",
+      name: "ONBOARDING",
+      desc: "Receive your offer and begin your journey with us.",
+    },
+  ];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -310,33 +310,41 @@ const hiringProcess = [
           ))}
         </div>
       </section>
-   
-      <section className="min-h-[828px] w-full py-16 sm:py-24 bg-white">
-  <div className="max-w-[1320px] mx-auto px-4 sm:px-10 md:px-20">
-    {/* Heading */}
-    <div className="text-center max-w-[990px] mx-auto mb-12">
-      <p className="text-xs sm:text-sm text-gray-500">OUR HIRING PROCESS</p>
-      <p className="text-[28px] sm:text-[40px] md:text-[54px] font-semibold">
-        As simple as it could be
-      </p>
-    </div>
 
-    {/* Steps */}
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
-      {hiringProcess.map((hp, index) => (
-        <div
-          key={index}
-          className="w-full sm:w-[300px] md:w-[330px] p-6 md:py-12 flex flex-col items-center text-center gap-3 border rounded-3xl hover:shadow-lg transition"
-        >
-          <div>{hp.icon}</div>
-          <p className="text-[28px] md:text-[36px] text-blue-600 font-bold">{hp.number}</p>
-          <p className="text-[16px] sm:text-[18px] font-semibold">{hp.name}</p>
-          <p className="text-[14px] sm:text-[16px] text-gray-700">{hp.desc}</p>
+      <section className="min-h-[828px] w-full py-16 sm:py-24 bg-white">
+        <div className="max-w-[1320px] mx-auto px-4 sm:px-10 md:px-20">
+          {/* Heading */}
+          <div className="text-center max-w-[990px] mx-auto mb-12">
+            <p className="text-xs sm:text-sm text-gray-500">
+              OUR HIRING PROCESS
+            </p>
+            <p className="text-[28px] sm:text-[40px] md:text-[54px] font-semibold">
+              As simple as it could be
+            </p>
+          </div>
+
+          {/* Steps */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
+            {hiringProcess.map((hp, index) => (
+              <div
+                key={index}
+                className="w-full sm:w-[300px] md:w-[330px] p-6 md:py-12 flex flex-col items-center text-center gap-3 border rounded-3xl hover:shadow-lg transition"
+              >
+                <div>{hp.icon}</div>
+                <p className="text-[28px] md:text-[36px] text-blue-600 font-bold">
+                  {hp.number}
+                </p>
+                <p className="text-[16px] sm:text-[18px] font-semibold">
+                  {hp.name}
+                </p>
+                <p className="text-[14px] sm:text-[16px] text-gray-700">
+                  {hp.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       <Help />
     </div>
