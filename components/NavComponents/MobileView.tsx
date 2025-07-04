@@ -251,6 +251,7 @@ const MobileView = () => {
         {/* CAREERS - Normal Link */}
         <Link
           href="/career"
+          style={{ textDecoration: "none" }}
           className="list-none text-white cursor-pointer w-full px-4 py-3 border-b border-gray-600"
         >
           Careers

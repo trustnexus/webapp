@@ -1,20 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { CiSearch } from "react-icons/ci";
 import { GrLanguage } from "react-icons/gr";
 import { FaArrowDown } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { IoClose } from "react-icons/io5";
 import { TiArrowSortedDown } from "react-icons/ti";
 import Services from "./NavComponents/Services";
 import Industries from "./NavComponents/Industries";
-import Insight from "./NavComponents/Insight";
+import Insights from "./NavComponents/Insights";
 import About from "./NavComponents/About";
 import Investor from "./NavComponents/Investor";
 import useAppStore from "@/store/store";
-import { TiArrowSortedUp } from "react-icons/ti";
 import MobileView from "./NavComponents/MobileView";
 
 const Navbar = () => {
@@ -110,17 +108,17 @@ const Navbar = () => {
               {/* INSIGHT */}
               <div
                 className="hidden lg:block "
-                onMouseEnter={() => setHovered("insight")}
+                onMouseEnter={() => setHovered("insights")}
               >
                 <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
-                  Insight <TiArrowSortedDown />
+                  Insights <TiArrowSortedDown />
                 </div>
-                {hovered === "insight" && (
+                {hovered === "insights" && (
                   <div
                     ref={dropdownRef}
                     className="absolute left-0 top-[70px] w-[100vw] z-[1000] bg-white shadow-md"
                   >
-                    <Insight />
+                    <Insights />
                   </div>
                 )}
               </div>

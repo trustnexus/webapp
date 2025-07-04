@@ -1,12 +1,19 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
-
+import gsap from "gsap";
 const Services = () => {
+    useEffect(() => {
+    gsap.fromTo(
+      ".services",
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: "power2.out" }
+    );
+  }, []);
   return (
-    <div className="text-black w-full shadow-md min-h-[300px] py-6 px-10">
+    <div className=" services text-black w-full shadow-md min-h-[300px] py-6 px-10">
       <div className="flex max-w-[1320px] mx-auto justify-around gap-5 ">
-        <div className="max-w-[390px] flex flex-col justify-between gap-7 w-full h-full bg-gray-200 px-5 py-3">
+        <div className="max-w-[390px] flex flex-col items-start justify-between gap-7 w-full h-full bg-gray-200 px-5 py-3">
           <p className="md:text-[29px] font-semibold">Services</p>
           <div className="w-full ">
             <img
@@ -14,7 +21,7 @@ const Services = () => {
               alt=""
             />
           </div>
-          <p className="font-medium">
+          <p className="font-medium text-xl">
             Why data standards matter & why they’re important
           </p>
           <div className="">
