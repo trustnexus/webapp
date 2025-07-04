@@ -2,7 +2,9 @@ import React from 'react'
 
 const Investor = () => {
   return (
- <div className="absolute w-full transition-x-0 z-[1000] top-[70px] bg-green-600">Investor</div>
+          <div className="text-black w-full shadow-md min-h-[300px] py-6 px-10">
+
+Investor</div>
   )
 }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { GrLanguage } from "react-icons/gr";
 import { FaArrowDown } from "react-icons/fa6";
@@ -13,14 +13,32 @@ import Industries from "./NavComponents/Industries";
 import Insight from "./NavComponents/Insight";
 import About from "./NavComponents/About";
 import Investor from "./NavComponents/Investor";
+import useAppStore from "@/store/store";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [hovered, setHovered] = useState("");
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const { hovered, setHovered } = useAppStore();
 
+  // ref for detecting outside clicks
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setHovered("");
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [setHovered]);
   return (
     <>
-      <div className="border-b hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out fixed top-0 w-full z-50 text-white border-gray-500 bg-transparent">
+      <div
+        onClick={()=>handleClickOutside}
+        className="border-b hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out fixed top-0 w-full z-50 text-white border-gray-500 bg-transparent"
+      >
         <div className="max-w-[1320px] mx-auto w-full h-[70px] px-4 md:px-10 flex items-center justify-between">
           {/* Left Section */}
           <div className="flex items-center w-full lg:w-auto gap-3">
@@ -45,34 +63,77 @@ const Navbar = () => {
 
             {/* Desktop Nav Links */}
             <ul className="hidden lg:flex my-auto items-center gap-8 ml-10">
-              <li
+              {/* SERVICES */}
+              <div
+                className="hidden lg:block "
                 onMouseEnter={() => setHovered("services")}
-                onMouseLeave={() => setHovered("")}
-                className="cursor-pointer flex items-center gap-1"
               >
-                Services <TiArrowSortedDown />
-              </li>
-              <li
+                <div
+                  ref={dropdownRef}
+                  className="cursor-pointer flex items-center gap-1 px-2 py-1"
+                >
+                  Services <TiArrowSortedDown />
+                </div>
+                {hovered === "services" && (
+                  <div className="absolute left-0 top-[70px] w-[100vw] z-[1000] bg-white shadow-md">
+                    <Services />
+                  </div>
+                )}
+              </div>
+
+              {/* INDUSTRIES */}
+              <div
+                className="hidden lg:block "
                 onMouseEnter={() => setHovered("industries")}
-                onMouseLeave={() => setHovered("")}
-                className="cursor-pointer flex items-center gap-1"
               >
-                Industries <TiArrowSortedDown />
-              </li>
-              <li
+                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                  Industries <TiArrowSortedDown />
+                </div>
+                {hovered === "industries" && (
+                  <div
+                    ref={dropdownRef}
+                    className="absolute left-0 top-[70px] w-[100vw] z-[1000] bg-white shadow-md"
+                  >
+                    <Industries />
+                  </div>
+                )}
+              </div>
+
+              {/* INSIGHT */}
+              <div
+                className="hidden lg:block "
                 onMouseEnter={() => setHovered("insight")}
-                onMouseLeave={() => setHovered("")}
-                className="cursor-pointer flex items-center gap-1"
               >
-                Insight <TiArrowSortedDown />
-              </li>
-              <li
+                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                  Insight <TiArrowSortedDown />
+                </div>
+                {hovered === "insight" && (
+                  <div
+                    ref={dropdownRef}
+                    className="absolute left-0 top-[70px] w-[100vw] z-[1000] bg-white shadow-md"
+                  >
+                    <Insight />
+                  </div>
+                )}
+              </div>
+
+              {/* ABOUT */}
+              <div
+                className="hidden lg:block "
                 onMouseEnter={() => setHovered("about")}
-                onMouseLeave={() => setHovered("")}
-                className="cursor-pointer flex items-center gap-1"
               >
-                About <TiArrowSortedDown />
-              </li>
+                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                  About <TiArrowSortedDown />
+                </div>
+                {hovered === "about" && (
+                  <div
+                    ref={dropdownRef}
+                    className="absolute left-0 top-[70px] w-[100vw] z-[1000] bg-white shadow-md"
+                  >
+                    <About />
+                  </div>
+                )}
+              </div>
             </ul>
           </div>
 
@@ -86,13 +147,24 @@ const Navbar = () => {
               >
                 Careers
               </Link>
-              <li
+
+              {/* INVESTORS */}
+              <div
+                className="hidden lg:block "
                 onMouseEnter={() => setHovered("investor")}
-                onMouseLeave={() => setHovered("")}
-                className="cursor-pointer flex items-center gap-1"
               >
-                Investors <TiArrowSortedDown />
-              </li>
+                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                  Investors <TiArrowSortedDown />
+                </div>
+                {hovered === "investor" && (
+                  <div
+                    ref={dropdownRef}
+                    className="absolute left-0 top-[70px] w-full z-[1000] bg-white shadow-md"
+                  >
+                    <Investor />
+                  </div>
+                )}
+              </div>
             </ul>
 
             <div className="flex h-full items-center gap-4 ml-4">
@@ -150,33 +222,56 @@ const Navbar = () => {
           </div>
 
           <div className="flex my-4 w-full flex-col text-lg">
-            <Link style={{textDecoration:'none'}} href={'/'} className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between">
+            <Link
+              style={{ textDecoration: "none" }}
+              href={"/"}
+              className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+            >
               Services <TiArrowSortedDown />
             </Link>
-            <Link style={{textDecoration:'none'}} href={'/'} className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between">
+            <Link
+              style={{ textDecoration: "none" }}
+              href={"/"}
+              className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+            >
               Industries <TiArrowSortedDown />
             </Link>
-            <Link  style={{textDecoration:'none'}} href={'/'} className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between">
+            <Link
+              style={{ textDecoration: "none" }}
+              href={"/"}
+              className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+            >
               Insight <TiArrowSortedDown />
             </Link>
-            <Link style={{textDecoration:'none'}} href={'/'} className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between">
+            <Link
+              style={{ textDecoration: "none" }}
+              href={"/"}
+              className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+            >
               About <TiArrowSortedDown />
             </Link>
-            <Link  style={{textDecoration:'none'}} href={'/career'}                
- className="list-none text-white cursor-pointer w-full px-4 py-3 border-b border-gray-600">
+            <Link
+              style={{ textDecoration: "none" }}
+              href={"/career"}
+              className="list-none text-white cursor-pointer w-full px-4 py-3 border-b border-gray-600"
+            >
               Careers
             </Link>
-            <Link style={{textDecoration:'none'}} href={'/'} className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between">
+            <Link
+              style={{ textDecoration: "none" }}
+              href={"/"}
+              className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
+            >
               Investors <TiArrowSortedDown />
             </Link>
           </div>
         </div>
       </div>
-      {hovered === "services" && <Services />}
+      {/* {hovered === "services" && <Services onHovered={hovered} setHovered={setHovered} />}
       {hovered === "industries" && <Industries />}
       {hovered === "insight" && <Insight />}
       {hovered === "about" && <About />}
-      {hovered === "investor" && <Investor />}
+      {hovered === "investor" && <Investor />} */}
     </>
   );
 };

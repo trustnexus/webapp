@@ -2,7 +2,8 @@ import React from 'react'
 
 const Industries = () => {
   return (
-   <div className='absolute z-[1000] top-[70px] bg-green-600'>Industries</div>
+           <div className="text-black w-full shadow-md min-h-[300px] py-6 px-10">
+Industries</div>
   )
 }
 

@@ -2,7 +2,8 @@ import React from "react";
 
 const Insight = () => {
   return (
-    <div className="absolute z-[1000] top-[70px] bg-green-600">Insight</div>
+        <div className="text-black w-full shadow-md min-h-[300px] py-6 px-10">
+Insight</div>
   );
 };
 
