@@ -1,6 +1,3 @@
-
-
-
 "use client";
 import Link from "next/link";
 import { BiRightArrowAlt } from "react-icons/bi";
