@@ -6,6 +6,11 @@ import CountUp from "react-countup";
 import { FaArrowRightLong } from "react-icons/fa6";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BsHandIndexThumb } from "react-icons/bs";
+import { CiRedo } from "react-icons/ci";
+import { HiOutlineUsers } from "react-icons/hi2";
+import { MdOutlineCelebration } from "react-icons/md";
+
 const page = () => {
   const countries = [
     { name: "EQYPT" },
@@ -28,6 +33,33 @@ const page = () => {
     { name: "FAISALABAD" },
   ];
 
+const hiringProcess = [
+  {
+    icon: <BsHandIndexThumb size={60} className="text-blue-600" />,
+    number: "01",
+    name: "APPLY",
+    desc: "Submit your application for a role that fits your skills and passion.",
+  },
+  {
+    icon: <CiRedo size={60} className="text-blue-600" />,
+    number: "02",
+    name: "REVIEW",
+    desc: "Our team evaluates your application and shortlisted profiles.",
+  },
+  {
+    icon: <HiOutlineUsers size={60} className="text-blue-600" />,
+    number: "03",
+    name: "INTERVIEWS",
+    desc: "Engage in interviews to showcase your experience and potential.",
+  },
+  {
+    icon: <MdOutlineCelebration size={60} className="text-blue-600" />,
+    number: "04",
+    name: "ONBOARDING",
+    desc: "Receive your offer and begin your journey with us.",
+  },
+];
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +70,6 @@ const page = () => {
         end: "top -150%",
         scrub: 1,
         pin: true,
-        
       },
     });
     tl.to(".countries", {
@@ -63,80 +94,75 @@ const page = () => {
         start: "top center",
         end: "bottom 100%",
         scrub: 2,
-        
       },
     });
 
-    tl.from('.aboutFirst',{
-        x:-100,
-        opacity:0,
-        duration:2,
-    }).from('.aboutSecond',{
-          x:100,
-        opacity:0,
-        duration:2,
-    })
-  },[]);
+    tl.from(".aboutFirst", {
+      x: -100,
+      opacity: 0,
+      duration: 2,
+    }).from(".aboutSecond", {
+      x: 100,
+      opacity: 0,
+      duration: 2,
+    });
+  }, []);
 
-  useEffect(()=>{
-const tl = gsap.timeline({
-    scrollTrigger:{
-        trigger:'.careerSection',
-           start: "top center",
-        end: "bottom 100%",
-        
-    }
-})
-
-tl.from('.careerDiv p',{
-    x:20,
-    opacity:0,
-    duration:1,
-    stagger:0.1
-})
-  },[])
   useEffect(() => {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".careerCards",
-      start: "top 80%",
-      end: "bottom 100%",
-      scrub: true,
-    },
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".careerSection",
+        start: "top center",
+        end: "bottom 100%",
+      },
+    });
 
-  tl.from(".careerCards > div", {
-    y: 70,
-    opacity: 0,
-    duration: 2,
-    stagger: 0.6,
-    
-    ease: "power2.out",
-  });
-}, []);
-useEffect(()=>{
-const tl = gsap.timeline({
-    scrollTrigger:{
-        trigger:'.banner',
-        start:'top 0%',
-        end:'bottom 0%',
+    tl.from(".careerDiv p", {
+      x: 20,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.1,
+    });
+  }, []);
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".careerCards",
+        start: "top 80%",
+        end: "bottom 100%",
+        scrub: true,
+      },
+    });
+
+    tl.from(".careerCards > div", {
+      y: 70,
+      opacity: 0,
+      duration: 2,
+      stagger: 2,
+      ease: "power2.out",
+    });
+  }, []);
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".banner",
+        start: "top 0%",
+        end: "bottom 0%",
         scrub: 2,
-        
-    }
-})
+      },
+    });
 
-tl.to('.banner',{
-    x:-100,
-    duration:3,
-    opacity:0
-})
-gsap.from('.banner',{
-    stagger:0.7,
-    duration:2,
-    x:100
-
-})
-},[])
+    tl.to(".banner", {
+      x: -100,
+      duration: 3,
+      opacity: 0,
+    });
+    gsap.from(".banner", {
+      stagger: 0.7,
+      duration: 2,
+      x: 100,
+    });
+  }, []);
 
   return (
     <div className="overflow-x-hidden">
@@ -284,6 +310,33 @@ gsap.from('.banner',{
           ))}
         </div>
       </section>
+   
+      <section className="min-h-[828px] w-full py-16 sm:py-24 bg-white">
+  <div className="max-w-[1320px] mx-auto px-4 sm:px-10 md:px-20">
+    {/* Heading */}
+    <div className="text-center max-w-[990px] mx-auto mb-12">
+      <p className="text-xs sm:text-sm text-gray-500">OUR HIRING PROCESS</p>
+      <p className="text-[28px] sm:text-[40px] md:text-[54px] font-semibold">
+        As simple as it could be
+      </p>
+    </div>
+
+    {/* Steps */}
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
+      {hiringProcess.map((hp, index) => (
+        <div
+          key={index}
+          className="w-full sm:w-[300px] md:w-[330px] p-6 md:py-12 flex flex-col items-center text-center gap-3 border rounded-3xl hover:shadow-lg transition"
+        >
+          <div>{hp.icon}</div>
+          <p className="text-[28px] md:text-[36px] text-blue-600 font-bold">{hp.number}</p>
+          <p className="text-[16px] sm:text-[18px] font-semibold">{hp.name}</p>
+          <p className="text-[14px] sm:text-[16px] text-gray-700">{hp.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       <Help />
     </div>
