@@ -122,86 +122,70 @@ const Services = () => {
               >
                 AI Chatbots & NLP Solutions
               </Link>
-              <Link
+              {/* <Link
                 className="hover:text-blue-600 transition duration-200"
                 style={{ textDecoration: "none", color: "black" }}
                 href="/ai-custom-models"
               >
                 Custom AI/ML Model Development
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="flex flex-col">
-            <h5 className="text-[20px] mb-[100px] font-semibold">Robotics </h5>
-            <div className="flex flex-col justify-between">
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+            <h5 className="text-[20px] mb-[40px] font-semibold">Robotics</h5>
+            <div className="flex flex-col justify-between gap-2">
+              <Link  style={{textDecoration:'none', color:'black'}}
+                className="hover:text-blue-600"
+                href="/robotic-process-automation"
               >
-                Webapps
+                Robotic Process Automation (RPA)
               </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
-              >
-                Mobile Applications
+              <Link style={{textDecoration:'none', color:'black'}} className="hover:text-blue-600" href="/industrial-robots">
+                Industrial Robots Integration
               </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
-              >
-                Desktop Applications
+              <Link style={{textDecoration:'none', color:'black'}} className="hover:text-blue-600" href="/ai-powered-robots">
+                AI-Powered Autonomous Robots
               </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
-              >
-                POS
+              <Link style={{textDecoration:'none', color:'black'}} className="hover:text-blue-600" href="/robotics-simulation">
+                Robotics Simulation & Testing
               </Link>
             </div>
           </div>
+
           <div className="flex flex-col">
             <h5 className="text-[20px] font-semibold">
-              Biometric & Embedded systems
+              Biometric & Embedded Systems
             </h5>
-            <div className="flex flex-col gap-1 justify-between">
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+            <div className="flex flex-col gap-2 justify-between">
+              <Link style={{textDecoration:'none', color:'black'}}
+                className="hover:text-blue-600"
+                href="/biometric-authentication"
               >
-                Dapps
+                Biometric Authentication Systems
               </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+              <Link style={{textDecoration:'none', color:'black'}}
+                className="hover:text-blue-600"
+                href="/embedded-iot-devices"
               >
-                Mobile Applications
+                Embedded IoT Devices
               </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+              <Link style={{textDecoration:'none', color:'black'}}
+                className="hover:text-blue-600"
+                href="/access-control-systems"
               >
-                Desktop Applications
+                Access Control & Face Recognition
               </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+              <Link style={{textDecoration:'none', color:'black'}}
+                className="hover:text-blue-600"
+                href="/firmware-development"
               >
-                POS
+                Embedded Firmware Development
               </Link>
             </div>
-          </div>{" "}
-        </div>{" "}
+          </div>
+        </div>
       </div>
     </div>
   );
