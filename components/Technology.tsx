@@ -1,6 +1,3 @@
-
-
-
 "use client";
 import Link from "next/link";
 import { BiRightArrowAlt } from "react-icons/bi";
@@ -8,6 +5,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CountUp from "react-countup";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,9 +69,8 @@ const Technology = () => {
             with the power of digital transformation.
           </p>
           <Link
-            href="/"
-            style={{textDecoration:'none'}}
-            className="text-orange-500 font-medium flex items-center gap-1 "
+            href="/company-overview"
+            className="text-orange-500 font-medium flex items-center gap-1 no-underline"
           >
             Learn more <BiRightArrowAlt size={18} />
           </Link>
