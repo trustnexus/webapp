@@ -1,11 +1,11 @@
-
 "use client";
 import Help from "@/components/Help";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import CountUp from "react-countup";
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const page = () => {
   const countries = [
     { name: "EQYPT" },
@@ -28,18 +28,129 @@ const page = () => {
     { name: "FAISALABAD" },
   ];
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".globalSection",
+        start: "top 10%",
+        end: "top -150%",
+        scrub: 1,
+        pin: true,
+        markers: true,
+      },
+    });
+    tl.to(".countries", {
+      x: "-100%",
+      duration: 2,
+      ease: "none",
+    }).to(
+      ".cities",
+      {
+        x: "0100%",
+        duration: 2,
+        ease: "none",
+      },
+      "<" // start at the same time
+    );
+  }, []);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".aboutSection",
+        start: "top center",
+        end: "bottom 100%",
+        scrub: 2,
+        markers: true,
+      },
+    });
+
+    tl.from('.aboutFirst',{
+        x:-100,
+        opacity:0,
+        duration:2,
+    }).from('.aboutSecond',{
+          x:100,
+        opacity:0,
+        duration:2,
+    })
+  },[]);
+
+  useEffect(()=>{
+const tl = gsap.timeline({
+    scrollTrigger:{
+        trigger:'.careerSection',
+           start: "top center",
+        end: "bottom 100%",
+        markers: true,
+    }
+})
+
+tl.from('.careerDiv p',{
+    x:20,
+    opacity:0,
+    duration:1,
+    stagger:0.1
+})
+  },[])
+  useEffect(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".careerCards",
+      start: "top 80%",
+      end: "bottom 100%",
+      scrub: true,
+      markers: true, // Remove this in production
+    },
+  });
+
+  tl.from(".careerCards > div", {
+    y: 70,
+    opacity: 0,
+    duration: 2,
+    stagger: 0.6,
+    
+    ease: "power2.out",
+  });
+}, []);
+useEffect(()=>{
+const tl = gsap.timeline({
+    scrollTrigger:{
+        trigger:'.banner',
+        start:'top 0%',
+        end:'bottom 0%',
+        scrub: 2,
+        markers:true
+    }
+})
+
+tl.to('.banner',{
+    x:-100,
+    duration:3,
+    opacity:0
+})
+gsap.from('.banner',{
+    stagger:0.7,
+    duration:2,
+    x:100
+
+})
+},[])
+
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* Banner */}
-      <div className="relative h-[600px] sm:h-[757px] w-full">
+      <section className=" relative h-[600px] sm:h-[757px] w-full">
         <div className="w-full h-full bg-cover bg-center bg-no-repeat bg-[url('https://www.shutterstock.com/image-photo/smiling-young-curly-indian-latin-600nw-2134896799.jpg')] flex items-end px-6 sm:px-10 md:px-20 pb-16 sm:pb-24">
-          <div className="text-white max-w-[1296px]">
+          <div className="banner text-white max-w-[1296px]">
             <p className="font-light text-[13px]">CAREERS</p>
             <p className="text-[32px] sm:text-[48px] md:text-[60px] lg:text-[90px] leading-tight font-light">
               Take your <br /> career to the <br /> next level
             </p>
             <Link
-            style={{textDecoration:'none'}}
+              style={{ textDecoration: "none" }}
               href="/"
               className="inline-block py-4 mt-3 px-10 text-sm rounded-md bg-white text-black uppercase"
             >
@@ -47,22 +158,22 @@ const page = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* About Section */}
-      <section className="py-16 px-4 bg-white relative">
-        <div className="max-w-[1382px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8">
-          <div className="max-w-[595px] text-center lg:text-left">
+      <section className="aboutSection py-16 overflow-hidden px-4 bg-white relative">
+        <div className=" max-w-[1382px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8">
+          <div className="aboutFirst max-w-[595px] z-[100] text-center lg:text-left">
             <p className="text-3xl sm:text-4xl md:text-[54px] mb-6 font-[400]">
               We are from the people
             </p>
             <p className="text-[16px] sm:text-[18px] md:text-[20px]">
               We are a team of 6500+ people – with a purpose to thrive in our
-              value-driven culture and make a real and lasting difference to
-              the organization and their careers.
+              value-driven culture and make a real and lasting difference to the
+              organization and their careers.
             </p>
           </div>
-          <div className="w-full lg:w-auto">
+          <div className="aboutSecond  w-full lg:w-auto">
             <img
               src="https://www.systemsltd.com/sites/default/files/2023-03/reel-color.webp"
               alt="video-poster"
@@ -73,33 +184,30 @@ const page = () => {
       </section>
 
       {/* Career Tracks */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-[1320px] mx-auto text-center">
+      <section className="careerSection py-20 px-4 bg-gray-50">
+        <div className="careerDiv max-w-[1320px] mx-auto text-center">
           <p className="text-sm mb-4">CAREERS TRACKS</p>
           <p className="text-[18px] sm:text-[20px] mb-10">
-          Techies, innovators, developers, and free-thinkers… you’ve come to
-              the right place. Whether you’re an experienced professional or a
-              recent graduate, working with Systems will give you opportunities
-              to excel and achieve the global recognition that you deserve!
+            Techies, innovators, developers, and free-thinkers… you’ve come to
+            the right place. Whether you’re an experienced professional or a
+            recent graduate, working with Systems will give you opportunities to
+            excel and achieve the global recognition that you deserve!
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {[
-              "Graduates",
-              "Experienced Professionals",
-              "Internship/MTO",
-            ].map((title, idx) => (
-              <div
-                key={idx}
-                className="max-w-[300px] flex flex-col gap-3"
-              >
-                <img
-                  src={`https://www.systemsltd.com/sites/default/files/2023-03/career-tracks${idx + 1}.webp`}
-                  alt={title}
-                  className="w-full"
-                />
-                <h4 className="font-light text-lg">{title}</h4>
-              </div>
-            ))}
+          <div className="careerCards flex flex-wrap justify-center gap-6">
+            {["Graduates", "Experienced Professionals", "Internship/MTO"].map(
+              (title, idx) => (
+                <div key={idx} className="max-w-[300px] flex flex-col gap-3">
+                  <img
+                    src={`https://www.systemsltd.com/sites/default/files/2023-03/career-tracks${
+                      idx + 1
+                    }.webp`}
+                    alt={title}
+                    className="w-full"
+                  />
+                  <h4 className="font-light text-lg">{title}</h4>
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -118,7 +226,12 @@ const page = () => {
           ].map((stat, index) => (
             <div className="text-center" key={index}>
               <p className="text-[36px] font-bold">
-                <CountUp duration={2} end={stat.value} enableScrollSpy suffix="+" />
+                <CountUp
+                  duration={2}
+                  end={stat.value}
+                  enableScrollSpy
+                  suffix="+"
+                />
               </p>
               <p className="text-sm sm:text-base">{stat.label}</p>
             </div>
@@ -144,21 +257,31 @@ const page = () => {
           <p className="text-[16px] sm:text-[20px] mb-4">
             Our career opportunities also span around the world.
           </p>
-          <FaArrowRightLong className="mx-auto text-orange-400 cursor-pointer" size={20} />
+          <FaArrowRightLong
+            className="mx-auto text-orange-400 cursor-pointer"
+            size={20}
+          />
         </div>
       </section>
 
       {/* Global Presence */}
-      <section className="py-20 px-6 text-center">
+      <section className="globalSection py-20 px-6 text-center">
         <p className="mb-10 text-lg font-semibold">GLOBAL PRESENCE</p>
-        <div className="flex flex-wrap justify-center gap-6 mb-6">
+        <div className="countries flex w-[max-content] gap-20 mb-6">
           {countries.map((country, index) => (
-            <p className="text-xl sm:text-2xl font-light" key={index}>{country.name}</p>
+            <p
+              className="countryNames text-xl whitespace-nowrap sm:text-[60px] font-light"
+              key={index}
+            >
+              {country.name}
+            </p>
           ))}
         </div>
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="cities flex w-[max-content] gap-12">
           {cities.map((city, index) => (
-            <p className="text-xl sm:text-2xl font-light" key={index}>{city.name}</p>
+            <p className="text-xl sm:text-[60px] font-light" key={index}>
+              {city.name}
+            </p>
           ))}
         </div>
       </section>
