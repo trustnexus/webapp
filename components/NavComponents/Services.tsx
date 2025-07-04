@@ -19,7 +19,7 @@ const Services = () => {
           </p>
           <div className="">
             <Link
-              href={"/"}
+              href={"/contact-us"}
               style={{ textDecoration: "none" }}
               className="flex items-center justify-center gap-2"
             >
@@ -36,28 +36,28 @@ const Services = () => {
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/webapps"}
+                href={"/services/software-development/webapps"}
               >
                 Webapps
               </Link>
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/mobile-apps"}
+                href={"/services/software-development/mobile-apps"}
               >
                 Mobile Applications
               </Link>
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/desktop-apps"}
+                href={"/services/software-development/desktop-apps"}
               >
                 Desktop Applications
               </Link>
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/point-of-sale"}
+                href={"/services/software-development/point-of-sale"}
               >
                 POS
               </Link>
@@ -69,33 +69,34 @@ const Services = () => {
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/dapps"}
+                href={"/services/blockchain/dapps"}
               >
                 Dapps
               </Link>
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+                href={"/services/blockchain/blockchain-wallets"}
               >
-                Mobile Applications
+                Blockchain Wallets
               </Link>
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+                href={"/services/blockchain/nft-marketplace"}
               >
-                Desktop Applications
+                NFT Marketplace
               </Link>
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
-                href={"/"}
+                href={"/services/blockchain/smart-contracts"}
               >
-                POS
+                Smart Contract Development
               </Link>
             </div>
-          </div>{" "}
+          </div>
+
           <div className="flex flex-col">
             <h5 className="text-[20px] font-semibold ">
               Artificial Intelligence / Machine Learning
@@ -104,31 +105,24 @@ const Services = () => {
               <Link
                 className="hover:text-blue-600 transition duration-200"
                 style={{ textDecoration: "none", color: "black" }}
-                href="/ai-automation"
+                href="/services/ai-ml/ai-automation"
               >
                 Intelligent Process Automation
               </Link>
               <Link
                 className="hover:text-blue-600 transition duration-200"
                 style={{ textDecoration: "none", color: "black" }}
-                href="/ai-analytics"
+                href="/services/ai-ml/ai-analytics"
               >
                 Predictive Analytics & Insights
               </Link>
               <Link
                 className="hover:text-blue-600 transition duration-200"
                 style={{ textDecoration: "none", color: "black" }}
-                href="/ai-chatbots"
+                href="/services/ai-ml/ai-chatbots"
               >
                 AI Chatbots & NLP Solutions
               </Link>
-              {/* <Link
-                className="hover:text-blue-600 transition duration-200"
-                style={{ textDecoration: "none", color: "black" }}
-                href="/ai-custom-models"
-              >
-                Custom AI/ML Model Development
-              </Link> */}
             </div>
           </div>
         </div>
@@ -136,19 +130,32 @@ const Services = () => {
           <div className="flex flex-col">
             <h5 className="text-[20px] mb-[40px] font-semibold">Robotics</h5>
             <div className="flex flex-col justify-between gap-2">
-              <Link  style={{textDecoration:'none', color:'black'}}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
                 className="hover:text-blue-600"
-                href="/robotic-process-automation"
+                href="/services/robotics/robotic-process-automation"
               >
                 Robotic Process Automation (RPA)
               </Link>
-              <Link style={{textDecoration:'none', color:'black'}} className="hover:text-blue-600" href="/industrial-robots">
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/industrial-robots"
+              >
                 Industrial Robots Integration
               </Link>
-              <Link style={{textDecoration:'none', color:'black'}} className="hover:text-blue-600" href="/ai-powered-robots">
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/ai-powered-robots"
+              >
                 AI-Powered Autonomous Robots
               </Link>
-              <Link style={{textDecoration:'none', color:'black'}} className="hover:text-blue-600" href="/robotics-simulation">
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/robotics-simulation"
+              >
                 Robotics Simulation & Testing
               </Link>
             </div>
@@ -159,29 +166,26 @@ const Services = () => {
               Biometric & Embedded Systems
             </h5>
             <div className="flex flex-col gap-2 justify-between">
-              <Link style={{textDecoration:'none', color:'black'}}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
                 className="hover:text-blue-600"
-                href="/biometric-authentication"
+                href="/services/biometric/biometric-authentication"
               >
                 Biometric Authentication Systems
               </Link>
-              <Link style={{textDecoration:'none', color:'black'}}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
                 className="hover:text-blue-600"
-                href="/embedded-iot-devices"
+                href="/services/biometric/embedded-iot-devices"
               >
                 Embedded IoT Devices
               </Link>
-              <Link style={{textDecoration:'none', color:'black'}}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
                 className="hover:text-blue-600"
-                href="/access-control-systems"
+                href="/services/biometric/access-control-systems"
               >
                 Access Control & Face Recognition
-              </Link>
-              <Link style={{textDecoration:'none', color:'black'}}
-                className="hover:text-blue-600"
-                href="/firmware-development"
-              >
-                Embedded Firmware Development
               </Link>
             </div>
           </div>
