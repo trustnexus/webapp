@@ -25,9 +25,17 @@ const page = () => {
                             <div>
                                 <span className="font-semibold tracking-wider">OUR PHILOSOPY</span>
                             </div>
-                        </div>                        <p className="text-gray-700 mb-6">
+                        </div>
+                        <p className="text-gray-700 mb-6">
                             As a leading contributor to driving change, we understand the importance of continued self-reinvention.
                             <br />We accomplish this by investing in next-generation capabilities that <br />enhance our differentiation in key growth areas and by investing in talent to ensure we have specialized skills to resolve business problems.<br /> Backed by our expertise and diverse global workforce, our ultimate goal is to offer sustainable and meaningful value across all directions.  </p>
+                        <div className="lg:w-1/2">
+                            <img
+                                src="/balloon.png" // Replace with actual path or URL
+                                alt="Our Philosophy"
+                                className="w-relative right-10 rounded-lg shadow-lg object-cover "
+                            />
+                        </div>
 
                     </section>
                 </div>
