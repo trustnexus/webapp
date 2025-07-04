@@ -150,7 +150,7 @@ const OurServices = () => {
         <div className="">
           <p
             ref={headingRef}
-            className="inline-block sm:text-[102px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)] [word-spacing:-7px] tracking-tight"
+            className="inline-block text-[40px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)] [word-spacing:-7px] tracking-normal"
           >
             Our Services
           </p>
@@ -209,11 +209,11 @@ const OurServices = () => {
 
         <div
           ref={servicesRef}
-          className="flex w-[661px] mx-[54px]  flex-col gap-6"
+          className="flex w-[661px] mx-[54px] my-10 md:my-0  flex-col gap-6"
         >
           {services.map((service, index) => (
-            <div className="max-w-[661px] service-card" key={index}>
-              <div className="p-[54px]">
+            <div className=" md:max-w-[661px] service-card" key={index}>
+              <div className=" p-[5px] md:p-[54px]">
                 <h4>{service.heading}</h4>
                 <p>{service.desc}</p>
                 <Link

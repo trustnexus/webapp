@@ -91,10 +91,10 @@ const page = () => {
                 <input
                   type="submit"
                   className="mt-[24px] text-[16px] uppercase px-[50px] py-[16px] bg-[#262b3f] text-white rounded-lg"
-                />{" "}
+                />
               </div>
             </form>
-          </div>{" "}
+          </div>
         </div>
       </div>
     </>
