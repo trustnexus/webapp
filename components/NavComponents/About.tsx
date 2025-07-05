@@ -16,7 +16,7 @@ const About = () => {
           <div className="">
             <Link
               style={{ textDecoration: "none", color: "black" }}
-              href={"/company-overview#philosophy"}
+              href={"/company-overview"}
               className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
             >
               Who we are{" "}
@@ -25,7 +25,7 @@ const About = () => {
           <div className="">
             <Link
               style={{ textDecoration: "none", color: "black" }}
-              href={"/company-overview#philosophy"}
+              href={"/company-overview#accomplishment"}
               className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
             >
               Our accomplishments{" "}
@@ -36,7 +36,7 @@ const About = () => {
             <h5 className="text-[20px] font-semibold "> </h5>
             <Link
               style={{ textDecoration: "none", color: "black" }}
-              href={"/company-overview#philosophy"}
+              href={"/company-overview#leadership"}
               className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
             >
               Our Leadership{" "}
@@ -45,7 +45,7 @@ const About = () => {
           <div className="">
             <Link
               style={{ textDecoration: "none", color: "black" }}
-              href={"/company-overview#philosophy"}
+              href={"/company-overview#global-presence"}
               className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
             >
               Our Global presence{" "}

@@ -124,7 +124,7 @@ const page = () => {
                 </div>
             </section>
             {/* Accomplishments Section */}
-            <section className="bg-white text-black py-20 px-6">
+            <section id='accomplishment' className="bg-white text-black py-20 px-6">
                 <h2 className="text-4xl font-light text-center mb-12">
                     Our accomplishments as a <br /> global leader
                 </h2>
@@ -195,7 +195,7 @@ const page = () => {
                 </div>
             </section>
             {/* Our Leadership Section */}
-            <section className="bg-[#292f45] text-white py-20 px-6">
+            <section id='leadership' className="bg-[#292f45] text-white py-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     {/* Left-Aligned Heading */}
                     <div className="mb-12">

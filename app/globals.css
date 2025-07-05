@@ -8,6 +8,10 @@
   scrollbar-width: none;     /* Firefox */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* @import '~bootstrap/scss/bootstrap'; */
 
