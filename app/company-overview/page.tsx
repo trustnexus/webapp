@@ -234,7 +234,7 @@ const page = () => {
                                 {
                                     name: "Roohi Khan",
                                     title: "Group CFO",
-                                    img: "/images/leader2.png",
+                                    img: "/images/leader2.webp",
                                     linkedin: "https://www.linkedin.com/in/roohikhan/",
                                 },
                                 {
