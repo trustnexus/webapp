@@ -20,7 +20,7 @@ const page = () => {
     "https://www.systemsltd.com/sites/default/files/styles/webp/public/2023-06/300X150-05_10.png.webp?itok=3-phplja",
     "https://www.systemsltd.com/sites/default/files/styles/webp/public/2023-06/300X150-01_7.png.webp?itok=v0bfAj2o",
   ];
-
+const router = useRouter()
   useEffect(() => {
     // Run GSAP only for screens wider than 768px
     if (window.innerWidth >= 768) {
@@ -95,7 +95,7 @@ const page = () => {
             digital-first experiences{" "}
           </p>
 
-          <button className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
+          <button onClick={()=>router.push('contact-us')} className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
             GET IN TOUCH
           </button>
         </div>
