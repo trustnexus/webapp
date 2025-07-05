@@ -298,13 +298,13 @@ const MobileView = () => {
                    <Link
                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
-                href={"/company-overview"}
+                href={"/company-overview#accomplishment"}
               >
               Our accomplishments{" "}
               </Link>     <Link
                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
-                                href={"/company-overview"}
+                                href={"/company-overview#leadership"}
 
               >
               Our Leadership{" "}
@@ -312,7 +312,7 @@ const MobileView = () => {
               <Link
                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
-                               href={"/company-overview"}
+                               href={"/company-overview#global-presence"}
 
               >
               Our Global presence{" "}
