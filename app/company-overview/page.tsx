@@ -282,7 +282,7 @@ const page = () => {
                 </div>
             </section>
             {/* Sidebar Section (Right Aligned) */}
-            <div className="absolute top-1/3 right-10 transform -translate-y-1/2 text-sm text-gray-300 space-y-5 hidden lg:block">
+            <div id='philosophy' className="absolute top-1/3 right-10 transform -translate-y-1/2 text-sm text-gray-300 space-y-5 hidden lg:block">
                 <div className="text-white font-semibold mb-1">Sections</div>
                 <ul className="space-y-1 ">
                     {[

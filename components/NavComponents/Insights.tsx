@@ -37,16 +37,32 @@ const Insights = () => {
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="">
-            <h5 className="text-[20px] mb-[100px] font-semibold">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/case-studies"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
               Case Studies{" "}
-            </h5>
+            </Link>
           </div>
           <div className="">
-            <h5 className="text-[20px] font-semibold">Newsroom </h5>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/newsoom"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+              Newsroom
+            </Link>
           </div>
 
           <div className="">
-            <h5 className="text-[20px] font-semibold ">Whitepapers/eBooks </h5>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/whitepapers-ebooks"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+              Whitepapers/eBooks{" "}
+            </Link>
           </div>
         </div>
       </div>

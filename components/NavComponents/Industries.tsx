@@ -41,24 +41,29 @@ const Industries = () => {
             </Link>
           </div>
           <div className="">
-            <h5 className="text-[20px] font-semibold">
+         
+              <Link style={{textDecoration:'none',color:'black'}} href={'/industries/banking-financial-services'} className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400">
               Banking & Financial Services
-            </h5>
+            </Link>
           </div>
 
           <div className="">
-            <h5 className="text-[20px] font-semibold ">Public Sector </h5>
+            
+                    <Link style={{textDecoration:'none',color:'black'}} href={'/industries/public-sector'} className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400">
+Public Sector            </Link>
           </div>
         </div>
-        <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
+        <div className=" min-w-[360px]   w-full  ">
           <div className="flex flex-col">
-            <h5 className="text-[20px] mb-[40px] font-semibold">Health</h5>
-         
+           
+          <Link style={{textDecoration:'none',color:'black'}} href={'/industries/health'} className="text-[20px] cursor-pointer mb-[10px] font-semibold hover:text-orange-400">
+Health         </Link>
           </div>
 
           <div className="flex flex-col">
-            <h5 className="text-[20px] font-semibold">
-Retail            </h5>
+          
+  <Link style={{textDecoration:'none',color:'black'}} href={'/industries/retail'} className="text-[20px] cursor-pointer mb-[10px] font-semibold hover:text-orange-400">
+Retail        </Link>
            
           </div>
         </div>

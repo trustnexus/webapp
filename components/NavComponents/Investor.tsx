@@ -37,32 +37,53 @@ const Investor = () => {
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="">
-            <h5 className="text-[20px] mb-[100px] font-semibold">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/investor/investor-relation"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
               Investor Relations{" "}
-            </h5>
+            </Link>
           </div>
           <div className="">
-            <h5 className="text-[20px] font-semibold">Governance </h5>
+        
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/investor/governance"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+              Governance{" "}
+            </Link>
           </div>
 
           <div className="">
-            <h5 className="text-[20px] font-semibold ">Company profile</h5>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/investor/company-profile"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+              Company profile{" "}
+            </Link>
           </div>
           <div className="flex flex-col">
-            <h5 className="text-[20px] mb-[40px] font-semibold">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/investor/financial-reports"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
               Financial Reports
-            </h5>
+            </Link>
           </div>
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="flex flex-col">
-            <h5 className="text-[20px] mb-[40px] font-semibold">
-              Election of Board of directors
-            </h5>
-          </div>
-
-          <div className="flex flex-col">
-            <h5 className="text-[20px] font-semibold">Notices & Quick Links</h5>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/investor/notices-quick-links"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+              Notices & Quick Links{" "}
+            </Link>
           </div>
         </div>
       </div>

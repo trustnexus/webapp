@@ -21,7 +21,7 @@ const MobileView = () => {
   } = useAppStore();
   return (
     <div
-      className={`lg:hidden   fixed top-0 left-0 w-[70%] h-screen bg-gray-800 text-white  py-6 transform transition-transform duration-300 ease-in-out ${
+      className={`lg:hidden overflow-y-auto  fixed top-0 left-0 w-[70%] h-screen bg-gray-800 text-white  py-6 transform transition-transform duration-300 ease-in-out ${
         menuOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -52,31 +52,31 @@ const MobileView = () => {
           </button>
 
           {showServices && (
-            <div className="flex h-[183px] overflow-y-auto  flex-col text-sm bg-gray-800">
+            <div className="flex h-[183px] overflow-y-auto px-6  flex-col text-sm bg-gray-800">
               {/* --- Software Development --- */}
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/software-development/webapps"
               >
                 Webapps
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/software-development/mobile-apps"
               >
                 Mobile Applications
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/software-development/desktop-apps"
               >
                 Desktop Applications
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/software-development/point-of-sale"
               >
@@ -85,28 +85,28 @@ const MobileView = () => {
 
               {/* --- Blockchain --- */}
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/blockchain/dapps"
               >
                 Dapps
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/blockchain/blockchain-wallets"
               >
                 Blockchain Wallets
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+             className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/blockchain/nft-marketplace"
               >
                 NFT Marketplace
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+             className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/blockchain/smart-contracts"
               >
@@ -115,21 +115,21 @@ const MobileView = () => {
 
               {/* --- AI / ML --- */}
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/ai-ml/ai-automation"
               >
                 Intelligent Process Automation
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/ai-ml/ai-analytics"
               >
                 Predictive Analytics & Insights
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/ai-ml/ai-chatbots"
               >
@@ -138,28 +138,28 @@ const MobileView = () => {
 
               {/* --- Robotics --- */}
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/robotics/robotic-process-automation"
               >
                 Robotic Process Automation (RPA)
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/robotics/industrial-robots"
               >
                 Industrial Robots Integration
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+              className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/robotics/ai-powered-robots"
               >
                 AI-Powered Autonomous Robots
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/robotics/robotics-simulation"
               >
@@ -168,21 +168,21 @@ const MobileView = () => {
 
               {/* --- Biometric & Embedded Systems --- */}
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/biometric/biometric-authentication"
               >
                 Biometric Authentication Systems
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/biometric/embedded-iot-devices"
               >
                 Embedded IoT Devices
               </Link>
               <Link
-                className="px-6 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "white", textDecoration: "none" }}
                 href="/services/biometric/access-control-systems"
               >
@@ -203,11 +203,43 @@ const MobileView = () => {
             {showIndustries ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showIndustries && (
-            <div className="flex h-[183px] overflow-y-auto  flex-col text-sm bg-gray-800">
+            <div className="flex h-[183px] overflow-y-auto px-6  flex-col text-sm bg-gray-800">
               {/* Put industries sublinks here */}
-              <div>Banking</div>
-              <div>Retail</div>
-              <div>Healthcare</div>
+              <Link
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/industries/communication"}
+              >
+                Communication{" "}
+              </Link>
+              <Link
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/industries/banking-financial-services"}
+              >
+                Banking & Financial Services{" "}
+              </Link>{" "}
+              <Link
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/industries/public-sector"}
+              >
+                Public Sector{" "}
+              </Link>{" "}
+              <Link
+               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/industries/health"}
+              >
+                Health{" "}
+              </Link>
+              <Link
+              className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/industries/retail"}
+              >
+                Retail{" "}
+              </Link>
             </div>
           )}
         </div>
@@ -221,11 +253,27 @@ const MobileView = () => {
             Insight {showInsight ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showInsight && (
-            <div className="bg-gray-700 px-6 py-2 text-sm italic text-gray-300">
-              {/* Put insight sublinks here */}
-              <div>Blogs</div>
-              <div>News</div>
-              <div>Reports</div>
+            <div className="flex  overflow-y-auto px-6  flex-col text-sm bg-gray-800">
+              <Link
+                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/insights/case-studies"}
+              >
+              Case Studies{" "}
+              </Link>
+                   <Link
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/insights/newsroom"}
+              >
+              Newsroom
+              </Link>     <Link
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/insights/whitepapers-ebooks"}
+              >
+              Whitepapers/eBooks{" "}
+              </Link>
             </div>
           )}
         </div>
@@ -239,11 +287,36 @@ const MobileView = () => {
             About {showAbout ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showAbout && (
-            <div className="bg-gray-700 px-6 py-2 text-sm italic text-gray-300">
-              {/* Put about sublinks here */}
-              <div>Company</div>
-              <div>Leadership</div>
-              <div>Contact</div>
+            <div className="flex  overflow-y-auto px-6  flex-col text-sm bg-gray-800">
+              <Link
+                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/company-overview"}
+              >
+              Who we are{" "}
+              </Link>
+                   <Link
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                href={"/company-overview"}
+              >
+              Our accomplishments{" "}
+              </Link>     <Link
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                                href={"/company-overview"}
+
+              >
+              Our Leadership{" "}
+              </Link>
+              <Link
+                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "white", textDecoration: "none" }}
+                               href={"/company-overview"}
+
+              >
+              Our Global presence{" "}
+              </Link>
             </div>
           )}
         </div>
