@@ -1,22 +1,78 @@
 'use client';
 import Help from "@/components/Help";
-import React from "react";
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const page = () => {
+const Page = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    // Hero Text Animation
+    gsap.from(".heroText", {
+      y: -50,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    // Section 1
+    gsap.from(".section1Text", {
+      x: -50,
+      opacity: 0,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".section1",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    });
+
+    gsap.from(".section1Image", {
+      x: 50,
+      opacity: 0,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".section1",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    });
+
+    // Section 2
+    gsap.from(".section2Image", {
+      x: -50,
+      opacity: 0,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".section2",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    });
+
+    gsap.from(".section2Text", {
+      x: 50,
+      opacity: 0,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".section2",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    });
+  }, []);
+
   return (
     <>
-      {/* 🔹 HERO SECTION WITH VIDEO BACKGROUND */}
-      <div className="relative w-full h-[550px] overflow-hidden">
-        <video
-          src="/mobileapps.mp4" // Add this video to public/ folder or update path accordingly
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        />
-        <div className="relative z-10 flex items-center justify-center h-full bg-black/40 text-white text-center px-4">
-          <div>
+      {/* 🔹 HERO SECTION */}
+      <div className="relative w-full h-[550px] overflow-hidden bg-[url('https://png.pngtree.com/thumb_back/fh260/background/20230720/pngtree-floating-apps-for-mobile-phone-a-3d-concept-in-application-development-image_3664602.jpg')] bg-no-repeat bg-center bg-cover">
+        <div className="relative z-10 flex items-center justify-center h-full bg-black/40 text-white text-center px-4 heroText">
+          <div className="heroText">
             <h1 className="text-3xl sm:text-5xl font-bold">
               Build Smart & Scalable Mobile Applications
             </h1>
@@ -27,16 +83,16 @@ const page = () => {
         </div>
       </div>
 
-      {/* 🔹 SECOND SECTION: TEXT + IMAGE */}
-      <section className="py-20 px-4 relative bg-white">
-        <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative">
+      {/* 🔹 SECTION 1 */}
+      <section className="py-20 px-4 relative bg-white section1">
+        <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center justify-between gap-20 relative">
           {/* Text Content */}
-          <div className="md:w-1/2 z-10">
+          <div className="md:w-1/2 z-10 section1Text">
             <p className="text-sm text-blue-600 mb-2">📱 MOBILE-FIRST STRATEGY</p>
             <p className="text-3xl sm:text-[50px] font-light mb-4">
               Your Business in Your Customer’s Pocket
             </p>
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-700 text-base max-w-xl sm:text-lg leading-relaxed">
               We design and develop mobile apps that deliver exceptional user experiences and performance.
               Whether it's Android, iOS, or cross-platform using Flutter or React Native, our team builds secure,
               scalable apps that users love.
@@ -44,9 +100,9 @@ const page = () => {
           </div>
 
           {/* Image */}
-          <div className="md:w-1/2 relative lg:absolute lg:-bottom-20 lg:right-5 overflow-hidden z-0 w-full flex justify-center">
+          <div className="md:w-1/2 relative lg:absolute top-10 lg:-bottom-20 lg:right-6 h-[400px] overflow-hidden z-0 w-full flex justify-center section1Image">
             <img
-              src="https://cdn.dribbble.com/userupload/3963742/file/original-28be9649ef16ab2f16886b3451c552c6.png?compress=1&resize=1504x1128"
+              src="https://www.shutterstock.com/shutterstock/photos/1932042689/display_1500/stock-photo-businessman-using-mobile-smart-phone-business-global-internet-connection-application-technology-1932042689.jpg"
               alt="Mobile App Development"
               className="hover:scale-125 h-[400px] sm:h-[500px] duration-300 shadow-md rounded-md object-cover"
             />
@@ -54,20 +110,20 @@ const page = () => {
         </div>
       </section>
 
-      {/* 🔹 THIRD SECTION: IMAGE + TEXT (Reversed Layout) */}
-      <section className="py-20 px-4 bg-gray-50">
+      {/* 🔹 SECTION 2 */}
+      <section className="py-20 px-4 bg-gray-50 section2">
         <div className="max-w-[1320px] mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-          {/* Image Left */}
-          <div className="md:w-1/2 overflow-hidden">
+          {/* Image */}
+          <div className="md:w-1/2 overflow-hidden section2Image">
             <img
-              src="https://www.zibtek.com/blog/wp-content/uploads/2020/11/mobile-application-development.png"
+              src="https://img.freepik.com/free-photo/representations-user-experience-interface-design_23-2150104473.jpg?semt=ais_items_boosted&w=740"
               alt="Cross-platform compatibility"
-              className="hover:scale-125 h-[500px] duration-300 shadow-md rounded-md object-cover"
+              className="hover:scale-125 h-[500px] duration-300 shadow-md  object-cover"
             />
           </div>
 
-          {/* Text Right */}
-          <div className="md:w-1/2">
+          {/* Text */}
+          <div className="md:w-1/2 section2Text">
             <p className="text-sm text-blue-600 mb-2">⚙️ CROSS-PLATFORM POWER</p>
             <p className="text-3xl sm:text-[50px] font-light mb-4">
               Unified Experiences Across All Devices
@@ -88,4 +144,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import gsap from "gsap";
 const Industries = () => {
-    useEffect(() => {
+  useEffect(() => {
     gsap.fromTo(
       ".industries",
       { y: -50, opacity: 0 },
@@ -36,35 +36,53 @@ const Industries = () => {
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="">
-            <Link style={{textDecoration:'none',color:'black'}} href={'/industries/communication'} className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/communication"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
               Communication{" "}
             </Link>
           </div>
           <div className="">
-         
-              <Link style={{textDecoration:'none',color:'black'}} href={'/industries/banking-financial-services'} className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/banking-financial-services"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
               Banking & Financial Services
             </Link>
           </div>
 
           <div className="">
-            
-                    <Link style={{textDecoration:'none',color:'black'}} href={'/industries/public-sector'} className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400">
-Public Sector            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/public-sector"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+              Public Sector{" "}
+            </Link>
           </div>
         </div>
         <div className=" min-w-[360px]   w-full  ">
           <div className="flex flex-col">
-           
-          <Link style={{textDecoration:'none',color:'black'}} href={'/industries/health'} className="text-[20px] cursor-pointer mb-[10px] font-semibold hover:text-orange-400">
-Health         </Link>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/health"}
+              className="text-[20px] cursor-pointer mb-[10px] font-semibold hover:text-orange-400"
+            >
+              Health{" "}
+            </Link>
           </div>
 
           <div className="flex flex-col">
-          
-  <Link style={{textDecoration:'none',color:'black'}} href={'/industries/retail'} className="text-[20px] cursor-pointer mb-[10px] font-semibold hover:text-orange-400">
-Retail        </Link>
-           
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/retail"}
+              className="text-[20px] cursor-pointer mb-[10px] font-semibold hover:text-orange-400"
+            >
+              Retail{" "}
+            </Link>
           </div>
         </div>
       </div>

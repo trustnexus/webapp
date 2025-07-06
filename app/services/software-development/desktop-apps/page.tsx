@@ -1,14 +1,92 @@
 'use client';
 import Help from "@/components/Help";
-import React from "react";
 import CountUp from "react-countup";
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const page = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+useEffect(() => {
+  // Hero Section
+  gsap.from(".heroText", {
+    y: 50,
+    opacity: 0,
+    duration: 1.5,
+    ease: "power3.out",
+  });
+
+  // Section 2 (Image Left, Text Right)
+  gsap.from(".section2Image", {
+    x: -100,
+    opacity: 0,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: ".section2Image",
+      start: "top 90%",
+    },
+  });
+  gsap.from(".section2Text", {
+    x: 100,
+    opacity: 0,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: ".section2Text",
+      start: "top 90%",
+    },
+  });
+
+  // Section 3 (Stats)
+  gsap.from(".statBox", {
+    y: 60,
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: ".statBox",
+      start: "top 95%",
+    },
+  });
+
+  // Section 4 (Text Left, Image Right)
+  gsap.from(".section4Text", {
+    x: -100,
+    opacity: 0,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: ".section4Text",
+      start: "top 90%",
+    },
+  });
+  gsap.from(".section4Image", {
+    x: 100,
+    opacity: 0,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: ".section4Image",
+      start: "top 90%",
+    },
+  });
+
+  // Section 5 (Why Choose Us - Cards)
+  gsap.from(".featureCard", {
+    opacity: 0,
+    scale: 0.8,
+    duration: 1,
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: ".featureCard",
+      start: "top 95%",
+    },
+  });
+}, []);
+
   return (
     <>
       {/* 🔷 HERO SECTION */}
-      <section className="relative h-[500px] bg-cover bg-center bg-[url('https://assets.materialup.com/uploads/94d143a3-bad3-4e1c-b91e-1aaafbc4c2e2/preview.jpg')]">
-        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center px-4">
+      <section className="relative h-[500px] bg-cover bg-center bg-[url('https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg?semt=ais_hybrid&w=740')]">
+        <div className="heroText absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center px-4">
           <h1 className="text-4xl sm:text-5xl font-bold">
             Powerful Desktop Applications for Modern Enterprises
           </h1>
@@ -21,15 +99,15 @@ const page = () => {
       {/* 🔷 SECTION 2: IMAGE LEFT - TEXT RIGHT */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
+          <div className="section2Image overflow-hidden">
             <img
-              src="https://cdn.dribbble.com/users/32512/screenshots/16924588/media/302a960684fda8f2c0a1e6ceac3b99b3.png"
+              src="https://png.pngtree.com/thumb_back/fh260/background/20230722/pngtree-software-developer-conducting-quality-testing-on-3d-gaming-and-applications-image_3771482.jpg"
               alt="Desktop Software"
-              className="rounded-xl shadow-md hover:scale-105 duration-300"
+              className=" shadow-md hover:scale-125 duration-300"
             />
           </div>
           <div>
-            <p className="text-sm text-blue-600 mb-2">💻 DESKTOP SOLUTIONS</p>
+            <p className="text-sm text-blue-600 mb-2 section2Text">💻 DESKTOP SOLUTIONS</p>
             <h2 className="text-3xl sm:text-5xl font-light mb-4">
               Build Software That Works Offline & Performs Online
             </h2>
@@ -53,15 +131,15 @@ const page = () => {
             experiences in industries like healthcare, logistics, retail, and more.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            <div>
+            <div className="statBox">
               <p className="text-4xl font-bold text-blue-600"><CountUp end={50} suffix="+" enableScrollSpy /></p>
               <p className="text-gray-600 mt-2">Industry-specific applications deployed</p>
             </div>
-            <div>
+            <div className="statBox">
               <p className="text-4xl font-bold text-blue-600"><CountUp end={97} suffix="%" enableScrollSpy /></p>
               <p className="text-gray-600 mt-2">Uptime & offline reliability</p>
             </div>
-            <div>
+            <div className="statBox">
               <p className="text-4xl font-bold text-blue-600"><CountUp end={27} suffix="+" enableScrollSpy /></p>
               <p className="text-gray-600 mt-2">Large-scale internal tools developed</p>
             </div>
@@ -73,7 +151,7 @@ const page = () => {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Text */}
-          <div>
+          <div className="section4Text">
             <p className="text-sm text-blue-600 mb-2">🔐 ENTERPRISE SECURITY</p>
             <h2 className="text-3xl sm:text-5xl font-light mb-4">
               Security at Every Layer
@@ -88,11 +166,11 @@ const page = () => {
           </div>
 
           {/* Image */}
-          <div>
+          <div  className="section4Image overflow-hidden">
             <img
-              src="https://cdn.dribbble.com/users/286982/screenshots/6075480/media/2f771e2b80b749f39ae96d6c5038e34c.png"
+              src="https://img.freepik.com/free-photo/cyber-security-concept-digital-art_23-2151637760.jpg?semt=ais_hybrid&w=740"
               alt="Security"
-              className="rounded-xl shadow-md hover:scale-105 duration-300"
+              className=" shadow-md hover:scale-125 duration-300"
             />
           </div>
         </div>
@@ -105,15 +183,15 @@ const page = () => {
             Why Enterprises Choose Our Desktop Applications
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 text-left">
-            <div>
+            <div className="featureCard">
               <h3 className="text-xl font-semibold text-blue-600 mb-2">⚙️ Custom Workflows</h3>
               <p className="text-gray-700">We build what your business truly needs — from user permissions to automated reports.</p>
             </div>
-            <div>
+            <div className="featureCard">
               <h3 className="text-xl font-semibold text-blue-600 mb-2">📈 Performance Focused</h3>
               <p className="text-gray-700">Our apps are optimized for high speed and heavy usage across local networks.</p>
             </div>
-            <div>
+            <div className="featureCard">
               <h3 className="text-xl font-semibold text-blue-600 mb-2">🌐 Seamless Integration</h3>
               <p className="text-gray-700">Connect with existing databases, CRMs, and ERP systems for unified operations.</p>
             </div>

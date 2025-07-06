@@ -52,142 +52,171 @@ const MobileView = () => {
           </button>
 
           {showServices && (
-            <div className="flex h-[183px] overflow-y-auto px-6  flex-col text-sm bg-gray-800">
+            <div className="flex h-[183px] overflow-y-auto px-6 flex-col text-sm bg-gray-800">
               {/* --- Software Development --- */}
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/software-development/webapps"
-              >
-                Webapps
-              </Link>
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/software-development/mobile-apps"
-              >
-                Mobile Applications
-              </Link>
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/software-development/desktop-apps"
-              >
-                Desktop Applications
-              </Link>
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/software-development/point-of-sale"
-              >
-                POS
-              </Link>
+              <div className="py-3">
+                <h6 className="text-white font-semibold mb-2">
+                  Software Development
+                </h6>
+                <div className="flex flex-col">
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/software-development/webapps"
+                  >
+                    Webapps
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/software-development/mobile-apps"
+                  >
+                    Mobile Applications
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/software-development/desktop-apps"
+                  >
+                    Desktop Applications
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/software-development/point-of-sale"
+                  >
+                    POS
+                  </Link>
+                </div>
+              </div>
 
               {/* --- Blockchain --- */}
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/blockchain/dapps"
-              >
-                Dapps
-              </Link>
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/blockchain/blockchain-wallets"
-              >
-                Blockchain Wallets
-              </Link>
-              <Link
-             className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/blockchain/nft-marketplace"
-              >
-                NFT Marketplace
-              </Link>
-              <Link
-             className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/blockchain/smart-contracts"
-              >
-                Smart Contract Development
-              </Link>
+              <div className="py-3">
+                <h6 className="text-white font-semibold mb-2">Blockchain</h6>
+                <div className="flex flex-col">
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/blockchain/dapps"
+                  >
+                    Dapps
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/blockchain/blockchain-wallets"
+                  >
+                    Blockchain Wallets
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/blockchain/nft-marketplace"
+                  >
+                    NFT Marketplace
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/blockchain/smart-contracts"
+                  >
+                    Smart Contract Development
+                  </Link>
+                </div>
+              </div>
 
               {/* --- AI / ML --- */}
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/ai-ml/ai-automation"
-              >
-                Intelligent Process Automation
-              </Link>
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/ai-ml/ai-analytics"
-              >
-                Predictive Analytics & Insights
-              </Link>
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/ai-ml/ai-chatbots"
-              >
-                AI Chatbots & NLP Solutions
-              </Link>
+              <div className="py-3">
+                <h6 className="text-white font-semibold mb-2">AI / ML</h6>
+                <div className="flex flex-col">
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/ai-ml/ai-automation"
+                  >
+                    Intelligent Process Automation
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/ai-ml/ai-analytics"
+                  >
+                    Predictive Analytics & Insights
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/ai-ml/ai-chatbots"
+                  >
+                    AI Chatbots & NLP Solutions
+                  </Link>
+                </div>
+              </div>
 
               {/* --- Robotics --- */}
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/robotics/robotic-process-automation"
-              >
-                Robotic Process Automation (RPA)
-              </Link>
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/robotics/industrial-robots"
-              >
-                Industrial Robots Integration
-              </Link>
-              <Link
-              className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/robotics/ai-powered-robots"
-              >
-                AI-Powered Autonomous Robots
-              </Link>
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/robotics/robotics-simulation"
-              >
-                Robotics Simulation & Testing
-              </Link>
+              <div className="py-3">
+                <h6 className="text-white font-semibold mb-2">Robotics</h6>
+                <div className="flex flex-col">
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/robotics/robotic-process-automation"
+                  >
+                    Robotic Process Automation (RPA)
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/robotics/industrial-robots"
+                  >
+                    Industrial Robots Integration
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/robotics/ai-powered-robots"
+                  >
+                    AI-Powered Autonomous Robots
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/robotics/robotics-simulation"
+                  >
+                    Robotics Simulation & Testing
+                  </Link>
+                </div>
+              </div>
 
               {/* --- Biometric & Embedded Systems --- */}
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/biometric/biometric-authentication"
-              >
-                Biometric Authentication Systems
-              </Link>
-              <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/biometric/embedded-iot-devices"
-              >
-                Embedded IoT Devices
-              </Link>
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href="/services/biometric/access-control-systems"
-              >
-                Access Control & Face Recognition
-              </Link>
+              <div className="py-3">
+                <h6 className="text-white font-semibold mb-2">
+                  Biometric & Embedded Systems
+                </h6>
+                <div className="flex flex-col">
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/biometric/biometric-authentication"
+                  >
+                    Biometric Authentication Systems
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/biometric/embedded-iot-devices"
+                  >
+                    Embedded IoT Devices
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2a5a6" }}
+                    className="py-2 hover:text-white"
+                    href="/services/biometric/access-control-systems"
+                  >
+                    Access Control & Face Recognition
+                  </Link>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -203,42 +232,41 @@ const MobileView = () => {
             {showIndustries ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showIndustries && (
-            <div className="flex h-[183px] overflow-y-auto px-6  flex-col text-sm bg-gray-800">
-              {/* Put industries sublinks here */}
+            <div className="flex h-[183px] overflow-y-auto px-6 flex-col text-sm bg-gray-800">
               <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/industries/communication"}
               >
-                Communication{" "}
+                Communication
               </Link>
               <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/industries/banking-financial-services"}
               >
-                Banking & Financial Services{" "}
-              </Link>{" "}
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href={"/industries/public-sector"}
-              >
-                Public Sector{" "}
-              </Link>{" "}
-              <Link
-               className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href={"/industries/health"}
-              >
-                Health{" "}
+                Banking & Financial Services
               </Link>
               <Link
-              className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/industries/public-sector"}
+              >
+                Public Sector
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/industries/health"}
+              >
+                Health
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/industries/retail"}
               >
-                Retail{" "}
+                Retail
               </Link>
             </div>
           )}
@@ -253,26 +281,27 @@ const MobileView = () => {
             Insight {showInsight ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showInsight && (
-            <div className="flex  overflow-y-auto px-6  flex-col text-sm bg-gray-800">
+            <div className="flex overflow-y-auto px-6 flex-col text-sm bg-gray-800">
               <Link
-                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/insights/case-studies"}
               >
-              Case Studies{" "}
+                Case Studies
               </Link>
-                   <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/insights/newsroom"}
               >
-              Newsroom
-              </Link>     <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+                Newsroom
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/insights/whitepapers-ebooks"}
               >
-              Whitepapers/eBooks{" "}
+                Whitepapers/eBooks
               </Link>
             </div>
           )}
@@ -287,35 +316,34 @@ const MobileView = () => {
             About {showAbout ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showAbout && (
-            <div className="flex  overflow-y-auto px-6  flex-col text-sm bg-gray-800">
+            <div className="flex overflow-y-auto px-6 flex-col text-sm bg-gray-800">
               <Link
-                 className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/company-overview"}
               >
-              Who we are{" "}
-              </Link>
-                   <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                href={"/company-overview#accomplishment"}
-              >
-              Our accomplishments{" "}
-              </Link>     <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                                href={"/company-overview#leadership"}
-
-              >
-              Our Leadership{" "}
+                Who we are
               </Link>
               <Link
-                className="px-6 border-b-[1px] border-gray-500 py-2 text-gray-300 italic hover:text-white hover:bg-blue-600"
-                style={{ color: "white", textDecoration: "none" }}
-                               href={"/company-overview#global-presence"}
-
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview#accomplishment"}
               >
-              Our Global presence{" "}
+                Our accomplishments
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview#leadership"}
+              >
+                Our Leadership
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview#global-presence"}
+              >
+                Our Global presence
               </Link>
             </div>
           )}
@@ -340,11 +368,35 @@ const MobileView = () => {
             {showInvestors ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
           </button>
           {showInvestors && (
-            <div className="bg-gray-700 px-6 py-2 text-sm italic text-gray-300">
-              {/* Put investor sublinks here */}
-              <div>Financials</div>
-              <div>Reports</div>
-              <div>Shareholders</div>
+            <div className="flex overflow-y-auto px-6 flex-col text-sm bg-gray-800">
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview"}
+              >
+                Who we are
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview#accomplishment"}
+              >
+                Our accomplishments
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview#leadership"}
+              >
+                Our Leadership
+              </Link>
+              <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/company-overview#global-presence"}
+              >
+                Our Global presence
+              </Link>
             </div>
           )}
         </div>
