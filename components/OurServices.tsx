@@ -46,7 +46,7 @@ useEffect(() => {
   if (screenWidth < 640) {
     // Mobile (xs)
     gsap.to(headingRef.current, {
-      y: 350,
+      y: 370,
       fontSize: "25px",
       ease: "power2.out",
       duration: 10,
