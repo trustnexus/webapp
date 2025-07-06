@@ -34,11 +34,11 @@ const Services = () => {
             </Link>
           </div>
         </div>
-        <div className="flex min-w-[360px]   w-full flex-col gap-3 justify-evenly">
+        <div className="flex min-w-[360px] w-full flex-col gap-3 justify-evenly">
           <div className="flex flex-col">
-            <h5 className="text-[20px] mb-[100px] font-semibold">
+            <p className="text-[20px] font-semibold">
               Software development
-            </h5>
+            </p>
             <div className="flex flex-col justify-between">
               <Link
                 className="hover:text-black"
@@ -71,8 +71,8 @@ const Services = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <h5 className="text-[20px] font-semibold">Blockchain</h5>
-            <div className="flex flex-col gap-1 justify-between">
+            <p className="text-[20px]  font-semibold">Blockchain</p>
+            <div className="flex flex-col gap-y-1 justify-between">
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
@@ -105,9 +105,9 @@ const Services = () => {
           </div>
 
           <div className="flex flex-col">
-            <h5 className="text-[20px] font-semibold ">
+            <p className="text-[20px] font-semibold ">
               Artificial Intelligence / Machine Learning
-            </h5>
+            </p>
             <div className="flex flex-col gap-2">
               <Link
                 className="hover:text-blue-600 transition duration-200"
@@ -135,7 +135,7 @@ const Services = () => {
         </div>
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="flex flex-col">
-            <h5 className="text-[20px] mb-[40px] font-semibold">Robotics</h5>
+            <p className="text-[20px] mb-[40px] font-semibold">Robotics</p>
             <div className="flex flex-col justify-between gap-2">
               <Link
                 style={{ textDecoration: "none", color: "black" }}
@@ -169,9 +169,9 @@ const Services = () => {
           </div>
 
           <div className="flex flex-col">
-            <h5 className="text-[20px] font-semibold">
+            <p className="text-[20px] font-semibold">
               Biometric & Embedded Systems
-            </h5>
+            </p>
             <div className="flex flex-col gap-2 justify-between">
               <Link
                 style={{ textDecoration: "none", color: "black" }}

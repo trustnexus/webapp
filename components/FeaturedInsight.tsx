@@ -85,7 +85,7 @@ const features = [
       onLeaveBack: (batch) => {
         gsap.to(batch, {
           opacity: 0,
-          y: 100,
+          y: 50,
           stagger: 0.2,
           duration: 0.8,
           ease: "power3.inOut",
