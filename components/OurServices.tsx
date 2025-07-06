@@ -40,24 +40,76 @@ const OurServices = () => {
     },
   ];
 
-  useEffect(() => {
+useEffect(() => {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 640) {
+    // Mobile (xs)
     gsap.to(headingRef.current, {
-      y: 390, // move 100px down
-      x: -550,
+      y: 370,
+      fontSize: "25px",
       ease: "power2.out",
       duration: 10,
-      fontSize: "49px",
       scrollTrigger: {
         trigger: headingRef.current,
-        start: "top 50px", // when heading hits center of screen
-        // end: "bottom center", // adjust as needed
-        // markers: true,
-        // pin: headingRef.current,
-        scrub: 1, // smooth scrolling
+        start: "top 50px",
+        end: "bottom center",
+        scrub: 2,
+        pin: true, // Pin for mobile
+      },
+    });
+  } else if (screenWidth >= 640 && screenWidth < 1033) {
+    // Small to medium screens
+    gsap.to(headingRef.current, {
+      y: 350,
+      x: -200,
+      fontSize: "30px",
+      ease: "power2.out",
+      duration: 10,
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 50px",
+        end: "bottom center",
+        scrub: 1,
         toggleActions: "restart pause reverse none",
       },
     });
-  }, []);
+  } else if (screenWidth >= 1033 && screenWidth < 1429) {
+    // Medium to large screens
+    gsap.to(headingRef.current, {
+      y: 350,
+      x: -400,
+      fontSize: "39px",
+      ease: "power2.out",
+      duration: 10,
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 50px",
+        end: "bottom center",
+        scrub: 1,
+        toggleActions: "restart pause reverse none",
+      },
+    });
+  } else {
+    // Extra large (desktop and above)
+    gsap.to(headingRef.current, {
+      y: 350,
+      x: -568,
+      fontSize: "49px",
+      ease: "power2.out",
+      duration: 10,
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 50px",
+        end: "bottom center",
+        scrub: 1,
+        toggleActions: "restart pause reverse none",
+      },
+    });
+  }
+}, []);
+
+
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -147,7 +199,7 @@ const OurServices = () => {
     <>
       {/* Heading with GSAP animation */}
       <div className="flex flex-col  items-center justify-center h-screen">
-        <div className="">
+        <div className="headingDiv">
           <p
             ref={headingRef}
             className="inline-block text-[40px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)] [word-spacing:-7px] tracking-normal"
@@ -161,41 +213,41 @@ const OurServices = () => {
       <div className="max-w-[1432px]   text-start mx-auto flex-wrap flex gap-10">
         <div className="md:w-[40%] w-full flex flex-col gap-10">
           <div className="flex flex-col gap-8">
-            <div className="my-10 p-5">
+            <div className="my-10 p-1 sm:p-5">
               <div
                 ref={redefiningLineRef}
                 className="redefining my-10 relative"
               >
                 <span
-                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+                  className="text-[25px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
  font-semibold [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000)] inline-block py-1 bg-clip-text text-transparent"
                 >
                   Redefining
                 </span>
                 <span
                   ref={impactRef}
-                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
- absolute font-semibold top-0 sm:left-62 left-42 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] py-1 inline-block bg-clip-text text-transparent"
+                  className="text-[25px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+ absolute font-semibold top-0 sm:left-66 left-42 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] py-1 inline-block bg-clip-text text-transparent"
                 >
                   impact
                 </span>
                 <span
                   ref={innovationRef}
-                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
- py-1 font-semibold  absolute top-0 sm:left-62 left-42 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                  className="text-[25px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+ py-1 font-semibold  absolute top-0 sm:left-66 left-42 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
                 >
                   innovation
                 </span>
                 <span
                   ref={possibilitiesRef}
-                  className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px] py-1 font-semibold absolute top-0 sm:left-62 left-40  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                  className="text-[25px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px] py-1 font-semibold absolute top-0 sm:left-66 left-40  [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
                 >
                   possiblities
                 </span>
               </div>
               <span
                 ref={globeLineRef}
-                className=" text-[28px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
+                className=" text-[25px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[49px]
  py-1 -my-10  font-semibold [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
               >
                 across the globe
