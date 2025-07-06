@@ -5,15 +5,15 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Trust Nexus",
@@ -30,12 +30,12 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          href="https://media.licdn.com/dms/image/v2/D4D0BAQFJ6b-5GSyOTw/img-crop_100/B4DZcHV7zmG0AM-/0/1748174883110?e=1756944000&v=beta&t=kHbagZTFgZv-riW1TY8d2MozBnEtMdddtjT_lPvsGA0"
+          href="/logo.jpeg"
           type="image/x-icon"
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` antialiased`}
       >
         <Navbar/>
         {children}
