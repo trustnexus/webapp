@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+"use client";
+import React, { use, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "next/navigation";
