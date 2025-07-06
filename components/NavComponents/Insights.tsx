@@ -48,7 +48,7 @@ const Insights = () => {
           <div className="">
             <Link
               style={{ textDecoration: "none", color: "black" }}
-              href={"/insights/newsoom"}
+              href={"/insights/newsroom"}
               className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
             >
               Newsroom

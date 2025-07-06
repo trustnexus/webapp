@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div className="">
       {/* Banner */}
-      <div className="bg-[url('https://img.freepik.com/free-vector/gradient-brain-background_23-2150460414.jpg?semt=ais_hybrid&w=740')] bg-no-repeat bg-center bg-cover w-full h-[400px] md:h-[500px] flex items-end px-4 md:px-18 text-white">
+      <div className="bg-[url('https://img.freepik.com/free-vector/gradient-brain-background_23-2150460414.jpg?semt=ais_hybrid&w=740')] bg-no-repeat bg-center bg-cover w-full h-[400px] md:h-[699px] flex items-end px-4 md:px-18 text-white">
         <div className="pb-8 px-10">
           <p className="text-sm md:text-base">CASE STUDIES</p>
           <p className="text-[28px] sm:text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-semibold">
