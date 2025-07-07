@@ -49,6 +49,7 @@ const MobileView = () => {
         {/* SERVICES DROPDOWN */}
         <div className="w-full">
           <button
+          style={{fontSize:'15px'}}
             onClick={() => setShowServices(!showServices)}
             className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
           >
@@ -230,6 +231,8 @@ const MobileView = () => {
         {/* INDUSTRIES DROPDOWN */}
         <div className="w-full">
           <button
+                    style={{fontSize:'15px'}}
+
             onClick={() => setShowIndustries(!showIndustries)}
             className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
           >
@@ -280,6 +283,8 @@ const MobileView = () => {
         {/* INSIGHT DROPDOWN */}
         <div className="w-full">
           <button
+                    style={{fontSize:'15px'}}
+
             onClick={() => setShowInsight(!showInsight)}
             className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
           >
@@ -322,6 +327,8 @@ const MobileView = () => {
         {/* ABOUT DROPDOWN */}
         <div className="w-full">
           <button
+                    style={{fontSize:'15px'}}
+
             onClick={() => setShowAbout(!showAbout)}
             className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
           >
@@ -363,8 +370,9 @@ const MobileView = () => {
 
         {/* CAREERS - Normal Link */}
         <Link
+
           href="/career"
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: "none",fontSize:'15px' }}
           className="list-none text-white cursor-pointer w-full px-4 py-3 border-b border-gray-600"
         >
           Careers
@@ -373,6 +381,8 @@ const MobileView = () => {
         {/* INVESTORS DROPDOWN */}
         <div className="w-full">
           <button
+                            style={{fontSize:'15px'}}
+
             onClick={() => setShowInvestors(!showInvestors)}
             className="cursor-pointer w-full px-4 py-3 border-b border-gray-600 flex items-center text-white justify-between"
           >
