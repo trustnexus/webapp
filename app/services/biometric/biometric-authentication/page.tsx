@@ -1,12 +1,72 @@
-'use client';
+"use client";
 import Help from '@/components/Help';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const page = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const Page = () => {
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  useEffect(() => {
+    sectionRefs.current.forEach((section, index) => {
+      if (!section) return;
+      const y = index % 2 === 0 ? 80 : -80;
+      gsap.fromTo(
+        section,
+        { opacity: 0, y },
+        {
+          opacity: 1,
+          y: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 2,
+          },
+        }
+      );
+    });
+
+    imageRefs.current.forEach((img, index) => {
+      if (!img) return;
+      const x = index % 2 === 0 ? 80 : -80;
+      gsap.fromTo(
+        img,
+        { opacity: 0, x },
+        {
+          opacity: 1,
+          x: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: img,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 2,
+          },
+        }
+      );
+    });
+  }, []);
+
+  const setSectionRef = (el: HTMLElement | null, index: number) => {
+    if (el) sectionRefs.current[index] = el;
+  };
+
+  const setImageRef = (el: HTMLImageElement | null, index: number) => {
+    if (el) imageRefs.current[index] = el;
+  };
+
   return (
     <>
       {/* 🔹 HERO SECTION WITH PARALLAX */}
-      <section className="relative h-[550px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1581090700227-1e8f23c5a506?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
+      <section
+        ref={(el) => setSectionRef(el, 0)}
+        className="relative h-[550px] bg-fixed bg-center bg-cover bg-[url('https://media.istockphoto.com/id/1175502114/photo/fingerprint-biometric-digital-scan-technology.jpg?s=612x612&w=0&k=20&c=x6FZ-l-b-oPmAkMjo3qdwAdgWyhzY4Y1qJlza47WOp4=')]"
+      >
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold">
             Biometric Authentication Systems
@@ -18,7 +78,7 @@ const page = () => {
       </section>
 
       {/* 🔹 OVERVIEW SECTION */}
-      <section className="py-20 px-4 bg-white">
+      <section ref={(el) => setSectionRef(el, 1)} className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* TEXT */}
           <div className="md:w-1/2">
@@ -34,7 +94,8 @@ const page = () => {
           {/* IMAGE */}
           <div className="md:w-1/2">
             <img
-              src="https://images.unsplash.com/photo-1633356122530-6850b6f78f20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+              ref={(el) => setImageRef(el, 0)}
+              src="https://vidyan.in/wp-content/uploads/2022/08/B2-1.jpg"
               alt="Biometric System"
               className="rounded-xl shadow-md hover:scale-105 duration-300"
             />
@@ -43,14 +104,14 @@ const page = () => {
       </section>
 
       {/* 🔹 FEATURES GRID */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section ref={(el) => setSectionRef(el, 2)} className="bg-gray-50 py-20 px-4">
         <div className="max-w-[1320px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Core Features
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 text-left">
             {[
-              {
+                           {
                 title: '📇 Fingerprint Recognition',
                 desc: 'Capture and match fingerprint patterns using advanced sensors and AI.',
               },
@@ -90,12 +151,13 @@ const page = () => {
       </section>
 
       {/* 🔹 USE CASES SECTION */}
-      <section className="py-20 px-4 bg-white">
+      <section ref={(el) => setSectionRef(el, 3)} className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row-reverse items-center gap-10">
           {/* IMAGE */}
           <div className="md:w-1/2">
             <img
-              src="https://images.unsplash.com/photo-1603357465701-6ddf721913a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+              ref={(el) => setImageRef(el, 1)}
+              src="https://www.thalesgroup.com/sites/default/files/gemalto/what-is-biometrics.jpg"
               alt="Use Cases"
               className="rounded-xl shadow-md hover:scale-105 duration-300"
             />
@@ -118,7 +180,10 @@ const page = () => {
       </section>
 
       {/* 🔹 PARALLAX CTA SECTION */}
-      <section className="relative h-[350px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1623395471121-9c8cfcc1a5e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
+      <section
+        ref={(el) => setSectionRef(el, 4)}
+        className="relative h-[350px] bg-fixed bg-center bg-cover bg-[url('https://mountkenyatimes.co.ke/wp-content/uploads/2023/07/Comparative-Analysis-of-Biometrics-Passwords-Patterns.jpg')]"
+      >
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white text-center px-6">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to Secure with Biometrics?
@@ -141,4 +206,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

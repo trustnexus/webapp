@@ -1,15 +1,54 @@
-'use client';
+"use client";
 import Help from '@/components/Help';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const page = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const Page = () => {
+  const heroRef = useRef(null);
+  const insightImgRef = useRef(null);
+  const insightTextRef = useRef(null);
+  const benefitsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const animateXY = (ref:any, xVal = -100, yVal = 50) => {
+      if (!ref.current) return;
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, x: xVal, y: yVal },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 2,
+          },
+        }
+      );
+    };
+
+    animateXY(heroRef, 0, 0);
+    animateXY(insightImgRef, -100, 0);
+    animateXY(insightTextRef, 100, 0);
+    animateXY(benefitsRef, 0, 100);
+    animateXY(ctaRef, 0, 100);
+  }, []);
+
   return (
     <>
       {/* 🔷 HERO SECTION - PARALLAX EFFECT */}
       <section
-        className="relative h-[500px] bg-fixed bg-center bg-cover bg-[url('https://assets-global.website-files.com/6358db62ae69e2cbcbcad7c5/63766082ea79ed0ac5fbb540_hero.webp')]"
+        ref={heroRef}
+        className="relative h-[500px] bg-fixed bg-center bg-cover bg-[url('https://www.techfunnel.com/wp-content/uploads/2024/10/Predictive-Analytics.png')]"
       >
-        <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white text-center px-4">
+        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center px-4">
           <h1 className="text-4xl sm:text-5xl font-bold">
             Predictive Analytics & Insights
           </h1>
@@ -22,14 +61,14 @@ const page = () => {
       {/* 🔷 SECTION 2 - INSIGHT EXPLANATION */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center gap-10">
-          <div className="md:w-1/2">
+          <div className="md:w-1/2" ref={insightImgRef}>
             <img
-              src="https://cdn.dribbble.com/users/292733/screenshots/6132013/media/0bcfae5b3a5c732d24987d15e6a9ea76.gif"
+              src="https://media.licdn.com/dms/image/v2/D4D12AQGHNL1mN1VzUA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693687490471?e=2147483647&v=beta&t=OsN42T7m9Tu3sBAzGWvv5UdtweOJtUslt0AbEahDGmY"
               alt="Data Chart"
               className="rounded-xl shadow-md hover:scale-105 duration-300"
             />
           </div>
-          <div className="md:w-1/2">
+          <div className="md:w-1/2" ref={insightTextRef}>
             <p className="text-sm text-blue-600 mb-2">📊 DATA-DRIVEN INTELLIGENCE</p>
             <h2 className="text-3xl sm:text-5xl font-light mb-4">
               Make Smarter Business Decisions
@@ -43,7 +82,7 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 3 - BENEFITS GRID */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section ref={benefitsRef} className="bg-gray-50 py-20 px-4">
         <div className="max-w-[1320px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800">
             How Predictive Analytics Helps Your Business
@@ -88,7 +127,7 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 4 - CTA */}
-      <section className="py-16 px-4 bg-blue-600 text-white text-center">
+      <section ref={ctaRef} className="py-16 px-4 bg-blue-600 text-white text-center">
         <div className="max-w-[800px] mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to Make Informed, Data-Backed Decisions?
@@ -110,4 +149,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

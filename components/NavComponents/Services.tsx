@@ -187,13 +187,7 @@ const Services = () => {
               >
                 Embedded IoT Devices
               </Link>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/biometric/access-control-systems"
-              >
-                Access Control & Face Recognition
-              </Link>
+              
             </div>
           </div>
         </div>

@@ -1,12 +1,70 @@
 'use client';
 import Help from '@/components/Help';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import CountUp from 'react-countup';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const page = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const Page = () => {
+  // Refs for sections
+  const heroRef = useRef(null);
+  const featuresRef = useRef(null);
+  const statsRef = useRef(null);
+  const useCasesRef = useRef(null);
+  const testimonialsRef = useRef(null);
+
+  useEffect(() => {
+    const fadeY = (ref: any, y = 60) => {
+      gsap.from(ref.current, {
+        opacity: 0,
+        y,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 85%",
+          scrub:2
+        },
+      });
+    };
+
+    const fadeX = (selector: string, x = -80) => {
+      gsap.utils.toArray(selector).forEach((el: any) => {
+        gsap.from(el, {
+          opacity: 0,
+          x,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            scrub:2
+          },
+        });
+      });
+    };
+
+    // Fade sections
+    fadeY(heroRef, 0);
+    fadeY(featuresRef);
+    fadeY(statsRef);
+    fadeY(useCasesRef);
+    fadeY(testimonialsRef);
+
+    // X transition for flex content
+    fadeX(".fade-x-left", -100);
+    fadeX(".fade-x-right", 100);
+  }, []);
+
   return (
     <>
       {/* 🔷 SECTION 1: HERO with Parallax */}
-      <section className="relative h-[500px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1627398242454-479c4e188503?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
+      <section
+        ref={heroRef}
+        className="relative h-[500px] bg-fixed bg-center bg-cover bg-[url('https://thumbs.dreamstime.com/b/hand-holding-holographic-crypto-wallet-bitcoins-against-background-blockchain-network-hand-holding-holographic-crypto-356576453.jpg')]"
+      >
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold">
             Secure & Scalable Blockchain Wallets
@@ -18,10 +76,10 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 2: Wallet Features */}
-      <section className="py-20 px-4 bg-white">
+      <section ref={featuresRef} className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Text */}
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 fade-x-left">
             <p className="text-sm text-blue-600 mb-2">🔐 MULTI-ASSET WALLET SOLUTIONS</p>
             <h2 className="text-3xl sm:text-5xl font-light mb-4">
               Everything You Need in a Blockchain Wallet
@@ -37,9 +95,9 @@ const page = () => {
             </ul>
           </div>
           {/* Image */}
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 fade-x-right">
             <img
-              src="https://miro.medium.com/v2/resize:fit:1200/format:webp/1*DVyffz1N-VF5sPv4aP6H3w.jpeg"
+              src="https://cdn.dribbble.com/userupload/37145751/file/original-b028c7f52ba12d40d841268c99fbde0b.png?resize=752x&vertical=center"
               alt="Blockchain Wallet UI"
               className="rounded-xl shadow-lg hover:scale-105 duration-300"
             />
@@ -48,24 +106,30 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 3: Stats + Tech */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section ref={statsRef} className="bg-gray-50 py-20 px-4">
         <div className="max-w-[1320px] mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10">
+          <p className="text-3xl sm:text-4xl font-bold mb-30 py-10">
             Proven Results in Web3 Wallet Solutions
-          </h2>
+          </p>
 
           {/* Numbers Block */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
             <div>
-              <p className="text-5xl font-bold text-blue-600">1M+</p>
+              <p className="text-5xl font-bold text-blue-600">
+                <CountUp end={1} suffix="M+" enableScrollSpy />
+              </p>
               <p className="text-gray-700 mt-2">Users Secured</p>
             </div>
             <div>
-              <p className="text-5xl font-bold text-blue-600">200K+</p>
+              <p className="text-5xl font-bold text-blue-600">
+                <CountUp end={200} suffix="K+" enableScrollSpy />
+              </p>
               <p className="text-gray-700 mt-2">Transactions per Day</p>
             </div>
             <div>
-              <p className="text-5xl font-bold text-blue-600">50+</p>
+              <p className="text-5xl font-bold text-blue-600">
+                <CountUp end={50} suffix="+" enableScrollSpy />
+              </p>
               <p className="text-gray-700 mt-2">Supported Coins & Tokens</p>
             </div>
           </div>
@@ -92,60 +156,60 @@ const page = () => {
           </div>
         </div>
       </section>
+
       {/* 🔷 SECTION 4: Use Cases */}
-<section className="py-20 px-4 bg-white">
-  <div className="max-w-[1320px] mx-auto">
-    <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
-      Where Our Wallets Make an Impact
-    </h2>
-    <div className="flex flex-col md:flex-row justify-between gap-10">
-      <div className="flex-1 bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 className="text-xl font-semibold mb-2">🔄 Peer-to-Peer Transactions</h3>
-        <p className="text-gray-700">
-          Enable instant global transactions with zero intermediaries — perfect for cross-border payments.
-        </p>
-      </div>
-      <div className="flex-1 bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 className="text-xl font-semibold mb-2">💼 Business Wallets</h3>
-        <p className="text-gray-700">
-          Facilitate secure salary distribution, invoice payments, and treasury management for companies.
-        </p>
-      </div>
-      <div className="flex-1 bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 className="text-xl font-semibold mb-2">🎮 NFT & Gaming Integration</h3>
-        <p className="text-gray-700">
-          Seamlessly store, view, and trade NFTs & in-game assets with custom wallet functionality.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+      <section ref={useCasesRef} className="py-20 px-4 bg-white">
+        <div className="max-w-[1320px] mx-auto">
+          <p className="text-3xl sm:text-4xl font-semibold mb-20 text-center">
+            Where Our Wallets Make an Impact
+          </p>
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            <div className="flex-1 bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition fade-x-left">
+              <h3 className="text-xl font-semibold mb-2">🔄 Peer-to-Peer Transactions</h3>
+              <p className="text-gray-700">
+                Enable instant global transactions with zero intermediaries — perfect for cross-border payments.
+              </p>
+            </div>
+            <div className="flex-1 bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition fade-x-left">
+              <h3 className="text-xl font-semibold mb-2">💼 Business Wallets</h3>
+              <p className="text-gray-700">
+                Facilitate secure salary distribution, invoice payments, and treasury management for companies.
+              </p>
+            </div>
+            <div className="flex-1 bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition fade-x-left">
+              <h3 className="text-xl font-semibold mb-2">🎮 NFT & Gaming Integration</h3>
+              <p className="text-gray-700">
+                Seamlessly store, view, and trade NFTs & in-game assets with custom wallet functionality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-{/* 🔷 SECTION 5: Testimonials */}
-<section className="py-20 bg-gray-100 px-4">
-  <div className="max-w-[1320px] mx-auto text-center">
-    <h2 className="text-3xl sm:text-4xl font-bold mb-12">
-      What Our Clients Say
-    </h2>
-    <div className="flex flex-col md:flex-row gap-8 justify-center">
-      <div className="bg-white p-6 rounded-lg shadow-md flex-1">
-        <p className="text-gray-700 italic mb-4">
-          “We launched our multi-chain wallet with their team in record time. Their UI was sleek, secure, and user-loved.”
-        </p>
-        <h4 className="text-blue-600 font-semibold">Adeel Khan</h4>
-        <span className="text-sm text-gray-500">CEO, Fincrypt</span>
-      </div>
-      <div className="bg-white p-6 rounded-lg shadow-md flex-1">
-        <p className="text-gray-700 italic mb-4">
-          “These guys know Web3 inside out. From wallet design to gas optimization, they’ve done it all for us.”
-        </p>
-        <h4 className="text-blue-600 font-semibold">Sarah Malik</h4>
-        <span className="text-sm text-gray-500">Blockchain Product Manager, KoinVerse</span>
-      </div>
-    </div>
-  </div>
-</section>
-
+      {/* 🔷 SECTION 5: Testimonials */}
+      <section ref={testimonialsRef} className="py-20 bg-gray-100 px-4">
+        <div className="max-w-[1320px] mx-auto text-center">
+          <p className="text-3xl sm:text-4xl font-bold mb-12">
+            What Our Clients Say
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-md flex-1 fade-x-left">
+              <p className="text-gray-700 italic mb-4">
+                “We launched our multi-chain wallet with their team in record time. Their UI was sleek, secure, and user-loved.”
+              </p>
+              <h4 className="text-blue-600 font-semibold">Adeel Khan</h4>
+              <span className="text-sm text-gray-500">CEO, Fincrypt</span>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md flex-1 fade-x-right">
+              <p className="text-gray-700 italic mb-4">
+                “These guys know Web3 inside out. From wallet design to gas optimization, they’ve done it all for us.”
+              </p>
+              <h4 className="text-blue-600 font-semibold">Sarah Malik</h4>
+              <span className="text-sm text-gray-500">Blockchain Product Manager, KoinVerse</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 🔷 HELP COMPONENT */}
       <Help />
@@ -153,4 +217,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

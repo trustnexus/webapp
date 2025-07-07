@@ -1,13 +1,54 @@
-'use client';
+"use client";
 import Help from '@/components/Help';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import CountUp from 'react-countup';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const page = () => {
+  const heroRef = useRef(null);
+  const overviewRef = useRef(null);
+  const featureGridRef = useRef(null);
+  const projectStatsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const animateSection = (ref: any, xStart = -100) => {
+      if (!ref.current) return;
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, x: xStart },
+        {
+          opacity: 1,
+          x: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 2,
+          },
+        }
+      );
+    };
+
+    animateSection(heroRef);
+    animateSection(overviewRef);
+    animateSection(featureGridRef);
+    animateSection(projectStatsRef);
+    animateSection(ctaRef);
+  }, []);
+
   return (
     <>
       {/* 🔷 HERO SECTION */}
-      <section className="relative h-[500px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1611734683876-254ab1c56b35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
-        <div className="absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-white px-4 text-center">
+      <section
+        ref={heroRef}
+        className="relative h-[500px] bg-fixed bg-center bg-cover bg-[url('https://media.licdn.com/dms/image/v2/D4D12AQEoyE22C_iD4Q/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1656989044059?e=2147483647&v=beta&t=vAg_7VWxkbwEwGeELOQje_6Zix_f49JlQnJnLqSUcJ0')]"
+      >
+        <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold">Smart Contract Development</h1>
           <p className="mt-4 text-lg sm:text-xl max-w-[700px]">
             Secure, transparent, and scalable smart contracts tailored for DeFi, NFTs, DAOs, and enterprise blockchain solutions.
@@ -16,7 +57,7 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 2: OVERVIEW */}
-      <section className="py-20 px-4 bg-white">
+      <section ref={overviewRef} className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row gap-10 items-center">
           <div className="md:w-1/2">
             <p className="text-sm text-indigo-600 mb-2">⚖️ AUTOMATE TRUST</p>
@@ -35,7 +76,7 @@ const page = () => {
           </div>
           <div className="md:w-1/2">
             <img
-              src="https://miro.medium.com/v2/resize:fit:1200/format:webp/1*rYvS_gU8tJbStKo0xQvL7Q.png"
+              src="https://contenthub-static.crypto.com/wp_media/2023/01/Smart-Contract_flow.jpeg"
               alt="Smart Contract Code"
               className="rounded-xl shadow-lg hover:scale-105 duration-300"
             />
@@ -44,7 +85,7 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 3: FEATURE GRID */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section ref={featureGridRef} className="bg-gray-50 py-20 px-4">
         <div className="max-w-[1320px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-10">Core Capabilities</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-left">
@@ -87,22 +128,22 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 4: PROJECT NUMBERS */}
-      <section className="py-20 bg-white px-4">
+      <section ref={projectStatsRef} className="py-20 bg-white px-4">
         <div className="max-w-[1320px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12">
             Smart Contracts Delivered
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div>
-              <p className="text-5xl font-bold text-indigo-600">100+</p>
+              <p className="text-5xl font-bold text-indigo-600"> <CountUp end={100} enableScrollSpy suffix='+'/></p>
               <p className="mt-2 text-gray-600">Custom Contracts Deployed</p>
             </div>
             <div>
-              <p className="text-5xl font-bold text-indigo-600">5M+</p>
+              <p className="text-5xl font-bold text-indigo-600"> <CountUp end={5} enableScrollSpy suffix='M+'/></p>
               <p className="mt-2 text-gray-600">Blockchain Transactions Processed</p>
             </div>
             <div>
-              <p className="text-5xl font-bold text-indigo-600">30+</p>
+              <p className="text-5xl font-bold text-indigo-600"> <CountUp end={30} enableScrollSpy suffix='+'/></p>
               <p className="mt-2 text-gray-600">Audits Completed</p>
             </div>
           </div>
@@ -110,7 +151,10 @@ const page = () => {
       </section>
 
       {/* 🔷 SECTION 5: CTA */}
-      <section className="relative h-[400px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1644298576676-b711ef9bb3f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
+      <section
+        ref={ctaRef}
+        className="relative h-[400px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1644298576676-b711ef9bb3f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]"
+      >
         <div className="absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-white px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Let’s Code the Future Together

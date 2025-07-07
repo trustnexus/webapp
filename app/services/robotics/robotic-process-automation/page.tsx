@@ -1,14 +1,51 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Help from "@/components/Help";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const page = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const Page = () => {
+  const heroRef = useRef(null);
+  const benefitRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const animateSection = (ref:any, x = 0, y = 50) => {
+      if (!ref.current) return;
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, x, y },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top bottom",
+            end: "top center",
+            scrub: 2,
+          },
+        }
+      );
+    };
+
+    animateSection(heroRef, -50, 50); // animate from left and bottom
+    animateSection(benefitRef, 50, 50); // animate from right and bottom
+    animateSection(ctaRef, 0, 80); // animate from bottom only
+  }, []);
+
   return (
     <>
       {/* 🔹 HERO SECTION WITH ANIMATED BACKDROP */}
-      <section className="relative min-h-[600px] bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2019/02/13/10/46/robot-3999695_1280.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
+      <section
+        ref={heroRef}
+        className="relative min-h-[600px] bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-[url('https://t3.ftcdn.net/jpg/04/37/39/18/360_F_437391889_ebGNTbME7F6KPEgIPwh738Rvfm8WF0tj.jpg')] bg-cover bg-center opacity-60"></div>
+        <div className="absolute top-10 left-[27%] z-10 flex flex-col items-center justify-center h-full px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 animate-fadeInUp">
             Robotic Process Automation (RPA)
           </h1>
@@ -19,7 +56,7 @@ const page = () => {
       </section>
 
       {/* 🔹 SECTION 2: BENEFITS GRID */}
-      <section className="bg-white py-20 px-6">
+      <section ref={benefitRef} className="bg-white py-20 px-6">
         <div className="max-w-[1320px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-gray-800">
             Why Choose RPA?
@@ -64,6 +101,7 @@ const page = () => {
 
       {/* 🔹 SECTION 3: CTA WITH PARALLAX */}
       <section
+        ref={ctaRef}
         className="bg-fixed bg-center bg-no-repeat bg-cover py-24 px-6 text-white text-center"
         style={{
           backgroundImage:
@@ -90,4 +128,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -1,13 +1,72 @@
-'use client';
+"use client";
 import Help from '@/components/Help';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const page = () => {
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  useEffect(() => {
+    sectionRefs.current.forEach((section, index) => {
+      if (!section) return;
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 2,
+          },
+        }
+      );
+    });
+
+    imageRefs.current.forEach((img, index) => {
+      if (!img) return;
+      const x = index % 2 === 0 ? 80 : -80;
+      gsap.fromTo(
+        img,
+        { opacity: 0, x },
+        {
+          opacity: 1,
+          x: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: img,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 2,
+          },
+        }
+      );
+    });
+  }, []);
+
+  const setSectionRef = (el: HTMLDivElement | null, index: number) => {
+    if (el) sectionRefs.current[index] = el;
+  };
+
+  const setImageRef = (el: HTMLImageElement | null, index: number) => {
+    if (el) imageRefs.current[index] = el;
+  };
+
   return (
     <>
       {/* 🔹 HERO PARALLAX SECTION */}
-      <section className="relative h-[550px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1633280111451-339b69f7d021?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
-        <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white text-center px-4">
+      <section
+        ref={(el) =>{ setSectionRef(el as HTMLDivElement | null, 0)}}
+        className="relative h-[550px] bg-fixed bg-center bg-cover bg-[url('https://www.shutterstock.com/image-photo/artificial-intelligence-future-technology-communication-600nw-1009099186.jpg')]"
+      >
+        <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white text-center px-4">
           <h1 className="text-4xl sm:text-5xl font-bold">
             Robotics Simulation & Testing
           </h1>
@@ -18,9 +77,8 @@ const page = () => {
       </section>
 
       {/* 🔹 SECTION 2: TEXT + IMAGE */}
-      <section className="py-20 px-4 bg-white">
+      <section ref={(el) => {setSectionRef(el as HTMLDivElement | null, 1)}} className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center gap-10">
-          {/* TEXT */}
           <div className="md:w-1/2">
             <p className="text-sm text-blue-600 mb-2">🧪 DIGITAL TWIN VALIDATION</p>
             <h2 className="text-3xl sm:text-5xl font-light mb-4">
@@ -30,10 +88,10 @@ const page = () => {
               Our simulation platforms replicate physical environments, mechanical behaviors, and sensor feedback. It allows you to test autonomous logic, obstacle avoidance, and system limits — all in a virtual setting before physical integration.
             </p>
           </div>
-          {/* IMAGE */}
           <div className="md:w-1/2">
             <img
-              src="https://images.unsplash.com/photo-1618941538057-8b3cf9512f86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+              ref={(el) => setImageRef(el, 0)}
+              src="https://i.ytimg.com/vi/w-L90BhfDFo/maxresdefault.jpg"
               alt="Simulation Testing"
               className="rounded-xl shadow-md hover:scale-105 duration-300"
             />
@@ -42,7 +100,7 @@ const page = () => {
       </section>
 
       {/* 🔹 SECTION 3: FEATURES GRID */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section ref={(el) => {setSectionRef(el as HTMLDivElement | null, 2)}} className="bg-gray-50 py-20 px-4">
         <div className="max-w-[1320px] mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Simulation Capabilities
@@ -89,17 +147,16 @@ const page = () => {
       </section>
 
       {/* 🔹 SECTION 4: USE CASES */}
-      <section className="py-20 px-4 bg-white">
+      <section ref={(el) => {setSectionRef(el as HTMLDivElement | null, 3)}} className="py-20 px-4 bg-white">
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row-reverse items-center gap-10">
-          {/* IMAGE */}
           <div className="md:w-1/2">
             <img
-              src="https://images.unsplash.com/photo-1581090700227-1e8f23c5a506?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+              ref={(el) => setImageRef(el, 1)}
+              src="https://robodk.com/blog/wp-content/uploads/2020/06/Robot-Simulation-Turntable.jpg"
               alt="Robotic Simulator"
               className="rounded-xl shadow-md hover:scale-105 duration-300"
             />
           </div>
-          {/* TEXT */}
           <div className="md:w-1/2">
             <p className="text-sm text-blue-600 mb-2">🏗️ INDUSTRIAL SIMULATION</p>
             <h2 className="text-3xl sm:text-4xl font-light mb-4">
@@ -117,7 +174,10 @@ const page = () => {
       </section>
 
       {/* 🔹 PARALLAX CTA SECTION */}
-      <section className="relative h-[350px] bg-fixed bg-center bg-cover bg-[url('https://images.unsplash.com/photo-1608325140175-79e1a8021c3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')]">
+      <section
+        ref={(el) => setSectionRef(el as HTMLDivElement | null, 4)}
+        className="relative h-[350px] bg-fixed bg-center bg-cover bg-[url('https://www.nvidia.com/content/dam/en-zz/Solutions/use-cases/robot-learning/robot-case-study-og-100.jpg')]"
+      >
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-white text-center px-6">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Let’s Simulate Before You Build
