@@ -64,6 +64,14 @@ const Insights = () => {
               Whitepapers/eBooks{" "}
             </Link>
           </div>
+             <div className="">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/blogs"}
+              className="text-[20px] cursor-pointer mb-[100px] font-semibold hover:text-orange-400"
+            >
+Blogs            </Link>
+          </div>
         </div>
       </div>
     </div>

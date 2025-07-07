@@ -221,7 +221,7 @@ const Footer = () => {
          
         </div>
 
-          <p className="text-lg mt-4 font-semibold mb-4">Insights</p>
+          <p className="text-lg mt-4 font-semibold mb-2">Insights</p>
           {/* <ul className="text-sm text-gray-700 space-y-1">
             <li>Digital consultancy</li>
             <li>Digital commerce</li>
@@ -250,6 +250,12 @@ const Footer = () => {
             >
               Whitepapers/eBooks{" "}
             </Link>
+                <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/blogs"}
+               className=" cursor-pointer hover:text-orange-400"
+            >
+Blogs            </Link>
          
         </div>
         </div>
