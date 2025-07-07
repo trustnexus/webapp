@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { GrLanguage } from "react-icons/gr";
 import { FaArrowDown } from "react-icons/fa6";
@@ -24,6 +24,8 @@ const Navbar = () => {
     showServices,
     setShowServices,
   } = useAppStore();
+
+    const [isHovered, setIsHovered] = useState(false);
 
   // ref for detecting outside clicks
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -59,13 +61,20 @@ const Navbar = () => {
             </div>
 
             {/* Logo */}
-            <Link
-              style={{ textDecoration: "none" }}
-              className="text-xl sm:text-2xl italic font-semibold text-white"
-              href="/"
-            >
-              Trust Nexus
-            </Link>
+            <div className="hover:text-cyan-400">
+              <Link
+                style={{ textDecoration: "none" }}
+                className="text-xl  w-full my-auto h-[70px] flex items-center justify-center gap-1 sm:text-2xl italic font-semibold text-white"
+                href="/"
+              >
+                <img
+                  className="w-16 pt-2 my-auto h-16"
+                  src="./website-logo.png"
+                  alt=""
+                />
+                <span className="hover:text-cyan-400"> Trust Nexus</span>{" "}
+              </Link>
+            </div>
 
             {/* Desktop Nav Links */}
             <ul className="hidden lg:flex my-auto items-center gap-8 ml-10">
@@ -76,7 +85,7 @@ const Navbar = () => {
               >
                 <div
                   ref={dropdownRef}
-                  className="cursor-pointer flex items-center gap-1 px-2 py-1"
+                  className="cursor-pointer hover:text-cyan-400 flex items-center gap-1 px-2 py-1"
                 >
                   Services <TiArrowSortedDown />
                 </div>
@@ -92,7 +101,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("industries")}
               >
-                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer flex hover:text-cyan-400 items-center gap-1 px-2 py-1">
                   Industries <TiArrowSortedDown />
                 </div>
                 {hovered === "industries" && (
@@ -110,7 +119,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("insights")}
               >
-                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   Insights <TiArrowSortedDown />
                 </div>
                 {hovered === "insights" && (
@@ -128,7 +137,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("about")}
               >
-                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   About <TiArrowSortedDown />
                 </div>
                 {hovered === "about" && (
@@ -145,11 +154,12 @@ const Navbar = () => {
 
           {/* Right Section for Desktop */}
           <div className="hidden h-full lg:flex items-center gap-6">
-            <ul className="flex items-center my-auto gap-6">
+            <ul className="flex items-center  my-auto gap-6">
               <Link
                 href={"/career"}
-                style={{ textDecoration: "none" }}
-                className="cursor-pointer text-white"
+                style={{ textDecoration: "none", color: isHovered ? "#26C6DA" : "white",
+}}
+                className="cursor-pointer  text-white"
               >
                 Careers
               </Link>
@@ -159,7 +169,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("investor")}
               >
-                <div className="cursor-pointer flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   Investors <TiArrowSortedDown />
                 </div>
                 {hovered === "investor" && (

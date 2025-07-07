@@ -78,7 +78,7 @@ Enhancing experience, <br />
 access, and outcomes <br />
 through technology          </p>
 
-          <button  onClick={()=>router.push('contact-us')}className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
+          <button  onClick={()=>router.push('/contact-us')}className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
             GET IN TOUCH
           </button>
         </div>

@@ -66,7 +66,7 @@ const page = () => {
       ease: "power2.out",
     });
   }, []);
-const router = useRouter()
+  const router = useRouter();
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -74,11 +74,15 @@ const router = useRouter()
         <div className="banner flex flex-col absolute top-24 md:top-32 space-y-4">
           <p className="text-sm md:text-lg">Retail</p>
           <p className="banner-heading text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] xl:text-[102px] leading-tight bg-gradient-to-b from-white via-white to-[#161616] bg-clip-text text-transparent font-light">
-Resilient, <br />
-agile, scalable, and <br />
-personalized retail          </p>
+            Resilient, <br />
+            agile, scalable, and <br />
+            personalized retail{" "}
+          </p>
 
-          <button onClick={()=>router.push('contact-us')} className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
+          <button
+            onClick={() => router.push("/contact-us")}
+            className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit"
+          >
             GET IN TOUCH
           </button>
         </div>
@@ -89,9 +93,16 @@ personalized retail          </p>
         <div className="max-w-[1296px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
           <div className="flex-1 max-w-full lg:max-w-[552px] space-y-6">
             <p className="unified-text text-[26px] md:text-[40px] lg:text-[54px] font-semibold">
-Retail’s moment of truth            </p>
+              Retail’s moment of truth{" "}
+            </p>
             <p className="text-base md:text-lg">
-            Industry landscape and consumer trends are evolving rapidly the retail sector must keep a pulse on both. With the rise of eCommerce, personalized shopping experience, and disrupted supply chain ecosystem, the industry has transformed at an accelerated pace. The need of the hour is to reinvent stores through in-store personalization, enhance the omnichannel experience, and streamline operations across the supply chain and your enterprise.
+              Industry landscape and consumer trends are evolving rapidly the
+              retail sector must keep a pulse on both. With the rise of
+              eCommerce, personalized shopping experience, and disrupted supply
+              chain ecosystem, the industry has transformed at an accelerated
+              pace. The need of the hour is to reinvent stores through in-store
+              personalization, enhance the omnichannel experience, and
+              streamline operations across the supply chain and your enterprise.
             </p>
           </div>
           <div className="unified-image  flex-1 max-w-[648px] w-full">
@@ -109,9 +120,15 @@ Retail’s moment of truth            </p>
         <div className="offerings w-full lg:w-[50%] space-y-5">
           <p className="text-lg font-medium text-gray-500">OUR OFFERINGS</p>
           <h1 className="text-[26px] md:text-[40px] font-bold">
-Emerging frontier of retail          </h1>
+            Emerging frontier of retail{" "}
+          </h1>
           <p className="text-base text-gray-700">
-With next-gen technology at the core, we partner with retailers to redefine customer experience and renew processes. We help retailers understand consumer behavior and discover business growth opportunities that drive footfall, web traffic, and influence buyer’s journey.          </p>
+            With next-gen technology at the core, we partner with retailers to
+            redefine customer experience and renew processes. We help retailers
+            understand consumer behavior and discover business growth
+            opportunities that drive footfall, web traffic, and influence
+            buyer’s journey.{" "}
+          </p>
           <Link href="/" className="text-blue-600 underline">
             GET IN TOUCH
           </Link>
@@ -120,10 +137,13 @@ With next-gen technology at the core, we partner with retailers to redefine cust
           {[...Array(6)].map((_, i) => (
             <div key={i} className="px-4 lg:px-[54px]">
               <h4 className="font-bold text-lg mb-2">
-Profitability through data-driven strategy
+                Profitability through data-driven strategy
               </h4>
               <p className="text-sm text-gray-600">
-              Equipping retailers with advanced data platforms to leverage customers for informed decision-making about shifting trends and individual preferences, resulting in improved alignment with the market and boosting profits.
+                Equipping retailers with advanced data platforms to leverage
+                customers for informed decision-making about shifting trends and
+                individual preferences, resulting in improved alignment with the
+                market and boosting profits.
               </p>
             </div>
           ))}
@@ -135,29 +155,31 @@ Profitability through data-driven strategy
         <div className="max-w-[1296px] mx-auto px-4 text-white text-center space-y-12">
           <div>
             <p className="text-[26px] md:text-[48px] font-semibold leading-tight max-w-3xl mx-auto">
-Helping retail industry gain a competitive edge            </p>
+              Helping retail industry gain a competitive edge{" "}
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <h1 className="text-4xl font-bold">
                 <CountUp end={30} suffix="+" enableScrollSpy />
               </h1>
-              <p className="text-sm mt-2">
-Largest retail rely on us              </p>
+              <p className="text-sm mt-2">Largest retail rely on us </p>
             </div>
             <div>
               <h1 className="text-4xl font-bold">
                 <CountUp end={13} suffix="+" enableScrollSpy />
               </h1>
               <p className="text-sm mt-2">
-Years of combined experience in transforming retail              </p>
+                Years of combined experience in transforming retail{" "}
+              </p>
             </div>
             <div>
               <h1 className="text-4xl font-bold">
                 <CountUp end={30} suffix="+" enableScrollSpy />
               </h1>
               <p className="text-sm mt-2">
-Success stories of transforming retail              </p>
+                Success stories of transforming retail{" "}
+              </p>
             </div>
           </div>
         </div>

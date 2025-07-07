@@ -20,7 +20,7 @@ const page = () => {
     "https://www.systemsltd.com/sites/default/files/styles/webp/public/2023-06/300X150-05_10.png.webp?itok=3-phplja",
     "https://www.systemsltd.com/sites/default/files/styles/webp/public/2023-06/300X150-01_7.png.webp?itok=v0bfAj2o",
   ];
-const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     // Run GSAP only for screens wider than 768px
     if (window.innerWidth >= 768) {
@@ -95,7 +95,10 @@ const router = useRouter()
             digital-first experiences{" "}
           </p>
 
-          <button onClick={()=>router.push('contact-us')} className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
+          <button
+            onClick={() => router.push("contact-us")}
+            className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit"
+          >
             GET IN TOUCH
           </button>
         </div>
@@ -155,8 +158,8 @@ const router = useRouter()
       </section>
 
       {/* Impact Section */}
-      <section className="bg-[url('https://www.shutterstock.com/image-photo/tall-modern-office-buildings-center-600nw-2530816463.jpg')] bg-no-repeat bg-cover bg-center w-full h-[700px] py-16 brightness-75">
-        <div className="max-w-[1296px] flex items-center justify-between gap-50 flex-col mx-auto px-4 text-white text-center space-y-12">
+      <section className="bg-[url('https://www.shutterstock.com/image-photo/tall-modern-office-buildings-center-600nw-2530816463.jpg')] bg-no-repeat bg-cover bg-center w-full min-h-[700px] py-16 brightness-75">
+        <div className="max-w-[1296px] flex items-center justify-center md:justify-between md:gap-50 flex-col mx-auto px-4 text-white text-center gap-10  md:space-y-12">
           <div>
             <p className="text-[26px] md:text-[38px] font-semibold leading-tight max-w-4xl mx-auto">
               We are at the forefront of delivering mission-critical IT services
@@ -183,14 +186,16 @@ const router = useRouter()
                 <CountUp end={10} suffix="+" enableScrollSpy />
               </h1>
               <p className="text-sm mt-2">
-Years of experience in transforming banks              </p>
+                Years of experience in transforming banks{" "}
+              </p>
             </div>
-                <div>
+            <div>
               <h1 className="text-4xl font-bold">
                 <CountUp end={20} suffix="+" enableScrollSpy />
               </h1>
               <p className="text-sm mt-2">
-Million customers bank on the systems implemented by us              </p>
+                Million customers bank on the systems implemented by us{" "}
+              </p>
             </div>
           </div>
         </div>
@@ -230,7 +235,7 @@ Million customers bank on the systems implemented by us              </p>
           </Swiper>
         </div>
       </section>
-      <Help/>
+      <Help />
     </div>
   );
 };

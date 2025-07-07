@@ -96,7 +96,7 @@ const router = useRouter()
             digital government{" "}
           </p>
 
-          <button onClick={()=>router.push('contact-us')} className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
+          <button onClick={()=>router.push('/contact-us')} className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
             GET IN TOUCH
           </button>
         </div>
@@ -184,7 +184,7 @@ const router = useRouter()
 
       {/* Impact Section */}
       <section className="bg-[url('https://www.shutterstock.com/image-photo/tall-modern-office-buildings-center-600nw-2530816463.jpg')] bg-no-repeat bg-cover bg-center w-full h-[700px] py-16 brightness-75">
-        <div className="max-w-[1296px] flex items-center justify-between gap-50 flex-col mx-auto px-4 text-white text-center space-y-12">
+        <div className="max-w-[1296px] flex items-center justify-center md:justify-between gap-10 md:gap-50 flex-col mx-auto px-4 text-white text-center ">
           <div>
             <p className="text-[26px] md:text-[48px] font-semibold leading-tight max-w-3xl mx-auto">
               Enabling technology as a great equalizer in the public sector{" "}

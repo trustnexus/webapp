@@ -3,7 +3,6 @@
 import Help from "@/components/Help";
 import Link from "next/link";
 import React from "react";
-import { CiSearch } from "react-icons/ci";
 
 const page = () => {
   return (
@@ -14,7 +13,7 @@ const page = () => {
           <p className="text-[28px] sm:text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-extralight">
             Latest Happenings
           </p>
-          <button className="bg-white text-black px-[50px] py-[16px] mt-4">
+          <button className="bg-white p-3 text-black md:px-[50px] md:py-[16px] mt-4">
             GET IN TOUCH
           </button>
         </div>
