@@ -1,8 +1,8 @@
 "use client";
-import Help from '@/components/Help';
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Help from "@/components/Help";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,11 +20,11 @@ const Page = () => {
         {
           opacity: 1,
           y: 0,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: section,
-            start: 'top bottom',
-            end: 'top center',
+            start: "top bottom",
+            end: "top center",
             scrub: 2,
           },
         }
@@ -40,11 +40,11 @@ const Page = () => {
         {
           opacity: 1,
           x: 0,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: img,
-            start: 'top bottom',
-            end: 'top center',
+            start: "top bottom",
+            end: "top center",
             scrub: 2,
           },
         }
@@ -72,13 +72,17 @@ const Page = () => {
             Biometric Authentication Systems
           </h1>
           <p className="mt-4 text-lg sm:text-xl max-w-[700px]">
-            Secure, fast, and intelligent identity verification using fingerprint, facial, iris, and voice recognition.
+            Secure, fast, and intelligent identity verification using
+            fingerprint, facial, iris, and voice recognition.
           </p>
         </div>
       </section>
 
       {/* 🔹 OVERVIEW SECTION */}
-      <section ref={(el) => setSectionRef(el, 1)} className="py-20 px-4 bg-white">
+      <section
+        ref={(el) => setSectionRef(el, 1)}
+        className="py-20 px-4 bg-white"
+      >
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* TEXT */}
           <div className="md:w-1/2">
@@ -87,8 +91,10 @@ const Page = () => {
               Smarter Access Control Through Biometrics
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Our biometric solutions integrate cutting-edge AI and sensor technology to authenticate
-              individuals based on their unique physical traits — enabling accurate, fraud-proof access in real-time.
+              Our biometric solutions integrate cutting-edge AI and sensor
+              technology to authenticate individuals based on their unique
+              physical traits — enabling accurate, fraud-proof access in
+              real-time.
             </p>
           </div>
           {/* IMAGE */}
@@ -104,36 +110,37 @@ const Page = () => {
       </section>
 
       {/* 🔹 FEATURES GRID */}
-      <section ref={(el) => setSectionRef(el, 2)} className="bg-gray-50 py-20 px-4">
+      <section
+        ref={(el) => setSectionRef(el, 2)}
+        className="bg-gray-50 py-20 px-4"
+      >
         <div className="max-w-[1320px] mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Core Features
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Core Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-10 text-left">
             {[
-                           {
-                title: '📇 Fingerprint Recognition',
-                desc: 'Capture and match fingerprint patterns using advanced sensors and AI.',
+              {
+                title: "📇 Fingerprint Recognition",
+                desc: "Capture and match fingerprint patterns using advanced sensors and AI.",
               },
               {
-                title: '📸 Facial Recognition',
-                desc: 'Identify individuals using deep learning-based face mapping and detection.',
+                title: "📸 Facial Recognition",
+                desc: "Identify individuals using deep learning-based face mapping and detection.",
               },
               {
-                title: '👁️ Iris & Retina Scanning',
-                desc: 'Use eye-based biometrics for high-security and contactless authentication.',
+                title: "👁️ Iris & Retina Scanning",
+                desc: "Use eye-based biometrics for high-security and contactless authentication.",
               },
               {
-                title: '🗣️ Voice Recognition',
-                desc: 'Verify identity through speech patterns and vocal analysis.',
+                title: "🗣️ Voice Recognition",
+                desc: "Verify identity through speech patterns and vocal analysis.",
               },
               {
-                title: '📱 Mobile Biometric SDKs',
-                desc: 'Integrate our biometric modules into your mobile or web applications easily.',
+                title: "📱 Mobile Biometric SDKs",
+                desc: "Integrate our biometric modules into your mobile or web applications easily.",
               },
               {
-                title: '🔍 Liveness Detection',
-                desc: 'Prevent spoofing attacks using real-time motion and thermal analysis.',
+                title: "🔍 Liveness Detection",
+                desc: "Prevent spoofing attacks using real-time motion and thermal analysis.",
               },
             ].map((item, index) => (
               <div
@@ -151,7 +158,10 @@ const Page = () => {
       </section>
 
       {/* 🔹 USE CASES SECTION */}
-      <section ref={(el) => setSectionRef(el, 3)} className="py-20 px-4 bg-white">
+      <section
+        ref={(el) => setSectionRef(el, 3)}
+        className="py-20 px-4 bg-white"
+      >
         <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row-reverse items-center gap-10">
           {/* IMAGE */}
           <div className="md:w-1/2">
@@ -164,7 +174,9 @@ const Page = () => {
           </div>
           {/* TEXT */}
           <div className="md:w-1/2">
-            <p className="text-sm text-blue-600 mb-2">🏢 INDUSTRY APPLICATIONS</p>
+            <p className="text-sm text-blue-600 mb-2">
+              🏢 INDUSTRY APPLICATIONS
+            </p>
             <h2 className="text-3xl sm:text-4xl font-light mb-4">
               Biometric Solutions for Every Industry
             </h2>
@@ -189,7 +201,8 @@ const Page = () => {
             Ready to Secure with Biometrics?
           </h2>
           <p className="text-lg max-w-[700px] mb-6">
-            Explore how our biometric systems can improve security, convenience, and compliance for your organization.
+            Explore how our biometric systems can improve security, convenience,
+            and compliance for your organization.
           </p>
           <a
             href="/contact"
