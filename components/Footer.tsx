@@ -1,11 +1,6 @@
-
+import Link from "next/link";
 import React from "react";
-import {
-  FaFacebook,
-  FaLinkedin,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
@@ -15,70 +10,252 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Services */}
         <div>
-          <h5 className="text-lg font-semibold mb-4">Services</h5>
+          <p className="text-lg font-bold mb-4">Services</p>
           <div className="flex flex-col gap-6">
             <div>
-              <h6 className="font-medium">Digital</h6>
-              <ul className="text-sm text-gray-700 space-y-1 mt-1">
-                <li>Digital consultancy</li>
-                <li>Digital commerce</li>
-                <li>Business Applications</li>
-              </ul>
+              <p className="font-bold">Software Development</p>
+           
+                <div className="flex flex-col justify-between gap-y-2">
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/software-development/webapps"}
+              >
+                Webapps
+              </Link>
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/software-development/mobile-apps"}
+              >
+                Mobile Applications
+              </Link>
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/software-development/desktop-apps"}
+              >
+                Desktop Applications
+              </Link>
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/software-development/point-of-sale"}
+              >
+                POS
+              </Link>
+            </div>
             </div>
             <div>
-              <h6 className="font-medium">Cloud</h6>
-              <ul className="text-sm text-gray-700 space-y-1 mt-1">
-                <li>Cloud Operations & Migration</li>
-                <li>Cloud Applications</li>
-                <li>Developments and integration</li>
-                <li>Managed Services</li>
-              </ul>
+              <p className="font-bold">Blockchain</p>
+            
+                  <div className="flex flex-col gap-y-2 justify-between">
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/blockchain/dapps"}
+              >
+                Dapps
+              </Link>
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/blockchain/blockchain-wallets"}
+              >
+                Blockchain Wallets
+              </Link>
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/blockchain/nft-marketplace"}
+              >
+                NFT Marketplace
+              </Link>
+              <Link
+                className="hover:text-black"
+                style={{ textDecoration: "none", color: "black" }}
+                href={"/services/blockchain/smart-contracts"}
+              >
+                Smart Contract Development
+              </Link>
+            </div>
+              <div className="mt-4">
+              <p className="font-bold">              Biometric & Embedded Systems
+</p>
+        
+                       <div className="flex flex-col gap-y-2 justify-between">
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/biometric/biometric-authentication"
+              >
+                Biometric Authentication Systems
+              </Link>
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/biometric/embedded-iot-devices"
+              >
+                Embedded IoT Devices
+              </Link>
+              
+            </div>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Services Continued */}
-        <div>
+        <div className="mt-5 ">
           <div className="flex flex-col gap-6">
             <div>
-              <h6 className="font-medium">Data Analytics</h6>
-              <ul className="text-sm text-gray-700 space-y-1 mt-1">
-                <li>Digital consultancy</li>
-                <li>Digital commerce</li>
-                <li>Business Applications</li>
-              </ul>
+              <p className="font-bold">     Artificial Intelligence / Machine Learning</p>
+            
+                <div className="flex flex-col gap-y-2">
+              <Link
+                className="hover:text-blue-600 transition duration-200"
+                style={{ textDecoration: "none", color: "black" }}
+                href="/services/ai-ml/ai-automation"
+              >
+                Intelligent Process Automation
+              </Link>
+              <Link
+                className="hover:text-blue-600 transition duration-200"
+                style={{ textDecoration: "none", color: "black" }}
+                href="/services/ai-ml/ai-analytics"
+              >
+                Predictive Analytics & Insights
+              </Link>
+              <Link
+                className="hover:text-blue-600 transition duration-200"
+                style={{ textDecoration: "none", color: "black" }}
+                href="/services/ai-ml/ai-chatbots"
+              >
+                AI Chatbots & NLP Solutions
+              </Link>
+            </div>
             </div>
             <div>
-              <h6 className="font-medium">Digital Infrastructure Services</h6>
-              <ul className="text-sm text-gray-700 space-y-1 mt-1">
+              <p className="font-bold">Robotics</p>
+              {/* <ul className="text-sm text-gray-700 space-y-1 mt-1">
                 <li>Cloud Operations & Migration</li>
                 <li>Cloud Applications</li>
                 <li>Developments and integration</li>
                 <li>Managed Services</li>
-              </ul>
+              </ul> */}
+                  <div className="flex flex-col justify-between gap-y-2">
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/robotic-process-automation"
+              >
+                Robotic Process Automation (RPA)
+              </Link>
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/industrial-robots"
+              >
+                Industrial Robots Integration
+              </Link>
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/ai-powered-robots"
+              >
+                AI-Powered Autonomous Robots
+              </Link>
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                className="hover:text-blue-600"
+                href="/services/robotics/robotics-simulation"
+              >
+                Robotics Simulation & Testing
+              </Link>
             </div>
+            </div>
+           
           </div>
         </div>
 
         {/* Industries + Insight */}
         <div>
-          <h5 className="text-lg font-semibold mb-4">Industries</h5>
-          <ul className="text-sm text-gray-700 space-y-1 mb-6">
-            <li>Digital consultancy</li>
-            <li>Digital commerce</li>
-            <li>Business Applications</li>
-          </ul>
+          <p className="text-lg font-bold mb-4">Industries</p>
+        
+              <div className="flex flex-col gap-y-2">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/communication"}
+              className=" cursor-pointer hover:text-orange-400"
+            >
+              Communication{" "}
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/banking-financial-services"}
+              className=" cursor-pointer hover:text-orange-400"
+            >
+              Banking & Financial Services
+            </Link>
 
-          <h5 className="text-lg font-semibold mb-4">Insight</h5>
-          <ul className="text-sm text-gray-700 space-y-1">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/public-sector"}
+               className=" cursor-pointer hover:text-orange-400"
+            >
+              Public Sector{" "}
+            </Link>
+               <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/health"}
+               className=" cursor-pointer hover:text-orange-400"
+            >
+              Health{" "}
+            </Link>   <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/industries/retail"}
+               className=" cursor-pointer hover:text-orange-400"
+            >
+              Retail{" "}
+            </Link>
+         
+        </div>
+
+          <p className="text-lg mt-4 font-semibold mb-4">Insights</p>
+          {/* <ul className="text-sm text-gray-700 space-y-1">
             <li>Digital consultancy</li>
             <li>Digital commerce</li>
             <li>Business Applications</li>
-          </ul>
+          </ul> */}
+            <div className="flex flex-col gap-y-2">
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/case-studies"}
+              className=" cursor-pointer hover:text-orange-400"
+            >
+              Case Studies{" "}
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/newsroom"}
+              className=" cursor-pointer hover:text-orange-400"
+            >
+              Newsroom
+            </Link>
+
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              href={"/insights/whitepapers-ebooks"}
+               className=" cursor-pointer hover:text-orange-400"
+            >
+              Whitepapers/eBooks{" "}
+            </Link>
+         
+        </div>
         </div>
 
         {/* Quick Links */}
-        <div>
+        {/* <div>
           <h5 className="text-lg font-semibold mb-4">Quick Links</h5>
           <ul className="text-sm text-gray-700 space-y-1">
             <li>Digital consultancy</li>
@@ -86,7 +263,7 @@ const Footer = () => {
             <li>Business Applications</li>
             <li>More Services</li>
           </ul>
-        </div>
+        </div> */}
       </div>
 
       {/* Subscribe and Social */}
@@ -112,21 +289,48 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="w-full lg:w-1/2 flex justify-start lg:justify-end">
           <ul className="flex gap-6 text-gray-600 mt-4 lg:mt-0">
-            <li>
-              <FaLinkedin className="hover:text-black cursor-pointer" size={26} />
-            </li>
-            <li>
-              <FaFacebook className="hover:text-black cursor-pointer" size={26} />
-            </li>
-            <li>
-              <FaInstagram className="hover:text-black cursor-pointer" size={26} />
-            </li>
-            <li>
-              <FaXTwitter className="hover:text-black cursor-pointer" size={26} />
-            </li>
-            <li>
-              <FaYoutube className="hover:text-black cursor-pointer" size={26} />
-            </li>
+            <Link
+              style={{ color: "grey" }}
+              href={"https://www.linkedin.com/company/trust-nexus/"}
+              target="_blank"
+            >
+              <FaLinkedin
+                className="hover:text-black cursor-pointer"
+                size={26}
+              />
+            </Link>
+            <Link
+              style={{ color: "grey" }}
+              href={"https://web.facebook.com/profile.php?id=61573089682258"}
+              target="_blank"
+            >
+              <FaFacebook
+                className="hover:text-black cursor-pointer"
+                size={26}
+              />
+            </Link>
+            <Link
+              style={{ color: "grey" }}
+              href={"https://www.instagram.com/trustnexusco/"}
+              target="_blank"
+            >
+              <FaInstagram
+                className="hover:text-black cursor-pointer"
+                size={26}
+              />
+            </Link>
+            <Link style={{ color: "grey" }} href={""} target="_blank">
+              <FaXTwitter
+                className="hover:text-black cursor-pointer"
+                size={26}
+              />
+            </Link>
+            <Link style={{ color: "grey" }} href={""} target="_blank">
+              <FaYoutube
+                className="hover:text-black cursor-pointer"
+                size={26}
+              />
+            </Link>
           </ul>
         </div>
       </div>

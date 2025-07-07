@@ -39,7 +39,7 @@ const Services = () => {
             <p className="text-[20px] font-semibold">
               Software development
             </p>
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between gap-y-2">
               <Link
                 className="hover:text-black"
                 style={{ textDecoration: "none", color: "black" }}
@@ -136,7 +136,7 @@ const Services = () => {
         <div className="flex min-w-[360px]   w-full flex-col gap-3 ">
           <div className="flex flex-col">
             <p className="text-[20px] mb-[40px] font-semibold">Robotics</p>
-            <div className="flex flex-col justify-between gap-2">
+            <div className="flex flex-col justify-between gap-y-2">
               <Link
                 style={{ textDecoration: "none", color: "black" }}
                 className="hover:text-blue-600"
@@ -172,7 +172,7 @@ const Services = () => {
             <p className="text-[20px] font-semibold">
               Biometric & Embedded Systems
             </p>
-            <div className="flex flex-col gap-2 justify-between">
+            <div className="flex flex-col gap-y-2 justify-between">
               <Link
                 style={{ textDecoration: "none", color: "black" }}
                 className="hover:text-blue-600"

@@ -25,13 +25,18 @@ const MobileView = () => {
         menuOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="px-4 border-b-[1px] py-3 flex items-center justify-between w-full">
+      <div className="px-2 border-b-[1px] py-3 flex items-center justify-between w-full">
         <Link
           style={{ textDecoration: "none" }}
-          className="text-xl sm:text-2xl italic font-semibold text-white"
+          className="text-md sm:text-lg flex items-center italic font-semibold text-white"
           href="/"
         >
-          TrustNexus
+           <img
+                  className="sm:w-16 w-12 h-12 pt-2 my-auto sm:h-16"
+                  src="./website-logo.png"
+                  alt=""
+                />
+          <span className="text-md">Trust Nexus</span>
         </Link>
         <IoClose
           size={23}

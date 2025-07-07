@@ -59,7 +59,7 @@ const Technology = () => {
         className="max-w-screen-xl  mx-auto px-4 flex flex-col lg:flex-row justify-between items-start flex-wrap py-16"
       >
         {/* Left Content */}
-        <div className="lg:w-1/2 border-b lg:border-b-0 lg:border-r border-gray-300 pr-0 lg:pr-12 pb-10 lg:pb-0">
+        <div className="lg:w-[48%] border-b lg:border-b-0 lg:border-r border-gray-300 pr-0 lg:pr-12 pb-10 lg:pb-0">
           <p className="text-2xl sm:text-3xl lg:text-[46px] font-semibold leading-snug mb-4">
             Translating Technology into a positive impact
           </p>
