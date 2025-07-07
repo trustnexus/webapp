@@ -2,7 +2,10 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import gsap from "gsap";
+import { IoMdClose } from "react-icons/io";
+import useAppStore from "@/store/store";
 const Insights = () => {
+  const {setHovered} = useAppStore()
   useEffect(() => {
     gsap.fromTo(
       ".insight",
@@ -74,6 +77,9 @@ Blogs            </Link>
           </div>
         </div>
       </div>
+         <div onClick={()=>setHovered('')} className="absolute top-5 right-10 cursor-pointer">
+      <IoMdClose size={26}/>
+            </div>
     </div>
   );
 };

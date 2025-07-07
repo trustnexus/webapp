@@ -31,11 +31,11 @@ const MobileView = () => {
           className="text-md sm:text-lg flex items-center italic font-semibold text-white"
           href="/"
         >
-           <img
-                  className="sm:w-16 w-12 h-12 pt-2 my-auto sm:h-16"
-                  src="./website-logo.png"
-                  alt=""
-                />
+          <img
+            className="sm:w-16 w-12 h-12 pt-2 my-auto sm:h-16"
+            src="./website-logo.png"
+            alt=""
+          />
           <span className="text-md">Trust Nexus</span>
         </Link>
         <IoClose
@@ -308,12 +308,13 @@ const MobileView = () => {
               >
                 Whitepapers/eBooks
               </Link>
-                 <Link
+              <Link
                 className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
                 style={{ color: "#a2a5a6", textDecoration: "none" }}
                 href={"/insights/blogs"}
               >
-Blogs              </Link>
+                Blogs{" "}
+              </Link>
             </div>
           )}
         </div>

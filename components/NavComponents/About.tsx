@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import Link from "next/link";
+import { IoMdClose } from "react-icons/io";
+import useAppStore from "@/store/store";
 const About = () => {
+  const { setHovered } = useAppStore();
   useEffect(() => {
     gsap.fromTo(
       ".about",
@@ -69,6 +72,12 @@ const About = () => {
             <h5 className="text-[20px] font-semibold ">Our Global presence </h5>
           </div>
         </div> */}
+      </div>
+      <div
+        onClick={() => setHovered("")}
+        className="absolute top-5 right-10 cursor-pointer"
+      >
+        <IoMdClose size={26} />
       </div>
     </div>
   );
