@@ -308,6 +308,12 @@ const MobileView = () => {
               >
                 Whitepapers/eBooks
               </Link>
+                 <Link
+                className="px-6 py-2 italic hover:text-white hover:bg-blue-600"
+                style={{ color: "#a2a5a6", textDecoration: "none" }}
+                href={"/insights/blogs"}
+              >
+Blogs              </Link>
             </div>
           )}
         </div>
