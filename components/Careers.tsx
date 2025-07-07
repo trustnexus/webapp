@@ -1,6 +1,8 @@
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Careers = () => {
+  const router  = useRouter()
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Background Video */}
@@ -26,7 +28,7 @@ const Careers = () => {
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Your next starts right here
         </h1>
-        <button className="border-white border-[1px] text-white hover:bg-gray-700 hover:animate-pulse hover:scale-[1.15] font-semibold px-6 py-3 rounded hover:bg-opacity-90 transition">
+        <button onClick={()=>router.push('/career')} className="border-white border-[1px] text-white hover:bg-gray-700 hover:animate-pulse hover:scale-[1.15] font-semibold px-6 py-3 rounded hover:bg-opacity-90 transition">
           Join Us
         </button>
       </div>
