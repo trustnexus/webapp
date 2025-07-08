@@ -30,8 +30,7 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          href="/logo.jpeg"
-          type="image/x-icon"
+          href="./web-logo.png"
         />
       </head>
       <body

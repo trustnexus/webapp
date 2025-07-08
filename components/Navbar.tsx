@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, lazy } from "react";
 import { CiSearch } from "react-icons/ci";
 import { GrLanguage } from "react-icons/gr";
 import { FaArrowDown } from "react-icons/fa6";
@@ -45,9 +45,9 @@ const Navbar = () => {
     <>
       <div
         onClick={() => handleClickOutside}
-        className="border-b hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out fixed top-0 w-full z-50 text-white border-gray-500 bg-transparent"
+        className="border-b hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out fixed top-0 w-full z-50 text-black border-gray-500  bg-white"
       >
-        <div className="max-w-[1320px] mx-auto w-full h-[70px] px-4 md:px-10 flex items-center justify-between">
+        <div className="max-w-[1390px] mx-auto w-full h-[70px] px-4 md:px-10 flex items-center justify-between">
           {/* Left Section */}
           <div className="flex items-center w-full lg:w-auto gap-3">
             {/* Hamburger (moved to left in mobile view) */}
@@ -64,15 +64,19 @@ const Navbar = () => {
             <div className="hover:text-cyan-400">
               <Link
                 style={{ textDecoration: "none" }}
-                className="text-md  w-full my-auto h-[70px] flex  items-center justify-center sm:text-lg italic font-semibold text-white"
+                className="text-md  w-full   my-auto flex  items-center justify-center sm:text-lg  font-lighter text-black"
                 href="/"
               >
                 <img
-                  className="sm:w-16 w-12 h-12 pt-2 my-auto sm:h-16"
-                  src="./website-logo.png"
-                  alt=""
+                  className="sm:w-16 w-12 h-12  my-auto sm:h-16"
+                  src="./web-logo.png"
+                  alt="web-logo"
+                  loading="lazy"
                 />
-                <span  className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1"> Trust Nexus</span>{" "}
+                <span className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center  ">
+                  {" "}
+                  Trust Nexus
+                </span>{" "}
               </Link>
             </div>
 
@@ -101,7 +105,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("industries")}
               >
-                <div  className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   Industries <TiArrowSortedDown />
                 </div>
                 {hovered === "industries" && (
@@ -119,7 +123,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("insights")}
               >
-                <div  className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   Insights <TiArrowSortedDown />
                 </div>
                 {hovered === "insights" && (
@@ -137,7 +141,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("about")}
               >
-                <div  className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   About <TiArrowSortedDown />
                 </div>
                 {hovered === "about" && (
@@ -161,9 +165,12 @@ const Navbar = () => {
                   textDecoration: "none",
                   color: isHovered ? "#26C6DA" : "white",
                 }}
-                className="cursor-pointer  text-white"
+                className="cursor-pointer  text-black"
               >
-                <span  className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1"> Careers</span>{" "}
+                <span className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
+                  {" "}
+                  Careers
+                </span>{" "}
               </Link>
 
               {/* INVESTORS */}
@@ -171,7 +178,7 @@ const Navbar = () => {
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("investor")}
               >
-                <div  className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
+                <div className="cursor-pointer hover:border-b-[1px] border-cyan-400 hover:text-cyan-400 flex items-center gap-1 px-2 py-1">
                   Investors <TiArrowSortedDown />
                 </div>
                 {hovered === "investor" && (

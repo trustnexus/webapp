@@ -28,12 +28,12 @@ const MobileView = () => {
       <div className="px-2 border-b-[1px] py-3 flex items-center justify-between w-full">
         <Link
           style={{ textDecoration: "none" }}
-          className="text-md sm:text-lg flex items-center italic font-semibold text-white"
+          className="text-md sm:text-lg flex items-center font-semibold text-white"
           href="/"
         >
           <img
-            className="sm:w-16 w-12 h-12 pt-2 my-auto sm:h-16"
-            src="./website-logo.png"
+            className="sm:w-16 w-12 h-12 my-auto sm:h-16"
+            src="./web-logo.png"
             alt=""
           />
           <span className="text-md">Trust Nexus</span>

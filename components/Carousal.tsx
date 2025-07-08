@@ -91,3 +91,12 @@ export default function VideoCarousel() {
     </div>
   );
 }
+
+// import React from 'react'
+
+// const Carousal = () => {
+//   return (
+// <div className="webgl-canvas-container svelte-1tvxrr"><canvas width="1901" height="868" style={{width: '1901.25px',height: '868.75px' ,maxWidth: '1521px', maxHeight:' 695px'}}></canvas></div>  )
+// }
+
+// export default Carousal

@@ -7,7 +7,6 @@ import FeaturedInsight from "@/components/FeaturedInsight";
 import Technology from "@/components/Technology";
 import Careers from "@/components/Careers";
 import Help from "@/components/Help";
-import Footer from "@/components/Footer";
 
 const page = () => {
   const ourServicesRef = useRef<HTMLDivElement>(null);

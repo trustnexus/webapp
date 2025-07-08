@@ -62,6 +62,7 @@ const page = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+  const screenWidth = window.innerWidth;
 
     const tl = gsap.timeline({
       scrollTrigger: {
