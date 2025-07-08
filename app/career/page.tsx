@@ -304,7 +304,7 @@ const page = () => {
             </p>
           ))}
         </div>
-        <div className="cities flex  w-[max-content]   sm:gap-12">
+        <div className="cities flex  w-[max-content] gap-3  sm:gap-12">
           {cities.map((city, index) => (
             <p className="text-md sm:text-[50px] font-light" key={index}>
               {city.name}
