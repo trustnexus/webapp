@@ -40,179 +40,230 @@ const OurServices = () => {
     },
   ];
 
-// useEffect(() => {
-//   const screenWidth = window.innerWidth;
+  // useEffect(() => {
+  //   const screenWidth = window.innerWidth;
 
-//   if (screenWidth < 640) {
-//     // Mobile (xs)
-//     gsap.to(headingRef.current, {
-//       y: 370,
-//       fontSize: "25px",
-//       ease: "power2.out",
-//       duration: 10,
-//       scrollTrigger: {
-//         trigger: headingRef.current,
-//         start: "top 50px",
-//         end: "bottom center",
-//         scrub: 2,
-//         pin: true, // Pin for mobile
-//       },
-//     });
-//   } else if (screenWidth >= 640 && screenWidth < 1033) {
-//     // Small to medium screens
-//     gsap.to(headingRef.current, {
-//       y: 350,
-//       x: -200,
-//       fontSize: "30px",
-//       ease: "power2.out",
-//       duration: 10,
-//       scrollTrigger: {
-//         trigger: headingRef.current,
-//         start: "top 50px",
-//         end: "bottom center",
-//         scrub: 1,
-//         toggleActions: "restart pause reverse none",
-//       },
-//     });
-//   } else if (screenWidth >= 1033 && screenWidth < 1233) {
-//     // Medium to large screens
-//     gsap.to(headingRef.current, {
-//       y: 350,
-//       x: -598,
-//       fontSize: "39px",
-//       ease: "power2.out",
-//       duration: 10,
-//       scrollTrigger: {
-//         trigger: headingRef.current,
-//         start: "top 50px",
-//         end: "bottom center",
-//         scrub: 1,
-//         toggleActions: "restart pause reverse none",
-//       },
-//     });
-//   }else if (screenWidth >= 1233 && screenWidth < 1441) {
-//      gsap.to(headingRef.current, {
-//       y: 350,
-//       x: -400,
-//       fontSize: "39px",
-//       ease: "power2.out",
-//       duration: 10,
-//       scrollTrigger: {
-//         trigger: headingRef.current,
-//         start: "top 50px",
-//         end: "bottom center",
-//         scrub: 1,
-//         toggleActions: "restart pause reverse none",
-//       },
-//     });
-//   }
-//   else {
-//     // Extra large (desktop and above)
-//     gsap.to(headingRef.current, {
-//       y: 380,
-//       x: -568,
-//       fontSize: "49px",
-//       ease: "power2.out",
-//       duration: 10,
-//       scrollTrigger: {
-//         trigger: headingRef.current,
-//         start: "top 50px",
-//         end: "bottom center",
-//         scrub: 1,
-//         toggleActions: "restart pause reverse none",
-//       },
-//     });
-//   }
-// }, []);
+  //   if (screenWidth < 640) {
+  //     // Mobile (xs)
+  //     gsap.to(headingRef.current, {
+  //       y: 370,
+  //       fontSize: "25px",
+  //       ease: "power2.out",
+  //       duration: 10,
+  //       scrollTrigger: {
+  //         trigger: headingRef.current,
+  //         start: "top 50px",
+  //         end: "bottom center",
+  //         scrub: 2,
+  //         pin: true, // Pin for mobile
+  //       },
+  //     });
+  //   } else if (screenWidth >= 640 && screenWidth < 1033) {
+  //     // Small to medium screens
+  //     gsap.to(headingRef.current, {
+  //       y: 350,
+  //       x: -200,
+  //       fontSize: "30px",
+  //       ease: "power2.out",
+  //       duration: 10,
+  //       scrollTrigger: {
+  //         trigger: headingRef.current,
+  //         start: "top 50px",
+  //         end: "bottom center",
+  //         scrub: 1,
+  //         toggleActions: "restart pause reverse none",
+  //       },
+  //     });
+  //   } else if (screenWidth >= 1033 && screenWidth < 1233) {
+  //     // Medium to large screens
+  //     gsap.to(headingRef.current, {
+  //       y: 350,
+  //       x: -598,
+  //       fontSize: "39px",
+  //       ease: "power2.out",
+  //       duration: 10,
+  //       scrollTrigger: {
+  //         trigger: headingRef.current,
+  //         start: "top 50px",
+  //         end: "bottom center",
+  //         scrub: 1,
+  //         toggleActions: "restart pause reverse none",
+  //       },
+  //     });
+  //   }else if (screenWidth >= 1233 && screenWidth < 1441) {
+  //      gsap.to(headingRef.current, {
+  //       y: 350,
+  //       x: -400,
+  //       fontSize: "39px",
+  //       ease: "power2.out",
+  //       duration: 10,
+  //       scrollTrigger: {
+  //         trigger: headingRef.current,
+  //         start: "top 50px",
+  //         end: "bottom center",
+  //         scrub: 1,
+  //         toggleActions: "restart pause reverse none",
+  //       },
+  //     });
+  //   }
+  //   else {
+  //     // Extra large (desktop and above)
+  //     gsap.to(headingRef.current, {
+  //       y: 380,
+  //       x: -568,
+  //       fontSize: "49px",
+  //       ease: "power2.out",
+  //       duration: 10,
+  //       scrollTrigger: {
+  //         trigger: headingRef.current,
+  //         start: "top 50px",
+  //         end: "bottom center",
+  //         scrub: 1,
+  //         toggleActions: "restart pause reverse none",
+  //       },
+  //     });
+  //   }
+  // }, []);
 
-useEffect(() => {
-  ScrollTrigger.matchMedia({
-    // Mobile: max-width: 639px
-    "(max-width: 639px)": () => {
-      gsap.to(headingRef.current, {
-        y: 370,
-        fontSize: "25px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 2,
-          pin: true,
-        },
-      });
-    },
+  useEffect(() => {
+    ScrollTrigger.matchMedia({
+      // 1. Very small phones (e.g., below 233px)
+      "(max-width: 232px)": () => {
+        gsap.to(headingRef.current, {
+          y: 300,
+          fontSize: "18px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 2,
+            pin: true,
+          },
+        });
+      },
 
-    // Small to Medium screens: 640px to 1024px
-    "(min-width: 640px) and (max-width: 1024px)": () => {
-      gsap.to(headingRef.current, {
-        y: 350,
-        x: -250,
-        fontSize: "30px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-        },
-      });
-    },
+      // 2. Small phones (233px to 399px)
+      "(min-width: 233px) and (max-width: 399px)": () => {
+        gsap.to(headingRef.current, {
+          y: 340,
+          fontSize: "21px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 2,
+            pin: true,
+          },
+        });
+      },
 
-    // Medium to Large screens: 1025px to 1232px
-    "(min-width: 1025px) and (max-width: 1232px)": () => {
-      gsap.to(headingRef.current, {
-        y: 350,
-        x: -360,
-        fontSize: "39px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-        },
-      });
-    },
+      // 3. Larger phones (400px to 638px)
+      "(min-width: 400px) and (max-width: 638px)": () => {
+        gsap.to(headingRef.current, {
+          y: 370,
+          fontSize: "25px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 2,
+            pin: true,
+          },
+        });
+      },
+      // Mobile: max-width: 639px
 
-    // Large to XL screens: 1233px to 1440px
-    "(min-width: 1233px) and (max-width: 1440px)": () => {
-      gsap.to(headingRef.current, {
-        y: 350,
-        x: -543,
-        fontSize: "49px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-        },
-      });
-    },
+      "(max-width: 639px)": () => {
+        gsap.to(headingRef.current, {
+          y: 370,
+          fontSize: "25px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 2,
+            pin: true,
+          },
+        });
+      },
 
-    // Extra large screens: 1441px and above
-    "(min-width: 1441px)": () => {
-      gsap.to(headingRef.current, {
-        y: 350,
-        x: -530,
-        fontSize: "49px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-        },
-      });
-    },
-  });
-}, []);
+      // Small to Medium screens: 640px to 1024px
+      "(min-width: 640px) and (max-width: 1024px)": () => {
+        gsap.to(headingRef.current, {
+          y: 350,
+          x: -250,
+          fontSize: "30px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+          },
+        });
+      },
+
+      // Medium to Large screens: 1025px to 1232px
+      "(min-width: 1025px) and (max-width: 1232px)": () => {
+        gsap.to(headingRef.current, {
+          y: 350,
+          x: -360,
+          fontSize: "39px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+          },
+        });
+      },
+
+      // Large to XL screens: 1233px to 1440px
+      "(min-width: 1233px) and (max-width: 1440px)": () => {
+        gsap.to(headingRef.current, {
+          y: 350,
+          x: -543,
+          fontSize: "49px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+          },
+        });
+      },
+
+      // Extra large screens: 1441px and above
+      "(min-width: 1441px)": () => {
+        gsap.to(headingRef.current, {
+          y: 375,
+          x: -530,
+          fontSize: "49px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+          },
+        });
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({
