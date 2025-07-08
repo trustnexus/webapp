@@ -66,9 +66,9 @@ const page = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".globalSection",
-        start: "top 10%",
-        end: "top -150%",
-        scrub: 1,
+        start: "top 0%",
+        end: "top -1000%",
+        scrub: 2,
         pin: true,
       },
     });
@@ -79,7 +79,8 @@ const page = () => {
     }).to(
       ".cities",
       {
-        x: "0100%",
+        x: "100%",
+        fontSize:'15px',
         duration: 2,
         ease: "none",
       },
@@ -265,20 +266,19 @@ const page = () => {
       </section>
 
       {/* Video */}
-      <div className="relative h-[200px] sm:h-[220px]">
+      <div className="relative h-[200px] sm:h-[320px]">
         <video
-          className="w-full h-full object-cover absolute inset-0"
+          className="w-full h-full object-cover z-[100] absolute inset-0"
           src="https://www.systemsltd.com/sites/default/files/2024-02/globe-animation-grey%20%282%29.mp4"
           autoPlay
           muted
           loop
         ></video>
-      </div>
 
       {/* Global Team CTA */}
       <section className="py-20 px-6 text-center relative bg-white">
-        <div className="max-w-2xl mx-auto bg-white p-6 shadow-md rounded-md">
-          <p className="text-2xl sm:text-[54px] mb-4">Join our global team</p>
+        <div className="max-w-2xl absolute z-[1000] top-[70px]  mx-auto bg-white p-6 shadow-md rounded-md">
+          <p className="text-xl sm:text-[40px] mb-4">Join our global team</p>
           <p className="text-[16px] sm:text-[20px] mb-4">
             Our career opportunities also span around the world.
           </p>
@@ -288,23 +288,25 @@ const page = () => {
           />
         </div>
       </section>
+            </div>
+
 
       {/* Global Presence */}
       <section className="globalSection py-20 px-6 text-center">
         <p className="mb-10 text-lg font-semibold">GLOBAL PRESENCE</p>
-        <div className="countries flex w-[max-content] gap-20 mb-6">
+        <div className="countries flex w-[max-content] gap-8 md:gap-20 mb-6">
           {countries.map((country, index) => (
             <p
-              className="countryNames text-xl whitespace-nowrap sm:text-[60px] font-light"
+              className="countryNames text-md whitespace-nowrap sm:text-[50px] font-light"
               key={index}
             >
               {country.name}
             </p>
           ))}
         </div>
-        <div className="cities flex w-[max-content] gap-12">
+        <div className="cities flex  w-[max-content]   sm:gap-12">
           {cities.map((city, index) => (
-            <p className="text-xl sm:text-[60px] font-light" key={index}>
+            <p className="text-md sm:text-[50px] font-light" key={index}>
               {city.name}
             </p>
           ))}
