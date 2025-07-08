@@ -40,230 +40,105 @@ const OurServices = () => {
     },
   ];
 
-  // useEffect(() => {
-  //   const screenWidth = window.innerWidth;
+useEffect(() => {
+  ScrollTrigger.matchMedia({
+    // Mobile < 640px
+    "(max-width: 639px)": () => {
+      gsap.to(headingRef.current, {
+        x: 30,
+        y: 380,
+        fontSize: "28px",
+        ease: "power2.out",
+        duration: 10,
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 50px",
+          end: "bottom center",
+          scrub: 2,
+          pin: true,
+          toggleActions: "restart pause reverse none",
+        },
+      });
+    },
 
-  //   if (screenWidth < 640) {
-  //     // Mobile (xs)
-  //     gsap.to(headingRef.current, {
-  //       y: 370,
-  //       fontSize: "25px",
-  //       ease: "power2.out",
-  //       duration: 10,
-  //       scrollTrigger: {
-  //         trigger: headingRef.current,
-  //         start: "top 50px",
-  //         end: "bottom center",
-  //         scrub: 2,
-  //         pin: true, // Pin for mobile
-  //       },
-  //     });
-  //   } else if (screenWidth >= 640 && screenWidth < 1033) {
-  //     // Small to medium screens
-  //     gsap.to(headingRef.current, {
-  //       y: 350,
-  //       x: -200,
-  //       fontSize: "30px",
-  //       ease: "power2.out",
-  //       duration: 10,
-  //       scrollTrigger: {
-  //         trigger: headingRef.current,
-  //         start: "top 50px",
-  //         end: "bottom center",
-  //         scrub: 1,
-  //         toggleActions: "restart pause reverse none",
-  //       },
-  //     });
-  //   } else if (screenWidth >= 1033 && screenWidth < 1233) {
-  //     // Medium to large screens
-  //     gsap.to(headingRef.current, {
-  //       y: 350,
-  //       x: -598,
-  //       fontSize: "39px",
-  //       ease: "power2.out",
-  //       duration: 10,
-  //       scrollTrigger: {
-  //         trigger: headingRef.current,
-  //         start: "top 50px",
-  //         end: "bottom center",
-  //         scrub: 1,
-  //         toggleActions: "restart pause reverse none",
-  //       },
-  //     });
-  //   }else if (screenWidth >= 1233 && screenWidth < 1441) {
-  //      gsap.to(headingRef.current, {
-  //       y: 350,
-  //       x: -400,
-  //       fontSize: "39px",
-  //       ease: "power2.out",
-  //       duration: 10,
-  //       scrollTrigger: {
-  //         trigger: headingRef.current,
-  //         start: "top 50px",
-  //         end: "bottom center",
-  //         scrub: 1,
-  //         toggleActions: "restart pause reverse none",
-  //       },
-  //     });
-  //   }
-  //   else {
-  //     // Extra large (desktop and above)
-  //     gsap.to(headingRef.current, {
-  //       y: 380,
-  //       x: -568,
-  //       fontSize: "49px",
-  //       ease: "power2.out",
-  //       duration: 10,
-  //       scrollTrigger: {
-  //         trigger: headingRef.current,
-  //         start: "top 50px",
-  //         end: "bottom center",
-  //         scrub: 1,
-  //         toggleActions: "restart pause reverse none",
-  //       },
-  //     });
-  //   }
-  // }, []);
+    // Tablets 640px - 1023px
+    "(min-width: 640px) and (max-width: 1023px)": () => {
+      gsap.to(headingRef.current, {
+        x: 0,
+        y: 360,
+        fontSize: "36px",
+        ease: "power2.out",
+        duration: 10,
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 50px",
+          end: "bottom center",
+          scrub: 1,
+          pin: false,
+          toggleActions: "restart pause reverse none",
+        },
+      });
+    },
 
-  useEffect(() => {
-    ScrollTrigger.matchMedia({
-      // 1. Very small phones (e.g., below 233px)
-      "(max-width: 232px)": () => {
-        gsap.to(headingRef.current, {
-          y: 300,
-          fontSize: "18px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 2,
-            pin: true,
-          },
-        });
-      },
+    // Laptops 1024px - 1439px
+    "(min-width: 1024px) and (max-width: 1139px)": () => {
+      gsap.to(headingRef.current, {
+        x: -22,
+        y: 358,
+        fontSize: "45px",
+        ease: "power2.out",
+        duration: 10,
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 50px",
+          end: "bottom center",
+          scrub: 1,
+          pin: false,
+          toggleActions: "restart pause reverse none",
+        },
+      });
+    },
+ // Laptops 1024px - 1439px
+    "(min-width: 1140px) and (max-width: 1439px)": () => {
+      gsap.to(headingRef.current, {
+        x: -356,
+        y: 358,
+        fontSize: "45px",
+        ease: "power2.out",
+        duration: 10,
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 50px",
+          end: "bottom center",
+          scrub: 1,
+          pin: false,
+          toggleActions: "restart pause reverse none",
+        },
+      });
+    },
 
-      // 2. Small phones (233px to 399px)
-      "(min-width: 233px) and (max-width: 399px)": () => {
-        gsap.to(headingRef.current, {
-          y: 340,
-          fontSize: "21px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 2,
-            pin: true,
-          },
-        });
-      },
+    // Desktop 1440px+
+    "(min-width: 1440px)": () => {
+      gsap.to(headingRef.current, {
+        x: -400,
+        y: 358,
+        fontSize: "49px",
+        ease: "power2.out",
+        duration: 10,
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 50px",
+          end: "bottom center",
+          scrub: 1,
+          pin: false,
+          toggleActions: "restart pause reverse none",
+        },
+      });
+    },
+  });
+}, []);
 
-      // 3. Larger phones (400px to 638px)
-      "(min-width: 400px) and (max-width: 638px)": () => {
-        gsap.to(headingRef.current, {
-          y: 370,
-          fontSize: "25px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 2,
-            pin: true,
-          },
-        });
-      },
-      // Mobile: max-width: 639px
 
-      "(max-width: 639px)": () => {
-        gsap.to(headingRef.current, {
-          y: 370,
-          fontSize: "25px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 2,
-            pin: true,
-          },
-        });
-      },
-
-      // Small to Medium screens: 640px to 1024px
-      "(min-width: 640px) and (max-width: 1024px)": () => {
-        gsap.to(headingRef.current, {
-          y: 350,
-          x: -250,
-          fontSize: "30px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 1,
-          },
-        });
-      },
-
-      // Medium to Large screens: 1025px to 1232px
-      "(min-width: 1025px) and (max-width: 1232px)": () => {
-        gsap.to(headingRef.current, {
-          y: 350,
-          x: -360,
-          fontSize: "39px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 1,
-          },
-        });
-      },
-
-      // Large to XL screens: 1233px to 1440px
-      "(min-width: 1233px) and (max-width: 1440px)": () => {
-        gsap.to(headingRef.current, {
-          y: 350,
-          x: -543,
-          fontSize: "49px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 1,
-          },
-        });
-      },
-
-      // Extra large screens: 1441px and above
-      "(min-width: 1441px)": () => {
-        gsap.to(headingRef.current, {
-          y: 375,
-          x: -530,
-          fontSize: "49px",
-          ease: "power2.out",
-          duration: 10,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 50px",
-            end: "bottom center",
-            scrub: 1,
-          },
-        });
-      },
-    });
-  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -357,7 +232,7 @@ const OurServices = () => {
         <div className="headingDiv">
           <p
             ref={headingRef}
-            className="inline-block text-[40px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)] [word-spacing:-7px] tracking-normal"
+            className="inline-block text-[40px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)]  tracking-normal"
           >
             Our Services
           </p>
@@ -365,13 +240,13 @@ const OurServices = () => {
       </div>
 
       {/* Section Below */}
-      <div className="max-w-[1432px]   text-start mx-auto flex-wrap flex gap-10">
-        <div className="md:w-[40%] w-full flex flex-col gap-10">
+      <div className="max-w-[1432px]   text-start mx-auto flex-wrap flex flex-col lg:flex-row justify-center gap-10">
+        <div className="md:w-[40%]  w-full flex flex-col gap-10">
           <div className="flex flex-col gap-8">
             <div className="my-10 p-1 sm:p-5">
               <div
                 ref={redefiningLineRef}
-                className="pl-10 pr-2 md:pl-10 redefining my-10 relative"
+                className="pl-10 pr-2 md:pl-10 redefining mt-10 md:mb-7  lg:pb-10 lg:mt-9   mb-4 relative"
               >
                 <span
                   className="text-[25px] sm:text-[32px] md:text-[30px] lg:text-[44px] xl:text-[49px]
@@ -403,7 +278,7 @@ const OurServices = () => {
               <span
                 ref={globeLineRef}
                 className=" text-[25px] sm:text-[32px] md:pl-10 md:text-[30px] lg:text-[44px] xl:text-[49px]
- py-1 -my-10  font-semibold pl-10 pr-2 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+ py-1 -my-16  font-semibold pl-10 pr-2 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
               >
                 across the globe
               </span>
@@ -416,7 +291,7 @@ const OurServices = () => {
 
         <div
           ref={servicesRef}
-          className="flex w-[661px] mx-[54px] my-10 md:my-0  flex-col gap-6"
+          className="flex max-w-[661px] lg:mt-10 mx-[54px] my-10 md:my-0  flex-col gap-6"
         >
           {services.map((service, index) => (
             <div className=" md:max-w-[661px] service-card" key={index}>
