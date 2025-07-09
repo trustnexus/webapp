@@ -45,7 +45,7 @@ const Navbar = () => {
     <>
       <div
         onClick={() => handleClickOutside}
-        className="border-b hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out fixed top-0 w-full z-50 text-black border-gray-500  bg-white"
+        className="border-b hover:bg-gray-700 hover:transition-all hover:duration-200 ease-in-out sticky top-0 w-full z-50 text-black border-gray-500  bg-white"
       >
         <div className="max-w-[1390px] mx-auto w-full h-[70px] px-4 md:px-10 flex items-center justify-between">
           {/* Left Section */}
