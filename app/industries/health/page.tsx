@@ -71,9 +71,9 @@ const router  = useRouter()
     <div className="w-full">
       {/* Hero Section */}
       <div className="h-[400px] relative text-white bg-[url('https://img.freepik.com/premium-vector/health-medical-insurance-digital-technology-protection-blue-dark-background_252172-217.jpg')] bg-no-repeat bg-cover bg-center flex pl-4 md:pl-[80px] items-center">
-        <div className="banner flex flex-col absolute top-24 md:top-32 space-y-4">
+        <div className="banner flex flex-col absolute top-24 md:top-41 space-y-4">
           <p className="text-sm md:text-lg">Health</p>
-          <p className="banner-heading text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] xl:text-[102px] leading-tight bg-gradient-to-b from-white via-white to-[#161616] bg-clip-text text-transparent font-light">
+          <p className="banner-heading text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] xl:text-[102px] leading-tight lg:bg-[linear-gradient(to_bottom,white_50%,black_50%)] lg:bg-clip-text lg:text-transparent font-light">
 Enhancing experience, <br />
 access, and outcomes <br />
 through technology          </p>

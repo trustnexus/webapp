@@ -40,13 +40,13 @@ const page = () => {
         y: 30,
       });
     }
- 
+
     // Unified Section Animation (triggered on scroll)
     gsap.from(".unified-text", {
       scrollTrigger: {
         trigger: ".unified-section",
         start: "top 80%",
-        scrub:2
+        scrub: 2,
       },
       x: -100,
       opacity: 0,
@@ -58,26 +58,33 @@ const page = () => {
       scrollTrigger: {
         trigger: ".unified-section",
         start: "top 80%",
-        scrub:2
+        scrub: 2,
       },
-      x:100,
+      x: 100,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
     });
   }, []);
-const router = useRouter()
+  const router = useRouter();
   return (
     <div className="w-full">
       {/* Hero Section */}
       <div className="h-[400px] relative text-white bg-[url('https://png.pngtree.com/background/20210714/original/pngtree-abstract-futuristic-communication-low-poly-dark-blue-vector-background-design-picture-image_1249984.jpg')] bg-no-repeat bg-cover bg-center flex pl-4 md:pl-[80px] items-center">
-        <div className="banner flex flex-col absolute top-24 md:top-32 space-y-4">
+        <div className="banner flex flex-col absolute top-27 md:top-41 space-y-4">
           <p className="text-sm md:text-lg">COMMUNICATION</p>
-          <p className="banner-heading text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] xl:text-[102px] leading-tight bg-gradient-to-b from-white via-white to-[#161616] bg-clip-text text-transparent font-light">
+          <p className="banner-heading text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] xl:text-[102px] leading-tight lg:bg-[linear-gradient(to_bottom,white_50%,black_50%)] lg:bg-clip-text lg:text-transparent font-light">
             Unlocking <br /> growth beyond <br /> connectivity
           </p>
 
-          <button onClick={()=>router.push('/contact-us')} className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit">
+          {/* <p className="banner-heading text-[28px] sm:text-[40px] md:text-[60px] lg:text-[90px] xl:text-[102px] leading-tight bg-gradient-to-b from-white to-black bg-clip-text text-transparent font-light">
+            Unlocking <br /> growth beyond <br /> connectivity
+          </p> */}
+
+          <button
+            onClick={() => router.push("/contact-us")}
+            className="banner-btn bg-black text-white py-3 px-8 rounded-md w-fit"
+          >
             GET IN TOUCH
           </button>
         </div>
@@ -207,8 +214,7 @@ const router = useRouter()
           </Swiper>
         </div>
       </section>
-            <Help/>
-
+      <Help />
     </div>
   );
 };
