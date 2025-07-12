@@ -234,7 +234,7 @@ useEffect(() => {
         <div className="headingDiv">
           <p
             ref={headingRef}
-            className="inline-block text-[40px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#d63384,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#d63384,#000000)]  tracking-normal"
+            className="inline-block text-[40px] select-none font-semibold bg-clip-text text-transparent  md:text-[110px] [background-image:linear-gradient(to_right,#000000,#0dcaf0,#000000,#000000,#000000,#0dcaf0,#000000,#000000,#000000,#0dcaf0,#000000)]  tracking-normal"
           >
             Our Services
           </p>
@@ -252,27 +252,27 @@ useEffect(() => {
               >
                 <span
                   className="text-[25px] sm:text-[32px] md:text-[30px] lg:text-[44px] xl:text-[49px]
- font-semibold [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000)] inline-block py-1 bg-clip-text text-transparent"
+ font-semibold [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000)] inline-block py-1 bg-clip-text text-transparent"
                 >
                   Redefining
                 </span>
                 <span
                   ref={impactRef}
                   className="text-[25px] sm:text-[32px] md:text-[30px] lg:text-[44px] xl:text-[49px]
- absolute font-semibold top-0 xl:left-75 left-45 md:left-53 sm:left-55 lg:left-70[background-image:linear-gradient(to_right,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384)] py-1 inline-block bg-clip-text text-transparent"
+ absolute font-semibold top-0 xl:left-75 left-45 md:left-53 sm:left-55 lg:left-70 bg-[linear-gradient(to_right,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0)] py-1 inline-block bg-clip-text text-transparent"
                 >
                   impact
                 </span>
                 <span
                   ref={innovationRef}
                   className="text-[25px] sm:text-[32px] md:text-[30px] lg:text-[44px] xl:text-[49px]
- py-1 font-semibold  absolute top-0 xl:left-75 left-45 md:left-53 sm:left-55 lg:left-70[background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+ py-1 font-semibold  absolute top-0 xl:left-75 left-45 md:left-53 sm:left-55 lg:left-70 bg-[linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#f8f9fa,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000)] inline-block bg-clip-text text-transparent"
                 >
                   innovation
                 </span>
                 <span
                   ref={possibilitiesRef}
-                  className="text-[25px] sm:text-[32px] md:text-[30px] lg:text-[44px] xl:text-[49px] py-1 font-semibold absolute top-0 xl:left-75 left-45 md:left-53 sm:left-55 lg:left-70 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+                  className="text-[25px] sm:text-[32px] md:text-[30px] lg:text-[44px] xl:text-[49px] py-1 font-semibold absolute top-0 xl:left-75 left-45 md:left-53 sm:left-55 lg:left-70 bg-[linear-gradient(to_right,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#ffffff,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000)] inline-block bg-clip-text text-transparent"
                 >
                   possiblities
                 </span>
@@ -280,7 +280,7 @@ useEffect(() => {
               <span
                 ref={globeLineRef}
                 className=" text-[25px] sm:text-[32px] md:pl-10 md:text-[30px] lg:text-[44px] xl:text-[49px]
- py-1 -my-16  font-semibold pl-10 pr-2 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#d63384,#d63384,#ced4da,#d63384,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#d63384,#d63384,#d63384,#d63384,#d63384,#d63384,#000000,#000000)] inline-block bg-clip-text text-transparent"
+ py-1 -my-16  font-semibold pl-10 pr-2 [background-image:linear-gradient(to_right,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#ced4da,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#000000,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#0dcaf0,#000000,#000000)] inline-block bg-clip-text text-transparent"
               >
                 across the globe
               </span>
