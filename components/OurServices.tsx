@@ -4,6 +4,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ const OurServices = () => {
   const servicesRef = useRef(null);
 
   const headingRef = useRef(null); // already used for the section
-  // const text = ["impact", "innovative", "possiblities"];
+  const router = useRouter()
   const services = [
     {
       heading: "AI Transformation",
@@ -229,6 +230,7 @@ useEffect(() => {
     <>
       {/* Heading with GSAP animation */}
       <div className="flex flex-col  items-center justify-center h-screen">
+     
         <div className="headingDiv">
           <p
             ref={headingRef}
@@ -284,7 +286,7 @@ useEffect(() => {
               </span>
             </div>
           </div>
-          <span className="text-orange-500 px-10 -my-10 flex items-center hover:underline cursor-pointer gap-2">
+          <span onClick={()=>router.push('/contact-us')} className="text-orange-500 px-10 -my-10 flex items-center hover:underline cursor-pointer gap-2">
             GET IN TOUCH <BiRightArrowAlt />
           </span>
         </div>

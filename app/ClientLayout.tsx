@@ -8,13 +8,13 @@ import { ReactNode } from "react";
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-//   const isAdminRoute = pathname.startsWith('/admin/panel/');
-// console.log(isAdminRoute)
+  const isAdminRoute = pathname.startsWith('/admin/panel/');
+console.log(isAdminRoute)
   return (
     <>
       { <Navbar />}
       {children}
-      {<Footer />}
+      {!isAdminRoute && <Footer />}
     </>
   );
 }

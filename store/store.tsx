@@ -15,6 +15,22 @@ interface AppStates {
   setShowAbout: (data: boolean) => void;
   showInvestors: boolean;
   setShowInvestors: (data: boolean) => void;
+  isCreateServiceModalOpen: boolean;
+  setIsCreateServiceModalOpen: (data: boolean) => void;
+  isEditServiceModalOpen: boolean;
+  setIsEditServiceModalOpen: (data: boolean) => void;
+  isDeleteServiceModalOpen: boolean;
+  setIsDeleteServiceModalOpen: (data: boolean) => void;
+  isEditLogoModalOpen: boolean;
+  setIsEditLogoModalOpen: (data: boolean) => void;
+  isDeleteLogoModalOpen: boolean;
+  setIsDeleteLogoModalOpen: (data: boolean) => void;
+  isCreateBannerModalOpen: boolean;
+  setIsCreateBannerModalOpen: (data: boolean) => void;
+  isEditBannerModalOpen: boolean;
+  setIsEditBannerModalOpen: (data: boolean) => void;
+  isDeleteBannerModalOpen:boolean;
+  setIsDeleteBannerModalOpen:(data:boolean)=>void
 }
 
 const useAppStore = create<AppStates>((set) => ({
@@ -35,6 +51,34 @@ const useAppStore = create<AppStates>((set) => ({
   showInvestors: false,
 
   setShowInvestors: (data: boolean) => set({ showInvestors: data }),
+
+  isCreateServiceModalOpen: false,
+  setIsCreateServiceModalOpen: (data: boolean) =>
+    set({ isCreateServiceModalOpen: data }),
+  isEditServiceModalOpen: false,
+  setIsEditServiceModalOpen: (data: boolean) =>
+    set({ isEditServiceModalOpen: data }),
+
+  isDeleteServiceModalOpen: false,
+  setIsDeleteServiceModalOpen: (data: boolean) =>
+    set({ isDeleteServiceModalOpen: data }),
+
+  isEditLogoModalOpen: false,
+  setIsEditLogoModalOpen: (data: boolean) => set({ isEditLogoModalOpen: data }),
+  isDeleteLogoModalOpen: false,
+  setIsDeleteLogoModalOpen: (data: boolean) =>
+    set({ isDeleteLogoModalOpen: data }),
+
+  isCreateBannerModalOpen: false,
+  setIsCreateBannerModalOpen: (data: boolean) =>
+    set({ isCreateBannerModalOpen: data }),
+  isEditBannerModalOpen: false,
+  setIsEditBannerModalOpen: (data: boolean) =>
+    set({ isEditBannerModalOpen: data }),
+
+  isDeleteBannerModalOpen:false,
+  setIsDeleteBannerModalOpen:(data:boolean)=>set({isDeleteBannerModalOpen:data})
+
 }));
 
 export default useAppStore;

@@ -51,8 +51,8 @@ export default function VideoCarousel() {
             playsInline
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex px-4">
-            <div className="absolute top-[40%] left-8 md:left-24 text-white max-w-[90%] sm:max-w-[70%] lg:max-w-[60%]">
+          <div className="absolute inset-0 bg-black bg-opacity-50 z-[100] flex px-4">
+            <div className="absolute top-[40%] left-8 md:left-34 text-white max-w-[90%] sm:max-w-[70%] lg:max-w-[60%]">
               <p className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
                 {slide.heading}
               </p>
@@ -78,13 +78,13 @@ export default function VideoCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 z-[10] text-gray-500 cursor-pointer left-4 sm:-left-10 transform -translate-y-1/2  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
+        className="absolute top-1/2 z-[10] text-gray-500 cursor-pointer left-4 sm:left-10 transform -translate-y-1/2  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
       >
         <ChevronLeft size={38} className="sm:size-30" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 z-[10] right-0 transform cursor-pointer -translate-y-1/2 text-gray-500  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
+        className="absolute top-1/2 z-[10] right-4 sm:right-10 transform cursor-pointer -translate-y-1/2 text-gray-500  bg-opacity-30 hover:bg-opacity-60 p-2 sm:p-3 rounded-full"
       >
         <ChevronRight size={38} className="sm:size-30" />
       </button>

@@ -1,12 +1,8 @@
 // app/admin-panel/layout.tsx
 
-import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Admin Dashboard",
-  description: "Admin panel layout",
-};
+
 
 export default function AdminLayout({
   children,
@@ -15,19 +11,23 @@ export default function AdminLayout({
 }) {
   return (
 
-    <div className="flex h-screen">
+    <div className="flex h-[calc(100vh-71px)]">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-900 text-white pt-10 px-3">
-        <h4 className="text-md font-bold mb-6">Admin Dashboard</h4>
-        <ul className="space-y-3">
-          <li><Link href="/admin-panel/services">Services</Link></li>
-          <li><Link href="/admin-panel/careers">Careers</Link></li>
-          <li><Link href="/admin-panel/insights">Insights</Link></li>
+      <aside className="w-64 flex items-start  flex-col bg-gray-900 text-white pt-5 px-3">
+        <h4 className="text-md font-bold mb-2"><Link style={{textDecoration:'none',color:'white'}} href={'/admin/panel/dashboard'}>Admin Panel</Link></h4>
+        <ul className="flex flex-col  space-y-3">
+
+          <li><Link href="/admin/panel/logo">Logo</Link></li>
+                    <li><Link href="/admin/panel/banner">Banner</Link></li>
+
+          <li><Link href="/admin/panel/services">Services</Link></li>
+          <li><Link href="/admin/panel/career">Careers</Link></li>
+          <li><Link href="/admin/panel/insights">Insights</Link></li>
         </ul>
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">{children}</main>
+      <main className="flex-1 bg-gray-100 overflow-y-auto">{children}</main>
     </div>
 
   );

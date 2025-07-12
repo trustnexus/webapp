@@ -19,7 +19,7 @@ export default function AdminLogin() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmit = async (data: LoginFormInputs) => {
-    router.push('/admin-panel/dashboard')
+    router.push('/admin/panel/dashboard')
     // try {
     //   const res = await fetch('/api/login', {
     //     method: 'POST',
