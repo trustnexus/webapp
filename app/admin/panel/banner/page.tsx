@@ -51,19 +51,18 @@ export default function page() {
         Add Banner
       </button>
       <hr />
-      <div className="flex my-4 items-center justify-between ">
+      <div className="flex flex-col md:flex-row my-4 md:items-center justify-between ">
         <h5 className="">Banners list</h5>
-        <div className=" border-gray-300 flex items-center py-2 px-1 gap-2 rounded-lg flex-[0.5]">
+        <div className="border border-gray-300 flex items-center py-2 px-1 gap-2 rounded-lg flex-[0.5]">
           <form
             onSubmit={handleSearchSubmit}
             className="flex items-center gap-2 w-full  "
             action=""
           >
-            <IoSearch size={27} />
-            <input
+ <IoSearch className="text-gray-600" size={27} />            <input
               onChange={(e) => setSearchedValue(e.target.value)}
               value={searchedValue}
-              className="w-full border-b h-full py-2 px-1 focus:outline-none"
+              className="w-full  h-full py-2 px-1 focus:outline-none"
               type="text"
               placeholder="Search banner"
             />

@@ -77,21 +77,21 @@ export default function pag() {
       <hr />
 
       <div className="">
-        <div className="flex my-4 items-center justify-between ">
+        <div className="flex my-4 flex-col md:flex-row md:items-center justify-between ">
           <h5 className="">Insights List</h5>
-          <div className=" border-gray-300 flex items-center py-2 px-1 gap-2 rounded-lg flex-[0.5]">
+          <div className=" border border-gray-300 flex items-center py-2 px-1 gap-2 rounded-lg flex-[0.5]">
             <form
               onSubmit={handleSearchSubmit}
-              className="flex items-center gap-2 w-full  "
+              className="flex items-center gap-2 w-full"
               action=""
             >
-              <IoSearch size={27} />
+              <IoSearch className="text-gray-600" size={27} />
               <input
                 onChange={(e) => setSearchedValue(e.target.value)}
                 value={searchedValue}
-                className="w-full border-b h-full py-2 px-1 focus:outline-none"
+                className="w-full h-full py-2 px-1 focus:outline-none"
                 type="text"
-                placeholder="Search Insights"
+                placeholder="Search Insight"
               />
             </form>
           </div>
