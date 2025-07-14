@@ -5,8 +5,11 @@ import { FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import DeleteModal from "@/components/DeleteModal";
 import Link from "next/link";
+import { IoSearch } from "react-icons/io5";
+import { useState } from "react";
 
 export default function page() {
+  const [searchedValue, setSearchedValue] = useState<string>("");
   const {
     setIsCreateBannerModalOpen,
     setIsEditBannerModalOpen,
@@ -18,30 +21,55 @@ export default function page() {
 
   const banners = [
     {
+      category: "homepage",
       heading: "Welcome",
       description: "This is the main banner",
       route: "/home",
       video: "/banner1.mp4",
     },
     {
+      category: "contact us",
       heading: "Contact Us",
       description: "Reach out to us",
       route: "/contact",
       video: "/banner2.mp4",
     },
   ];
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
 
+    } catch (error) {}
+  };
   return (
     <div className="relative p-3 min-h-screen">
       <h3 className="text-2xl font-bold">Manage Banners</h3>
-
       <button
         onClick={() => setIsCreateBannerModalOpen(true)}
         className="bg-blue-500 text-white px-4 py-2 my-3 rounded"
       >
         Add Banner
       </button>
-
+      <hr />
+      <div className="flex my-4 items-center justify-between ">
+        <h5 className="">Banners list</h5>
+        <div className=" border-gray-300 flex items-center py-2 px-1 gap-2 rounded-lg flex-[0.5]">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="flex items-center gap-2 w-full  "
+            action=""
+          >
+            <IoSearch size={27} />
+            <input
+              onChange={(e) => setSearchedValue(e.target.value)}
+              value={searchedValue}
+              className="w-full border-b h-full py-2 px-1 focus:outline-none"
+              type="text"
+              placeholder="Search banner"
+            />
+          </form>
+        </div>
+      </div>{" "}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {banners.map((banner, index) => (
           <div
@@ -53,6 +81,9 @@ export default function page() {
               controls
               className="h-42 w-full object-cover rounded mb-2"
             />
+            <p className="bg-gray-200 inline rounded-lg px-2 py-1">
+              {banner.category}
+            </p>
             <h4 className="text-lg font-bold">{banner.heading}</h4>
             <p className="text-sm">{banner.description}</p>
             <Link href={banner.route}></Link>
@@ -71,19 +102,16 @@ export default function page() {
           </div>
         ))}
       </div>
-
       {isCreateBannerModalOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <BannerForm />
         </div>
       )}
-
       {isEditBannerModalOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <BannerForm />
         </div>
       )}
-
       {isDeleteBannerModalOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
           <DeleteModal />

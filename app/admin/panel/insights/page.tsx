@@ -5,10 +5,14 @@ import InsightForm from "@/components/Insights/InsightForm";
 import useAppStore from "@/store/store";
 import Image from "next/image";
 import Link from "next/link";
+import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
 
 export default function pag() {
+  const [searchedValue, setSearchedValue] = useState<string>("");
+
   const {
     isDeleteAnInsightModalOpen,
     isEditAnInsightModalOpen,
@@ -23,44 +27,40 @@ export default function pag() {
       description: "jsajd asdjnsad sakjndsa djsakd sa",
       link: "/",
       img: "/web-logo.png",
-      category:'blogs'
+      category: "blogs",
     },
     {
       heading: "heading 1",
       description: "jsajd asdjnsad sakjndsa djsakd sa",
       link: "/",
-            img: "/web-logo.png",
-
+      img: "/web-logo.png",
     },
     {
       heading: "heading 1",
       description: "jsajd asdjnsad sakjndsa djsakd sa",
       link: "/",
-            img: "/web-logo.png",
-
+      img: "/web-logo.png",
     },
     {
       heading: "heading 1",
       description: "jsajd asdjnsad sakjndsa djsakd sa",
       link: "/",
-            img: "/web-logo.png",
-
+      img: "/web-logo.png",
     },
     {
       heading: "heading 1",
       description: "jsajd asdjnsad sakjndsa djsakd sa",
       link: "/",
-            img: "/web-logo.png",
-
+      img: "/web-logo.png",
     },
     {
       heading: "heading 1",
       description: "jsajd asdjnsad sakjndsa djsakd sa",
       link: "/",
-            img: "/web-logo.png",
-
+      img: "/web-logo.png",
     },
   ];
+  const handleSearchSubmit = (e: React.FormEvent) => {};
   return (
     <div className="relative p-3  min-h-[calc(100vh-71px)]">
       <h3 className="text-2xl font-bold">Manage Insights</h3>
@@ -77,20 +77,38 @@ export default function pag() {
       <hr />
 
       <div className="">
-        <div className="my-4">
-          <h5>Insights list</h5>
+        <div className="flex my-4 items-center justify-between ">
+          <h5 className="">Insights List</h5>
+          <div className=" border-gray-300 flex items-center py-2 px-1 gap-2 rounded-lg flex-[0.5]">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="flex items-center gap-2 w-full  "
+              action=""
+            >
+              <IoSearch size={27} />
+              <input
+                onChange={(e) => setSearchedValue(e.target.value)}
+                value={searchedValue}
+                className="w-full border-b h-full py-2 px-1 focus:outline-none"
+                type="text"
+                placeholder="Search Insights"
+              />
+            </form>
+          </div>
         </div>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
           {insights.map((insight, index) => {
             return (
               <div key={index} className="border-2 relative rounded-lg p-3">
                 <Image
-                  src={insight.img }
+                  src={insight.img}
                   alt={`Insight image ${index + 1}`}
                   width={100}
                   height={100}
                 />
-                <p className="bg-gray-200 inline px-2 py-1 rounded-lg ">{insight.category}</p>
+                <p className="bg-gray-200 inline px-2 py-1 rounded-lg ">
+                  {insight.category}
+                </p>
                 <h4>{insight.heading}</h4>
                 <p>{insight.description}</p>
                 <Link

@@ -42,5 +42,6 @@ export const selectDropDownOptions = [
 
   // Static pages
   "About",
-  "Careers"
+  "Careers",
+  'Contact Us'
 ];
