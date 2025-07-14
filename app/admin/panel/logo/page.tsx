@@ -50,7 +50,7 @@ export default function AdminLogoPage() {
   };
 
   return (
-    <div className="p-3 relative min-h-[calc (100vh-71px)] w-full ">
+    <div className="p-3 relative min-h-[calc(100vh-71px)] w-full ">
       <h3 className="text-lg font-bold mb-4">Upload Site Logo</h3>
 
       <div className="mb-4 max-w-xl">

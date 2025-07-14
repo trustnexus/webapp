@@ -101,17 +101,17 @@ export default function AdminServicesPage() {
       </div>
 
       {isCreateServiceModalOpen && (
-        <div className="absolute backdrop-brightness-50 backdrop-filter inset-0 mx-auto w-full">
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <ServiceForm />
         </div>
       )}
       {isEditServiceModalOpen && (
-        <div className="absolute backdrop-brightness-50 backdrop-filter inset-0 mx-auto w-full">
+         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <ServiceForm />
         </div>
       )}
       {isDeleteServiceModalOpen && (
-        <div className="absolute backdrop-brightness-50 backdrop-filter  inset-0 mx-auto w-full">
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <DeleteModal />
         </div>
       )}

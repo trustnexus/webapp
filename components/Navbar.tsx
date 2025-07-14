@@ -11,7 +11,7 @@ import Services from "./NavComponents/Services";
 import Industries from "./NavComponents/Industries";
 import Insights from "./NavComponents/Insights";
 import About from "./NavComponents/About";
-import Investor from "./NavComponents/Investor";
+// import Investor from "./NavComponents/Investor";
 import useAppStore from "@/store/store";
 import MobileView from "./NavComponents/MobileView";
 
@@ -174,7 +174,7 @@ const Navbar = () => {
               </Link>
 
               {/* INVESTORS */}
-              <div
+              {/* <div
                 className="hidden lg:block "
                 onMouseEnter={() => setHovered("investor")}
               >
@@ -189,7 +189,7 @@ const Navbar = () => {
                     <Investor />
                   </div>
                 )}
-              </div>
+              </div> */}
             </ul>
 
             <div className="flex h-full items-center gap-4 ml-4">

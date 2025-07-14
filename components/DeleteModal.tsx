@@ -9,11 +9,19 @@ const DeleteModal = () => {
     setIsDeleteLogoModalOpen,
     isDeleteServiceModalOpen,
     setIsDeleteServiceModalOpen,
+
+    setIsDeleteAnInsightModalOpen,
+    isDeleteAnInsightModalOpen,
   } = useAppStore();
   return (
     <div className="flex mx-auto items-center h-full my-auto backdrop:brightness-50 justify-center max-w-[600px] rounded-lg">
       <div className="p-3 border-2 rounded-lg bg-white">
-        <p>Are you sure you want to delete this {isDeleteLogoModalOpen && 'logo'} {isDeleteBannerModalOpen && 'banner'} {isDeleteServiceModalOpen && 'service'}</p>
+        <p>
+          Are you sure you want to delete this {isDeleteLogoModalOpen && "logo"}{" "}
+          {isDeleteBannerModalOpen && "banner"}{" "}
+          {isDeleteServiceModalOpen && "service"}
+          {isDeleteAnInsightModalOpen && "insight"}
+        </p>
 
         <div className="flex items-center justify-end gap-3 mt-4">
           <button
@@ -33,6 +41,10 @@ const DeleteModal = () => {
               }
               {
                 isDeleteServiceModalOpen && setIsDeleteServiceModalOpen(false);
+              }
+              {
+                isDeleteAnInsightModalOpen &&
+                  setIsDeleteAnInsightModalOpen(false);
               }
             }}
             style={{ borderRadius: "10px" }}

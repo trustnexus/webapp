@@ -80,7 +80,7 @@ const page = () => {
     }).to(
       ".cities",
       {
-        x: "100%",
+        x: "-100%",
         fontSize:'15px',
         duration: 2,
         ease: "none",
@@ -295,7 +295,7 @@ const page = () => {
       {/* Global Presence */}
       <section className="globalSection py-20 px-6 text-center">
         <p className="mb-10 text-lg font-semibold">GLOBAL PRESENCE</p>
-        <div className="countries flex w-[max-content] gap-8 md:gap-20 mb-6">
+        {/* <div className="countries flex w-[max-content] gap-8 md:gap-20 mb-6">
           {countries.map((country, index) => (
             <p
               className="countryNames text-md whitespace-nowrap sm:text-[50px] font-light"
@@ -304,8 +304,8 @@ const page = () => {
               {country.name}
             </p>
           ))}
-        </div>
-        <div className="cities flex  w-[max-content] gap-3  sm:gap-12">
+        </div> */}
+        <div className="cities flex  w-[max-content] gap-10  sm:gap-17">
           {cities.map((city, index) => (
             <p className="text-md sm:text-[50px] font-light" key={index}>
               {city.name}

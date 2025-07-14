@@ -32,7 +32,7 @@ export default function page() {
   ];
 
   return (
-    <div className="relative p-3 min-h-[calc(100vh-71px)]">
+    <div className="relative p-3 min-h-screen">
       <h3 className="text-2xl font-bold">Manage Banners</h3>
 
       <button
@@ -73,18 +73,19 @@ export default function page() {
       </div>
 
       {isCreateBannerModalOpen && (
-        <div className="absolute backdrop-brightness-50 backdrop-filter inset-0 mx-auto w-full">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <BannerForm />
         </div>
       )}
 
       {isEditBannerModalOpen && (
-        <div className="absolute backdrop-brightness-50 backdrop-filter inset-0 mx-auto w-full">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
           <BannerForm />
         </div>
       )}
+
       {isDeleteBannerModalOpen && (
-        <div className="absolute backdrop-brightness-50 backdrop-filter inset-0 mx-auto w-full">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
           <DeleteModal />
         </div>
       )}

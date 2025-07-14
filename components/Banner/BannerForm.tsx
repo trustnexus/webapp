@@ -4,11 +4,13 @@ import useAppStore from "@/store/store";
 import { useForm } from "react-hook-form";
 import { IoMdCloseCircle } from "react-icons/io";
 import { useState } from "react";
+import { selectDropDownOptions } from "./selectDropDownOptions";
 
 type BannerFormInputs = {
   heading: string;
   description: string;
   route: string;
+  category: string;
 };
 
 const BannerForm = () => {
@@ -44,25 +46,57 @@ const BannerForm = () => {
   const isVideo = file?.type.startsWith("video");
 
   return (
-    <div className="border-2 border-gray-400 max-w-[700px] mx-auto mt-10 p-6 bg-white rounded shadow ">
+    <div className="border-2 border-gray-400 max-w-[800px] mx-auto mt-10 p-6 backdrop:brightness-50  bg-white rounded shadow ">
       <div className="flex items-center justify-between mb-4">
-        <p className="text-lg font-bold">
+        <div className="text-lg font-bold">
           {isCreateBannerModalOpen ? "Add Banner" : "Edit Banner"}
-        </p>
-        <IoMdCloseCircle
-          onClick={() => {
-            setIsCreateBannerModalOpen(false);
-            setIsEditBannerModalOpen(false);
-          }}
-          className="cursor-pointer"
-          size={24}
-        />
+        </div>
+        <div className="">
+          <IoMdCloseCircle
+            onClick={() => {
+              setIsCreateBannerModalOpen(false);
+              setIsEditBannerModalOpen(false);
+            }}
+            className="cursor-pointer"
+            size={24}
+          />
+        </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        {/* Category Selection */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Select Page (Category)
+          </label>
+          <select
+            className="rounded block w-full border px-4 py-2"
+            {...register("category", {
+              required: "Please select a page",
+              validate: (value) => value !== "" || "Please select a valid page",
+            })}
+            defaultValue="" // ← default selected is empty
+          >
+            <option value="" disabled>
+              Select a Page
+            </option>
+            {selectDropDownOptions.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+
+          {errors.category && (
+            <p className="text-red-500 text-sm">{errors.category.message}</p>
+          )}
+        </div>
+
         {/* File Upload */}
         <div>
-          <label className="block text-sm font-medium mb-1">Banner Media (Image or Video)</label>
+          <label className="block text-sm font-medium mb-1">
+            Banner Media (Image or Video)
+          </label>
           <input
             type="file"
             accept="image/*,video/*"
@@ -72,12 +106,20 @@ const BannerForm = () => {
           {preview && (
             <div className="mt-2">
               {isVideo ? (
-              <div className="h-40 w-full ">
-                  <video src={preview} controls className="h-full w-full object-contain rounded" />
-              </div>
+                <div className="h-40 w-full ">
+                  <video
+                    src={preview}
+                    controls
+                    className="h-full w-full object-contain rounded"
+                  />
+                </div>
               ) : (
                 <div className="h-40 w-full overflow-hidden">
-                    <img src={preview} alt="Preview" className="h-full w-full object-contain rounded" />
+                  <img
+                    src={preview}
+                    alt="Preview"
+                    className="h-full w-full object-contain rounded"
+                  />
                 </div>
               )}
             </div>
@@ -116,12 +158,13 @@ const BannerForm = () => {
 
         {/* Route */}
         <div>
-          <label className="block text-sm font-medium mb-1">Route</label>
+          <label className="block text-sm font-medium mb-1">
+            Route (optional)
+          </label>
           <input
             {...register("route", {
-              required: "Route is required",
               pattern: {
-                value: /^\/[a-zA-Z0-9-_]+$/,
+                value: /^\/[a-zA-Z0-9-_]*$/, // slash se start ho, baqi optional hai
                 message: "Enter a valid route like /about-us",
               },
             })}
@@ -144,8 +187,8 @@ const BannerForm = () => {
               ? "Creating..."
               : "Updating..."
             : isCreateBannerModalOpen
-              ? "Create Banner"
-              : "Update Banner"}
+            ? "Create Banner"
+            : "Update Banner"}
         </button>
       </form>
     </div>

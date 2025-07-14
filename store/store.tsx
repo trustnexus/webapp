@@ -29,8 +29,14 @@ interface AppStates {
   setIsCreateBannerModalOpen: (data: boolean) => void;
   isEditBannerModalOpen: boolean;
   setIsEditBannerModalOpen: (data: boolean) => void;
-  isDeleteBannerModalOpen:boolean;
-  setIsDeleteBannerModalOpen:(data:boolean)=>void
+  isDeleteBannerModalOpen: boolean;
+  setIsDeleteBannerModalOpen: (data: boolean) => void;
+  isCreateAnInsightModalOpen: boolean;
+  setIsCreateAnInsightModalOpen: (data: boolean) => void;
+  isEditAnInsightModalOpen: boolean;
+  setIsEditAnInsightModalOpen: (data: boolean) => void;
+  isDeleteAnInsightModalOpen: boolean;
+  setIsDeleteAnInsightModalOpen: (data: boolean) => void;
 }
 
 const useAppStore = create<AppStates>((set) => ({
@@ -76,9 +82,18 @@ const useAppStore = create<AppStates>((set) => ({
   setIsEditBannerModalOpen: (data: boolean) =>
     set({ isEditBannerModalOpen: data }),
 
-  isDeleteBannerModalOpen:false,
-  setIsDeleteBannerModalOpen:(data:boolean)=>set({isDeleteBannerModalOpen:data})
-
+  isDeleteBannerModalOpen: false,
+  setIsDeleteBannerModalOpen: (data: boolean) =>
+    set({ isDeleteBannerModalOpen: data }),
+  isCreateAnInsightModalOpen: false,
+  setIsCreateAnInsightModalOpen: (data: boolean) =>
+    set({ isCreateAnInsightModalOpen: data }),
+  isEditAnInsightModalOpen: false,
+  setIsEditAnInsightModalOpen: (data: boolean) =>
+    set({ isEditAnInsightModalOpen: data }),
+  isDeleteAnInsightModalOpen: false,
+  setIsDeleteAnInsightModalOpen: (data: boolean) =>
+    set({ isDeleteAnInsightModalOpen: data }),
 }));
 
 export default useAppStore;

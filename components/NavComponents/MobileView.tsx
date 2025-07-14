@@ -379,7 +379,7 @@ const MobileView = () => {
         </Link>
 
         {/* INVESTORS DROPDOWN */}
-        <div className="w-full">
+        {/* <div className="w-full">
           <button
                             style={{fontSize:'15px'}}
 
@@ -421,7 +421,7 @@ const MobileView = () => {
               </Link>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

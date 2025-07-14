@@ -1,10 +1,140 @@
-import { Metadata } from 'next'
-import React from 'react'
+"use client";
+import DeleteModal from "@/components/DeleteModal";
+import InsightForm from "@/components/Insights/InsightForm";
 
-const page = () => {
+import useAppStore from "@/store/store";
+import Image from "next/image";
+import Link from "next/link";
+import { FaEdit } from "react-icons/fa";
+import { MdOutlineDelete } from "react-icons/md";
+
+export default function pag() {
+  const {
+    isDeleteAnInsightModalOpen,
+    isEditAnInsightModalOpen,
+    isCreateAnInsightModalOpen,
+    setIsCreateAnInsightModalOpen,
+    setIsEditAnInsightModalOpen,
+    setIsDeleteAnInsightModalOpen,
+  } = useAppStore();
+  const insights = [
+    {
+      heading: "heading 1",
+      description: "jsajd asdjnsad sakjndsa djsakd sa",
+      link: "/",
+      img: "/web-logo.png",
+      category:'blogs'
+    },
+    {
+      heading: "heading 1",
+      description: "jsajd asdjnsad sakjndsa djsakd sa",
+      link: "/",
+            img: "/web-logo.png",
+
+    },
+    {
+      heading: "heading 1",
+      description: "jsajd asdjnsad sakjndsa djsakd sa",
+      link: "/",
+            img: "/web-logo.png",
+
+    },
+    {
+      heading: "heading 1",
+      description: "jsajd asdjnsad sakjndsa djsakd sa",
+      link: "/",
+            img: "/web-logo.png",
+
+    },
+    {
+      heading: "heading 1",
+      description: "jsajd asdjnsad sakjndsa djsakd sa",
+      link: "/",
+            img: "/web-logo.png",
+
+    },
+    {
+      heading: "heading 1",
+      description: "jsajd asdjnsad sakjndsa djsakd sa",
+      link: "/",
+            img: "/web-logo.png",
+
+    },
+  ];
   return (
-    <div>page</div>
-  )
-}
+    <div className="relative p-3  min-h-[calc(100vh-71px)]">
+      <h3 className="text-2xl font-bold">Manage Insights</h3>
 
-export default page
+      <button
+        style={{ borderRadius: "10px" }}
+        className="bg-blue-400 text-white px-2 py-2 rounded-lg"
+        onClick={() => {
+          setIsCreateAnInsightModalOpen(true);
+        }}
+      >
+        Add an insight
+      </button>
+      <hr />
+
+      <div className="">
+        <div className="my-4">
+          <h5>Insights list</h5>
+        </div>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+          {insights.map((insight, index) => {
+            return (
+              <div key={index} className="border-2 relative rounded-lg p-3">
+                <Image
+                  src={insight.img }
+                  alt={`Insight image ${index + 1}`}
+                  width={100}
+                  height={100}
+                />
+                <p className="bg-gray-200 inline px-2 py-1 rounded-lg ">{insight.category}</p>
+                <h4>{insight.heading}</h4>
+                <p>{insight.description}</p>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  className="hover:border-b border-b-[1px] border-b-transparent py-1"
+                  href={insight.link}
+                >
+                  Learn more
+                </Link>
+                <div className="absolute top-4 right-4 flex gap-2 items-center justify-center">
+                  <FaEdit
+                    onClick={() => setIsEditAnInsightModalOpen(true)}
+                    size={26}
+                    className="cursor-pointer text-yellow-500"
+                  />
+                  <MdOutlineDelete
+                    onClick={() => {
+                      setIsDeleteAnInsightModalOpen(true);
+                    }}
+                    size={26}
+                    className="cursor-pointer text-red-500"
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {isCreateAnInsightModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 h-screen my-auto overflow-y-auto">
+          <InsightForm />
+        </div>
+      )}
+      {isEditAnInsightModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
+          <InsightForm />
+        </div>
+      )}
+      {isDeleteAnInsightModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 overflow-y-auto">
+          <DeleteModal />
+        </div>
+      )}
+    </div>
+  );
+}
