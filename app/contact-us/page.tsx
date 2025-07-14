@@ -22,8 +22,8 @@ const page = () => {
             <h5 className="pb-[48px] font-lighter">
               Please fill the form below
             </h5>
-            <form className="max-w-[574px]  " action="">
-              <div className="w-full flex items-center gap-[24px]">
+            <form className="max-w-[574px] mb-5  " action="">
+              <div className="w-full flex md:flex-row flex-col items-center gap-[24px]">
                 <div className="w-full">
                   <input
                     className="w-full text-[16px] px-[16px] py-[10px] border-[1px] rounded-md "
@@ -39,7 +39,7 @@ const page = () => {
                   />
                 </div>{" "}
               </div>{" "}
-              <div className="flex my-4 h-[100px] items-start  gap-[24px]">
+              <div className="flex md:flex-row flex-col my-4 h-[100px] items-start  gap-[24px]">
                 <div className="w-full">
                   <input
                     className="w-full text-[16px] px-[16px] py-[10px] border-[1px] rounded-md "
@@ -47,16 +47,16 @@ const page = () => {
                     placeholder="Email address*"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-1">
+                <div className="w-full">
                   <input
                     className="w-full text-[16px] px-[16px] py-[10px] border-[1px] rounded-md "
                     type="number"
-                    placeholder="Phone number*"
+                    placeholder="Phone number*e.g. +92 300 1234567"
                   />
-                  <span className="text-xs">e.g. +92 300 1234567</span>
+                
                 </div>
               </div>{" "}
-              <div className="w-full h-[76px]  flex items-center gap-[24px]">
+              <div className="w-full min-h-[76px] my-5  flex md:flex-row flex-col items-center gap-[24px]">
                 <div className="w-full">
                   <input
                     className="w-full text-[16px] px-[16px] py-[10px] border-[1px] rounded-md "
