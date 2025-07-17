@@ -62,7 +62,7 @@ const page = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-  const screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth;
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -81,7 +81,7 @@ const page = () => {
       ".cities",
       {
         x: "-100%",
-        fontSize:'15px',
+        fontSize: "15px",
         duration: 2,
         ease: "none",
       },
@@ -178,7 +178,7 @@ const page = () => {
             </p>
             <Link
               style={{ textDecoration: "none" }}
-              href="/"
+              href="/career/jobs"
               className="inline-block py-4 mt-3 px-10 text-sm rounded-md bg-white text-black uppercase"
             >
               Explore Jobs
@@ -276,21 +276,20 @@ const page = () => {
           loop
         ></video>
 
-      {/* Global Team CTA */}
-      <section className="py-20 px-6 text-center relative bg-white">
-        <div className="max-w-2xl absolute z-[1000] top-[70px]  mx-auto bg-white p-6 shadow-md rounded-md">
-          <p className="text-xl sm:text-[40px] mb-4">Join our global team</p>
-          <p className="text-[16px] sm:text-[20px] mb-4">
-            Our career opportunities also span around the world.
-          </p>
-          <FaArrowRightLong
-            className="mx-auto text-orange-400 cursor-pointer"
-            size={20}
-          />
-        </div>
-      </section>
-            </div>
-
+        {/* Global Team CTA */}
+        <section className="py-20 px-6 text-center relative bg-white">
+          <div className="max-w-2xl absolute z-[1000] top-[70px]  mx-auto bg-white p-6 shadow-md rounded-md">
+            <p className="text-xl sm:text-[40px] mb-4">Join our global team</p>
+            <p className="text-[16px] sm:text-[20px] mb-4">
+              Our career opportunities also span around the world.
+            </p>
+            <FaArrowRightLong
+              className="mx-auto text-orange-400 cursor-pointer"
+              size={20}
+            />
+          </div>
+        </section>
+      </div>
 
       {/* Global Presence */}
       <section className="globalSection py-20 px-6 text-center">

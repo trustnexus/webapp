@@ -1,10 +1,25 @@
 "use client";
 import Help from "@/components/Help";
 import Link from "next/link";
-import React from "react";
-import { CiSearch } from "react-icons/ci";
+import React, { useState } from "react";
+
+const totalItems = 30; // total whitepapers ya ebooks
+const itemsPerPage = 6;
+const totalPages = Math.ceil(totalItems / itemsPerPage);
 
 const page = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const paginatedItems = Array(totalItems)
+    .fill(null)
+    .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
     <div className="">
       {/* Banner */}
@@ -22,7 +37,7 @@ const page = () => {
         </div>
       </div>
 
-      {/* Search Section */}
+      {/* Title */}
       <section className="py-10 px-4">
         <div className="max-w-[1320px] mx-auto flex flex-wrap gap-4 items-center justify-center md:justify-between">
           <p className="max-w-[900px] mx-auto text-[28px] py-[30px]  md:text-[40px]">
@@ -31,87 +46,88 @@ const page = () => {
         </div>
       </section>
 
+      {/* Card Grid */}
       <section className="px-4">
         <div className="max-w-[1320px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Array(10)
-              .fill(null)
-              .map((_, index) => (
-                <div key={index} className="w-full h-auto   overflow-hidden ">
-                  <div className="h-[250px] sm:h-[300px] overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover"
-                      src="https://www.systemsltd.com/sites/default/files/2025-04/Strengthening%20labor%20compliance%20and%20corporate%20investigations.webp"
-                      alt="Case Study"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <p className="font-semibold text-lg mb-2">
-                      Strengthening labor compliance and corporate
-                      investigations
-                    </p>
-                    <Link href="/" className="text-blue-600 underline text-sm">
-                      Read more
-                    </Link>
-                  </div>
+            {paginatedItems.map((_, index) => (
+              <div key={index} className="w-full h-auto overflow-hidden ">
+                <div className="h-[250px] sm:h-[300px] overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://www.systemsltd.com/sites/default/files/2025-04/Strengthening%20labor%20compliance%20and%20corporate%20investigations.webp"
+                    alt="Case Study"
+                  />
                 </div>
-              ))}
+                <div className="p-4">
+                  <p className="font-semibold text-lg mb-2">
+                    Strengthening labor compliance and corporate investigations
+                  </p>
+                  <Link href="/" className="text-blue-600 underline text-sm">
+                    Read more
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Pagination */}
-          <div className="flex mb-10 flex-wrap justify-center md:justify-start gap-2 mt-10">
-            {Array(5)
+          <div className="flex mb-10 flex-wrap justify-center gap-2 mt-10">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="border border-gray-300 rounded-xl px-4 py-2 text-sm disabled:opacity-50"
+            >
+              Prev
+            </button>
+
+            {Array(totalPages)
               .fill(null)
               .map((_, index) => (
                 <button
                   key={index}
-                  className="border text-[15px] md:text-[20px] border-gray-300 rounded-xl px-4 py-2 "
+                  onClick={() => handlePageChange(index + 1)}
+                  className={`border text-[15px] md:text-[20px] border-gray-300 rounded-xl px-4 py-2 ${
+                    currentPage === index + 1
+                      ? "bg-black text-white"
+                      : "text-black"
+                  }`}
                 >
                   {index + 1}
                 </button>
               ))}
-            <button className="border border-gray-300 rounded-xl px-4 py-2 text-sm">
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="border border-gray-300 rounded-xl px-4 py-2 text-sm disabled:opacity-50"
+            >
               Next
             </button>
-            <button className="border border-gray-300 rounded-xl px-4 py-2 text-sm">
-              Last
-            </button>
           </div>
         </div>
       </section>
-      <section className="h-[714px] my-auto text-white py-[100px] bg-[#262b3f] mx-auto ">
-        <div className="mb-[18px] max-w-[1320px] mx-auto text-[26px] md:text-[40px]">
+
+      {/* More Insights */}
+      <section className="h-auto text-white py-[100px] bg-[#262b3f] mx-auto ">
+        <div className="mb-[18px] max-w-[1320px] px-10 mx-auto text-[26px] md:text-[40px]">
           <p>More insights</p>
         </div>
-        <div className="max-w-[1320px] mx-auto h-[420px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
-        <div className="w-[404px]  h-[203px] ">
-              <p className="mb-[24px] text-[19px] md:text-[24px]">
-              Managing information with disruptive technologies
-            </p>
-            <Link href={"/"}>Read more</Link>
-          </div>
-          <div className="w-[404px]  h-[203px] px-[12px]">
-             <p className="mb-[24px] text-[19px] md:text-[24px]">
-              Privacy, security, trust: Safeguarding customer data in the
-              digital age
-            </p>
-            <Link href={"/"}>Read more</Link>
-          </div>{" "}
-         <div className="w-[404px] my-auto mx-auto h-[203px] px-[12px]">
-            <p className="mb-[24px] text-[19px] md:text-[24px]">
-              Beyond the hype: Why data warehouse project fails and what is the
-              resolution
-            </p>
-            <Link href={"/"}>Read more</Link>
-          </div>
-         <div className="w-[404px] h-[203px] mx-auto my-auto px-[12px]">
-            <p className="mb-[24px] text-[19px] md:text-[24px]">
-              Endowing personalized customer experiences
-            </p>
-            <Link href={"/"}>Read more</Link>
-          </div>
+        <div className="max-w-[1320px] mx-auto px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            "Managing information with disruptive technologies",
+            "Privacy, security, trust: Safeguarding customer data in the digital age",
+            "Beyond the hype: Why data warehouse project fails and what is the resolution",
+            "Endowing personalized customer experiences",
+          ].map((title, idx) => (
+            <div key={idx} className="w-full px-2 h-auto">
+              <p className="mb-[24px] text-[19px] md:text-[24px]">{title}</p>
+              <Link href={"/"}>Read more</Link>
+            </div>
+          ))}
         </div>
       </section>
+
       {/* Help Component */}
       <div className="mt-16">
         <Help />

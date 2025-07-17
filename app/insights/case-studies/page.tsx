@@ -1,12 +1,29 @@
 "use client";
 import Help from "@/components/Help";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 
-const page = () => {
+const totalCaseStudies = 30;
+const itemsPerPage = 6;
+const totalPages = Math.ceil(totalCaseStudies / itemsPerPage);
+
+const Page = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Paginated items
+  const paginatedItems = Array(totalCaseStudies)
+    .fill(null)
+    .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
-    <div className="">
+    <div>
       {/* Banner */}
       <div className="bg-[url('https://img.freepik.com/free-vector/gradient-brain-background_23-2150460414.jpg?semt=ais_hybrid&w=740')] bg-no-repeat bg-center bg-cover w-full h-[400px] md:h-[699px] flex items-end px-4 md:px-18 text-white">
         <div className="pb-8 px-10">
@@ -44,50 +61,63 @@ const page = () => {
       <section className="px-4">
         <div className="max-w-[1320px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Array(10)
-              .fill(null)
-              .map((_, index) => (
-                <div
-                  key={index}
-                  className="w-full h-auto border rounded-xl overflow-hidden shadow-sm"
-                >
-                  <div className="h-[250px] sm:h-[300px] overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover"
-                      src="https://www.systemsltd.com/sites/default/files/2025-04/Strengthening%20labor%20compliance%20and%20corporate%20investigations.webp"
-                      alt="Case Study"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <p className="text-xs text-gray-500 mb-1">CASE STUDY</p>
-                    <p className="font-semibold text-lg mb-2">
-                      Strengthening labor compliance and corporate investigations
-                    </p>
-                    <Link href="/" className="text-blue-600 underline text-sm">
-                      Read more
-                    </Link>
-                  </div>
+            {paginatedItems.map((_, index) => (
+              <div
+                key={index}
+                className="w-full h-auto border rounded-xl overflow-hidden shadow-sm"
+              >
+                <div className="h-[250px] sm:h-[300px] overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://www.systemsltd.com/sites/default/files/2025-04/Strengthening%20labor%20compliance%20and%20corporate%20investigations.webp"
+                    alt="Case Study"
+                  />
                 </div>
-              ))}
+                <div className="p-4">
+                  <p className="text-xs text-gray-500 mb-1">CASE STUDY</p>
+                  <p className="font-semibold text-lg mb-2">
+                    Case Study #{(currentPage - 1) * itemsPerPage + index + 1}
+                  </p>
+                  <Link href="/" className="text-blue-600 underline text-sm">
+                    Read more
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Pagination */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-10">
-            {Array(5)
+          <div className="flex flex-wrap justify-center gap-2 mt-10">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="border border-gray-300 rounded-xl px-4 py-2 text-sm disabled:opacity-50"
+            >
+              Prev
+            </button>
+
+            {Array(totalPages)
               .fill(null)
               .map((_, index) => (
                 <button
                   key={index}
-                  className="border text-[15px] md:text-[20px] border-gray-300 rounded-xl px-4 py-2 "
+                  onClick={() => handlePageChange(index + 1)}
+                  className={`border text-[15px] md:text-[20px] border-gray-300 rounded-xl px-4 py-2 ${
+                    currentPage === index + 1
+                      ? "bg-black text-white"
+                      : "text-black"
+                  }`}
                 >
                   {index + 1}
                 </button>
               ))}
-            <button className="border border-gray-300 rounded-xl px-4 py-2 text-sm">
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="border border-gray-300 rounded-xl px-4 py-2 text-sm disabled:opacity-50"
+            >
               Next
-            </button>
-            <button className="border border-gray-300 rounded-xl px-4 py-2 text-sm">
-              Last
             </button>
           </div>
         </div>
@@ -101,4 +131,4 @@ const page = () => {
   );
 };
 
-export default page
+export default Page;

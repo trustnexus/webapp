@@ -3,23 +3,44 @@
 import useAppStore from "@/store/store";
 import { useForm } from "react-hook-form";
 import { IoMdCloseCircle } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { selectDropDownOptions } from "./selectDropDownOptions";
-
-type BannerFormInputs = {
-  heading: string;
-  description: string;
-  route: string;
-  category: string;
-};
+import { Banner } from "@/types/types";
+import { useUpdate } from "@/hooks/useUpdate";
+import { useCreate } from "@/hooks/useCreate";
+import { toast } from "react-toastify";
+import { isAxiosError } from "axios";
 
 const BannerForm = () => {
   const {
+    setIsCreateBannerModalOpen,
+    setIsEditBannerModalOpen,
+    isCreateBannerModalOpen,
+    selectedBanner,
+    setSelectedBanner,
+  } = useAppStore();
+
+  const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
-  } = useForm<BannerFormInputs>();
+  } = useForm<Banner>({
+    defaultValues: {
+      category: selectedBanner?.category || "",
+      heading: selectedBanner?.heading || "",
+      description: selectedBanner?.description || "",
+      route: selectedBanner?.route || "",
+      media_url: selectedBanner?.media_url || "",
+    },
+  });
 
+  useEffect(() => {
+    if (selectedBanner) {
+      reset(selectedBanner); // ⬅️ Prefill form
+      setPreview(selectedBanner.media_url || null); // 👈 Show existing media
+    }
+  }, [selectedBanner, reset]);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -31,16 +52,52 @@ const BannerForm = () => {
     }
   };
 
-  const {
-    setIsCreateBannerModalOpen,
-    setIsEditBannerModalOpen,
-    isCreateBannerModalOpen,
-    isEditBannerModalOpen,
-  } = useAppStore();
+  const isEditing = !!selectedBanner;
+  const updateBanner = useUpdate<Banner>("/banners", "banners");
+  const createBanner = useCreate<Banner>("/banners", "banners");
 
-  const onSubmit = (data: BannerFormInputs) => {
-    console.log("Banner Data:", data, file);
-    // API logic here
+  const onSubmit = async (data: Banner) => {
+    try {
+      if (isEditing) {
+        updateBanner.mutate(
+          { ...data, id: selectedBanner?.id },
+          {
+            onSuccess: () => {
+              toast.success("Banner updated successfully");
+              setSelectedBanner(null);
+              setIsEditBannerModalOpen(false);
+            },
+            onError: (error: unknown) => {
+              if (isAxiosError(error)) {
+                toast.error(error.response?.data?.message || "Update failed");
+              } else {
+                toast.error("An unexpected error occurred.");
+              }
+            },
+          }
+        );
+      } else {
+        createBanner.mutate(
+          { ...data },
+          {
+            onSuccess: () => {
+              toast.success("Banner created successfully");
+              setSelectedBanner(null);
+              setIsCreateBannerModalOpen(false);
+            },
+            onError: (error: unknown) => {
+              if (isAxiosError(error)) {
+                toast.error(error.response?.data?.message || "Creation failed");
+              } else {
+                toast.error("An unexpected error occurred.");
+              }
+            },
+          }
+        );
+      }
+    } catch (err) {
+      toast.error("Something went wrong");
+    }
   };
 
   const isVideo = file?.type.startsWith("video");

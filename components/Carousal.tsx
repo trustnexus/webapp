@@ -60,11 +60,11 @@ export default function VideoCarousel() {
                 {slide.text}
               </p>
               <Link
-              style={{textDecoration:'none'}}
+                style={{ textDecoration: "none" }}
                 href={
                   slide.button === "Get in Touch"
-                    ? ("/contact-us")
-                    : ("/learn-more")
+                    ? "/contact-us"
+                    : "/learn-more"
                 }
                 className="bg-white text-black text-sm sm:text-base font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded hover:bg-opacity-80 transition"
               >

@@ -1,3 +1,4 @@
+import { Banner } from "@/types/types";
 import { create } from "zustand";
 
 interface AppStates {
@@ -37,6 +38,13 @@ interface AppStates {
   setIsEditAnInsightModalOpen: (data: boolean) => void;
   isDeleteAnInsightModalOpen: boolean;
   setIsDeleteAnInsightModalOpen: (data: boolean) => void;
+  banners: Banner[];
+  setBanners: (banners: Banner[]) => void;
+  selectedBanner: null | Banner;
+  setSelectedBanner: (banner: Banner | null) => void;
+
+  isLogoutModalOpen: boolean;
+  setIsLogoutModalOpen: (data: boolean) => void;
 }
 
 const useAppStore = create<AppStates>((set) => ({
@@ -94,6 +102,15 @@ const useAppStore = create<AppStates>((set) => ({
   isDeleteAnInsightModalOpen: false,
   setIsDeleteAnInsightModalOpen: (data: boolean) =>
     set({ isDeleteAnInsightModalOpen: data }),
+
+  banners: [],
+  setBanners: (banners) => set({ banners }),
+
+  selectedBanner: null,
+  setSelectedBanner: (banner) => set({ selectedBanner: banner }),
+
+  isLogoutModalOpen: false,
+  setIsLogoutModalOpen: (data: boolean) => set({ isLogoutModalOpen: data }),
 }));
 
 export default useAppStore;

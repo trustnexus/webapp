@@ -2,8 +2,9 @@ import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-
+import { useRouter } from "next/navigation";
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className="bg-gray-300 py-10 px-4">
       {/* Main Content Grid */}
@@ -14,93 +15,91 @@ const Footer = () => {
           <div className="flex flex-col gap-6">
             <div>
               <p className="font-bold">Software Development</p>
-           
-                <div className="flex flex-col justify-between gap-y-2">
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/software-development/webapps"}
-              >
-                Webapps
-              </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/software-development/mobile-apps"}
-              >
-                Mobile Applications
-              </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/software-development/desktop-apps"}
-              >
-                Desktop Applications
-              </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/software-development/point-of-sale"}
-              >
-                POS
-              </Link>
-            </div>
+
+              <div className="flex flex-col justify-between gap-y-2">
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/software-development/webapps"}
+                >
+                  Webapps
+                </Link>
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/software-development/mobile-apps"}
+                >
+                  Mobile Applications
+                </Link>
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/software-development/desktop-apps"}
+                >
+                  Desktop Applications
+                </Link>
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/software-development/point-of-sale"}
+                >
+                  POS
+                </Link>
+              </div>
             </div>
             <div>
               <p className="font-bold">Blockchain</p>
-            
-                  <div className="flex flex-col gap-y-2 justify-between">
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/blockchain/dapps"}
-              >
-                Dapps
-              </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/blockchain/blockchain-wallets"}
-              >
-                Blockchain Wallets
-              </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/blockchain/nft-marketplace"}
-              >
-                NFT Marketplace
-              </Link>
-              <Link
-                className="hover:text-black"
-                style={{ textDecoration: "none", color: "black" }}
-                href={"/services/blockchain/smart-contracts"}
-              >
-                Smart Contract Development
-              </Link>
-            </div>
+
+              <div className="flex flex-col gap-y-2 justify-between">
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/blockchain/dapps"}
+                >
+                  Dapps
+                </Link>
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/blockchain/blockchain-wallets"}
+                >
+                  Blockchain Wallets
+                </Link>
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/blockchain/nft-marketplace"}
+                >
+                  NFT Marketplace
+                </Link>
+                <Link
+                  className="hover:text-black"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/services/blockchain/smart-contracts"}
+                >
+                  Smart Contract Development
+                </Link>
+              </div>
               <div className="mt-4">
-              <p className="font-bold">              Biometric & Embedded Systems
-</p>
-        
-                       <div className="flex flex-col gap-y-2 justify-between">
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/biometric/biometric-authentication"
-              >
-                Biometric Authentication Systems
-              </Link>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/biometric/embedded-iot-devices"
-              >
-                Embedded IoT Devices
-              </Link>
-              
-            </div>
-            </div>
+                <p className="font-bold"> Biometric & Embedded Systems</p>
+
+                <div className="flex flex-col gap-y-2 justify-between">
+                  <Link
+                    style={{ textDecoration: "none", color: "black" }}
+                    className="hover:text-blue-600"
+                    href="/services/biometric/biometric-authentication"
+                  >
+                    Biometric Authentication Systems
+                  </Link>
+                  <Link
+                    style={{ textDecoration: "none", color: "black" }}
+                    className="hover:text-blue-600"
+                    href="/services/biometric/embedded-iot-devices"
+                  >
+                    Embedded IoT Devices
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -109,31 +108,34 @@ const Footer = () => {
         <div className="mt-5 ">
           <div className="flex flex-col gap-6">
             <div>
-              <p className="font-bold">     Artificial Intelligence / Machine Learning</p>
-            
-                <div className="flex flex-col gap-y-2">
-              <Link
-                className="hover:text-blue-600 transition duration-200"
-                style={{ textDecoration: "none", color: "black" }}
-                href="/services/ai-ml/ai-automation"
-              >
-                Intelligent Process Automation
-              </Link>
-              <Link
-                className="hover:text-blue-600 transition duration-200"
-                style={{ textDecoration: "none", color: "black" }}
-                href="/services/ai-ml/ai-analytics"
-              >
-                Predictive Analytics & Insights
-              </Link>
-              <Link
-                className="hover:text-blue-600 transition duration-200"
-                style={{ textDecoration: "none", color: "black" }}
-                href="/services/ai-ml/ai-chatbots"
-              >
-                AI Chatbots & NLP Solutions
-              </Link>
-            </div>
+              <p className="font-bold">
+                {" "}
+                Artificial Intelligence / Machine Learning
+              </p>
+
+              <div className="flex flex-col gap-y-2">
+                <Link
+                  className="hover:text-blue-600 transition duration-200"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href="/services/ai-ml/ai-automation"
+                >
+                  Intelligent Process Automation
+                </Link>
+                <Link
+                  className="hover:text-blue-600 transition duration-200"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href="/services/ai-ml/ai-analytics"
+                >
+                  Predictive Analytics & Insights
+                </Link>
+                <Link
+                  className="hover:text-blue-600 transition duration-200"
+                  style={{ textDecoration: "none", color: "black" }}
+                  href="/services/ai-ml/ai-chatbots"
+                >
+                  AI Chatbots & NLP Solutions
+                </Link>
+              </div>
             </div>
             <div>
               <p className="font-bold">Robotics</p>
@@ -143,46 +145,45 @@ const Footer = () => {
                 <li>Developments and integration</li>
                 <li>Managed Services</li>
               </ul> */}
-                  <div className="flex flex-col justify-between gap-y-2">
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/robotics/robotic-process-automation"
-              >
-                Robotic Process Automation (RPA)
-              </Link>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/robotics/industrial-robots"
-              >
-                Industrial Robots Integration
-              </Link>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/robotics/ai-powered-robots"
-              >
-                AI-Powered Autonomous Robots
-              </Link>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                className="hover:text-blue-600"
-                href="/services/robotics/robotics-simulation"
-              >
-                Robotics Simulation & Testing
-              </Link>
+              <div className="flex flex-col justify-between gap-y-2">
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="hover:text-blue-600"
+                  href="/services/robotics/robotic-process-automation"
+                >
+                  Robotic Process Automation (RPA)
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="hover:text-blue-600"
+                  href="/services/robotics/industrial-robots"
+                >
+                  Industrial Robots Integration
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="hover:text-blue-600"
+                  href="/services/robotics/ai-powered-robots"
+                >
+                  AI-Powered Autonomous Robots
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="hover:text-blue-600"
+                  href="/services/robotics/robotics-simulation"
+                >
+                  Robotics Simulation & Testing
+                </Link>
+              </div>
             </div>
-            </div>
-           
           </div>
         </div>
 
         {/* Industries + Insight */}
         <div>
           <p className="text-lg font-bold mb-4">Industries</p>
-        
-              <div className="flex flex-col gap-y-2">
+
+          <div className="flex flex-col gap-y-2">
             <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/industries/communication"}
@@ -197,29 +198,28 @@ const Footer = () => {
             >
               Banking & Financial Services
             </Link>
-
             <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/industries/public-sector"}
-               className=" cursor-pointer hover:text-orange-400"
+              className=" cursor-pointer hover:text-orange-400"
             >
               Public Sector{" "}
             </Link>
-               <Link
+            <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/industries/health"}
-               className=" cursor-pointer hover:text-orange-400"
+              className=" cursor-pointer hover:text-orange-400"
             >
               Health{" "}
-            </Link>   <Link
+            </Link>{" "}
+            <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/industries/retail"}
-               className=" cursor-pointer hover:text-orange-400"
+              className=" cursor-pointer hover:text-orange-400"
             >
               Retail{" "}
             </Link>
-         
-        </div>
+          </div>
 
           <p className="text-lg mt-4 font-semibold mb-2">Insights</p>
           {/* <ul className="text-sm text-gray-700 space-y-1">
@@ -227,7 +227,7 @@ const Footer = () => {
             <li>Digital commerce</li>
             <li>Business Applications</li>
           </ul> */}
-            <div className="flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-2">
             <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/insights/case-studies"}
@@ -246,18 +246,18 @@ const Footer = () => {
             <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/insights/whitepapers-ebooks"}
-               className=" cursor-pointer hover:text-orange-400"
+              className=" cursor-pointer hover:text-orange-400"
             >
               Whitepapers/eBooks{" "}
             </Link>
-                <Link
+            <Link
               style={{ textDecoration: "none", color: "black" }}
               href={"/insights/blogs"}
-               className=" cursor-pointer hover:text-orange-400"
+              className=" cursor-pointer hover:text-orange-400"
             >
-Blogs            </Link>
-         
-        </div>
+              Blogs{" "}
+            </Link>
+          </div>
         </div>
 
         {/* Quick Links */}
@@ -352,6 +352,7 @@ Blogs            </Link>
           <li>Sitemap</li>
           <li>Cookie Policy</li>
         </ul>
+        <button onClick={() => router.push("/admin/signup")}>ap</button>
         <p className="text-center">
           &copy; {new Date().getFullYear()} Trust Nexus. All Rights Reserved.
         </p>

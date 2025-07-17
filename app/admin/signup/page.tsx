@@ -3,55 +3,77 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { LoginForm } from "@/types/types";
 import { useCreate } from "@/hooks/useCreate";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { SignupForm } from "@/types/types";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { isAxiosError } from "axios";
 
-export default function AdminLogin() {
+export default function AdminSignup() {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LoginForm>();
+  } = useForm<SignupForm>();
 
   const router = useRouter();
-  const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const loginMutation = useCreate<LoginForm>("/auth/login", "login");
+  const signupMutation = useCreate<SignupForm>("/auth/register", "register");
 
-  const onSubmit = async (data: LoginForm) => {
+  const onSubmit = async (data: SignupForm) => {
     try {
-      loginMutation.mutate(data, {
-        onSuccess: (res) => {
-          console.log("Login successful:", res);
-          router.push("/admin/panel/dashboard");
-        },
-        onError: (error: any) => {
-          setErrorMessage(error?.response?.data?.message || "Login failed");
-        },
-      });
+      signupMutation.mutate(
+        { ...data, role: "admin" },
+        {
+          onSuccess: (res) => {
+            toast.success("Signup successful!");
+            router.push("/admin/login");
+          },
+          onError: (error: unknown) => {
+            if (isAxiosError(error)) {
+              console.log("error", error);
+              toast.error(error.response?.data?.message || "Signup failed");
+            } else {
+              toast.error("Something went wrong.");
+            }
+          },
+        }
+      );
     } catch (error) {
-      setErrorMessage("Something went wrong.");
+      toast.error("Unexpected error occurred.");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+      <ToastContainer position="top-center" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white p-8 rounded shadow-md w-full max-w-md"
       >
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          Admin Login
+          Admin Signup
         </h2>
 
-        {errorMessage && (
-          <div className="bg-red-100 text-red-600 px-4 py-2 mb-4 rounded">
-            {errorMessage}
-          </div>
-        )}
+        {/* Name */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Name
+          </label>
+          <input
+            {...register("name", { required: "Name is required" })}
+            type="text"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your name"
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          )}
+        </div>
 
+        {/* Email */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Email
@@ -67,6 +89,7 @@ export default function AdminLogin() {
           )}
         </div>
 
+        {/* Password */}
         <div className="mb-6 relative">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Password
@@ -90,12 +113,17 @@ export default function AdminLogin() {
           )}
         </div>
 
+        {/* Hidden Role Field */}
+        <input type="hidden" value="admin" {...register("role")} />
+
         <button
           type="submit"
-          disabled={isSubmitting || loginMutation.isPending}
+          disabled={isSubmitting || signupMutation.isPending}
           className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
         >
-          {isSubmitting || loginMutation.isPending ? "Logging in..." : "Login"}
+          {isSubmitting || signupMutation.isPending
+            ? "Signing up..."
+            : "Signup"}
         </button>
       </form>
     </div>
