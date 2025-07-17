@@ -28,7 +28,8 @@ export default function AdminLogin() {
           router.push("/admin/panel/dashboard");
         },
         onError: (error: any) => {
-          setErrorMessage(error?.response?.data?.message || "Login failed");
+          console.log("error", error?.response);
+          setErrorMessage(error?.response?.data?.error || "Login failed");
         },
       });
     } catch (error) {

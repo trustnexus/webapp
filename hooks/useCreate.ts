@@ -8,6 +8,7 @@ export const useCreate = <T>(endpoint: string, invalidateKey: string) => {
     mutationFn: async (data: T) => {
       const res = await api.post(endpoint, data, {
         withCredentials: true,
+        
       });
       return res.data;
     },

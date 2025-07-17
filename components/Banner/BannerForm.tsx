@@ -31,14 +31,14 @@ const BannerForm = () => {
       heading: selectedBanner?.heading || "",
       description: selectedBanner?.description || "",
       route: selectedBanner?.route || "",
-      media_url: selectedBanner?.media_url || "",
+      media: selectedBanner?.media || "",
     },
   });
 
   useEffect(() => {
     if (selectedBanner) {
       reset(selectedBanner); // ⬅️ Prefill form
-      setPreview(selectedBanner.media_url || null); // 👈 Show existing media
+      setPreview(selectedBanner.media || null); // 👈 Show existing media
     }
   }, [selectedBanner, reset]);
   const [file, setFile] = useState<File | null>(null);
@@ -58,6 +58,15 @@ const BannerForm = () => {
 
   const onSubmit = async (data: Banner) => {
     try {
+      const formData = new FormData();
+      formData.append("category", data.category);
+      formData.append("heading", data.heading);
+      formData.append("description", data.description);
+      formData.append("route", data.route || "");
+
+      if (file) {
+        formData.append("media", file); // 👈 important: must match backend
+      }
       if (isEditing) {
         updateBanner.mutate(
           { ...data, id: selectedBanner?.id },
@@ -77,23 +86,22 @@ const BannerForm = () => {
           }
         );
       } else {
-        createBanner.mutate(
-          { ...data },
-          {
-            onSuccess: () => {
-              toast.success("Banner created successfully");
-              setSelectedBanner(null);
-              setIsCreateBannerModalOpen(false);
-            },
-            onError: (error: unknown) => {
-              if (isAxiosError(error)) {
-                toast.error(error.response?.data?.message || "Creation failed");
-              } else {
-                toast.error("An unexpected error occurred.");
-              }
-            },
-          }
-        );
+        console.log("data", data);
+        createBanner.mutate(data, {
+          onSuccess: () => {
+            toast.success("Banner created successfully");
+            setSelectedBanner(null);
+            setIsCreateBannerModalOpen(false);
+          },
+          onError: (error: unknown) => {
+            if (isAxiosError(error)) {
+              toast.error(error.response?.data?.message || "Creation failed");
+              console.log(error);
+            } else {
+              toast.error("An unexpected error occurred.");
+            }
+          },
+        });
       }
     } catch (err) {
       toast.error("Something went wrong");
@@ -156,6 +164,7 @@ const BannerForm = () => {
           </label>
           <input
             type="file"
+            name="media"
             accept="image/*,video/*"
             onChange={handleFileChange}
             className="block w-full border rounded px-4 py-2"

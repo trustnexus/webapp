@@ -85,7 +85,7 @@ export default function page() {
                 className="relative border rounded-lg py-5 px-3 shadow bg-white"
               >
                 <video
-                  src={banner?.media_url}
+                  src={banner?.media}
                   controls
                   className="h-42 w-full object-cover rounded mb-2"
                 />
