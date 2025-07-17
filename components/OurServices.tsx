@@ -17,7 +17,7 @@ const OurServices = () => {
   const servicesRef = useRef(null);
 
   const headingRef = useRef(null); // already used for the section
-  const router = useRouter()
+  const router = useRouter();
   const services = [
     {
       heading: "AI Transformation",
@@ -41,105 +41,103 @@ const OurServices = () => {
     },
   ];
 
-useEffect(() => {
-  ScrollTrigger.matchMedia({
-    // Mobile < 640px
-    "(max-width: 639px)": () => {
-      gsap.to(headingRef.current, {
-        x: 30,
-        y: 380,
-        fontSize: "28px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 2,
-          pin: true,
-          toggleActions: "restart pause reverse none",
-        },
-      });
-    },
+  useEffect(() => {
+    ScrollTrigger.matchMedia({
+      // Mobile < 640px
+      "(max-width: 639px)": () => {
+        gsap.to(headingRef.current, {
+          x: 30,
+          y: 380,
+          fontSize: "28px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 2,
+            pin: true,
+            toggleActions: "restart pause reverse none",
+          },
+        });
+      },
 
-    // Tablets 640px - 1023px
-    "(min-width: 640px) and (max-width: 1023px)": () => {
-      gsap.to(headingRef.current, {
-        x: 0,
-        y: 360,
-        fontSize: "36px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-          pin: false,
-          toggleActions: "restart pause reverse none",
-        },
-      });
-    },
+      // Tablets 640px - 1023px
+      "(min-width: 640px) and (max-width: 1023px)": () => {
+        gsap.to(headingRef.current, {
+          x: 0,
+          y: 360,
+          fontSize: "36px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+            pin: false,
+            toggleActions: "restart pause reverse none",
+          },
+        });
+      },
 
-    // Laptops 1024px - 1439px
-    "(min-width: 1024px) and (max-width: 1139px)": () => {
-      gsap.to(headingRef.current, {
-        x: -22,
-        y: 358,
-        fontSize: "45px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-          pin: false,
-          toggleActions: "restart pause reverse none",
-        },
-      });
-    },
- // Laptops 1024px - 1439px
-    "(min-width: 1140px) and (max-width: 1439px)": () => {
-      gsap.to(headingRef.current, {
-        x: -356,
-        y: 358,
-        fontSize: "45px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-          pin: false,
-          toggleActions: "restart pause reverse none",
-        },
-      });
-    },
+      // Laptops 1024px - 1439px
+      "(min-width: 1024px) and (max-width: 1139px)": () => {
+        gsap.to(headingRef.current, {
+          x: -22,
+          y: 358,
+          fontSize: "45px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+            pin: false,
+            toggleActions: "restart pause reverse none",
+          },
+        });
+      },
+      // Laptops 1024px - 1439px
+      "(min-width: 1140px) and (max-width: 1439px)": () => {
+        gsap.to(headingRef.current, {
+          x: -356,
+          y: 358,
+          fontSize: "45px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+            pin: false,
+            toggleActions: "restart pause reverse none",
+          },
+        });
+      },
 
-    // Desktop 1440px+
-    "(min-width: 1440px)": () => {
-      gsap.to(headingRef.current, {
-        x: -400,
-        y: 358,
-        fontSize: "49px",
-        ease: "power2.out",
-        duration: 10,
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 50px",
-          end: "bottom center",
-          scrub: 1,
-          pin: false,
-          toggleActions: "restart pause reverse none",
-        },
-      });
-    },
-  });
-}, []);
-
-
+      // Desktop 1440px+
+      "(min-width: 1440px)": () => {
+        gsap.to(headingRef.current, {
+          x: -400,
+          y: 358,
+          fontSize: "49px",
+          ease: "power2.out",
+          duration: 10,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 50px",
+            end: "bottom center",
+            scrub: 1,
+            pin: false,
+            toggleActions: "restart pause reverse none",
+          },
+        });
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -230,7 +228,6 @@ useEffect(() => {
     <>
       {/* Heading with GSAP animation */}
       <div className="flex flex-col  items-center justify-center h-screen">
-     
         <div className="headingDiv">
           <p
             ref={headingRef}
@@ -286,7 +283,10 @@ useEffect(() => {
               </span>
             </div>
           </div>
-          <span onClick={()=>router.push('/contact-us')} className="text-orange-500 px-10 -my-10 flex items-center hover:underline cursor-pointer gap-2">
+          <span
+            onClick={() => router.push("/contact-us")}
+            className="text-[#00D1D1] px-10 -my-10 flex items-center hover:underline cursor-pointer gap-2"
+          >
             GET IN TOUCH <BiRightArrowAlt />
           </span>
         </div>
@@ -301,7 +301,7 @@ useEffect(() => {
                 <h4>{service.heading}</h4>
                 <p>{service.desc}</p>
                 <Link
-                  style={{ color: "orange", textDecoration: "none" }}
+                  style={{ color: "#00D1D1", textDecoration: "none" }}
                   className="flex hover:underline cursor-pointer items-center gap-1"
                   href="/"
                 >

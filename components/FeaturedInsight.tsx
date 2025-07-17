@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedInsight = () => {
-const features = [
+  const features = [
     {
       image:
         "https://www.systemsltd.com/sites/default/files/2024-10/AnyConv.com__Vertical-424x611-%281%29a.webp",
@@ -154,7 +154,7 @@ const features = [
               {/* Bottom Link */}
               {hoverIndex === index && (
                 <div className="absolute bottom-4 right-4 z-20">
-                  <span className="text-blue-300 text-sm underline">
+                  <span className="text-[#00D1D1] text-sm underline">
                     {feature.link}
                   </span>
                 </div>

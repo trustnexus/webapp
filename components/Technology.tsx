@@ -69,10 +69,15 @@ const Technology = () => {
             with the power of digital transformation.
           </p>
           <Link
+            style={{ color: "#00D1D1", textDecoration: "none" }}
             href="/company-overview"
-            className="text-orange-500 font-medium flex items-center gap-1 no-underline"
+            className=" font-medium group  flex items-center gap-1 no-underline"
           >
-            Learn more <BiRightArrowAlt size={18} />
+            <span className="hover:border-b"> Learn more </span>{" "}
+            <BiRightArrowAlt
+              className="group-hover:w-10 scale-x transition-all"
+              size={18}
+            />
           </Link>
         </div>
 
