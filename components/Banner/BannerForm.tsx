@@ -31,14 +31,14 @@ const BannerForm = () => {
       heading: selectedBanner?.heading || "",
       description: selectedBanner?.description || "",
       route: selectedBanner?.route || "",
-      media: selectedBanner?.media || "",
+      media_url: selectedBanner?.media_url || "",
     },
   });
 
   useEffect(() => {
     if (selectedBanner) {
       reset(selectedBanner); // ⬅️ Prefill form
-      setPreview(selectedBanner.media || null); // 👈 Show existing media
+      setPreview(selectedBanner.media_url || null); // 👈 Show existing media
     }
   }, [selectedBanner, reset]);
   const [file, setFile] = useState<File | null>(null);
@@ -65,7 +65,7 @@ const BannerForm = () => {
       formData.append("route", data.route || "");
 
       if (file) {
-        formData.append("media", file); // must match backend field name
+        formData.append("media_url", file); // must match backend field name
       }
 
       if (isEditing) {

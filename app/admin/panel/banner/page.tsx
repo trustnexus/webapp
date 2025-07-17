@@ -84,11 +84,12 @@ export default function page() {
                 key={index}
                 className="relative border rounded-lg py-5 px-3 shadow bg-white"
               >
-                <video
+                {/* <video
                   src={banner?.media}
                   controls
                   className="h-42 w-full object-cover rounded mb-2"
-                />
+                /> */}
+                <img src={banner?.media_url} alt="" />
                 <p className="bg-gray-200 inline rounded-lg px-2 py-1">
                   {banner?.category}
                 </p>
@@ -105,7 +106,10 @@ export default function page() {
                     size={22}
                   />
                   <MdOutlineDelete
-                    onClick={() => setIsDeleteBannerModalOpen(true)}
+                    onClick={() => {
+                      setSelectedBanner(banner);
+                      setIsDeleteBannerModalOpen(true);
+                    }}
                     className="cursor-pointer text-red-500"
                     size={22}
                   />

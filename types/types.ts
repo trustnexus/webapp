@@ -4,7 +4,7 @@ export interface Banner {
   heading: string;
   description: string;
   route: string;
-  media: string;
+  media_url: string;
 }
 
 export interface LoginForm  {
