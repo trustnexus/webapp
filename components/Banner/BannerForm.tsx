@@ -65,9 +65,11 @@ const BannerForm = () => {
       formData.append("route", data.route || "");
 
       if (file) {
-        formData.append("media", file); // 👈 important: must match backend
+        formData.append("media", file); // must match backend field name
       }
+
       if (isEditing) {
+        // Use raw object if your backend expects JSON
         updateBanner.mutate(
           { ...data, id: selectedBanner?.id },
           {
@@ -86,8 +88,8 @@ const BannerForm = () => {
           }
         );
       } else {
-        console.log("data", data);
-        createBanner.mutate(data, {
+        // Send formData instead of data
+        createBanner.mutate(formData, {
           onSuccess: () => {
             toast.success("Banner created successfully");
             setSelectedBanner(null);
@@ -107,7 +109,7 @@ const BannerForm = () => {
       toast.error("Something went wrong");
     }
   };
-
+  console.log("preview", preview);
   const isVideo = file?.type.startsWith("video");
 
   return (

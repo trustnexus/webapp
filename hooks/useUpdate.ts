@@ -5,7 +5,7 @@ export const useUpdate = <T>(endpoint: string, invalidateKey: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (data: T & { id: string }) => {
+    mutationFn: async (data:( T | FormData) & { id: string }) => {
       const { id, ...rest } = data;
       const res = await api.put(`${endpoint}/${id}`, rest);
       return res.data;
