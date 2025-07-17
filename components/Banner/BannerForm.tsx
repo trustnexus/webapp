@@ -55,7 +55,9 @@ const BannerForm = () => {
   const isEditing = !!selectedBanner;
   const updateBanner = useUpdate("/banners", "banners");
   const createBanner = useCreate<Banner>("/banners", "banners");
-
+  const isMutating = isEditing
+    ? updateBanner.isPending
+    : createBanner.isPending;
   const onSubmit = async (data: Banner) => {
     try {
       const formData = new FormData();
@@ -246,12 +248,25 @@ const BannerForm = () => {
           )}
         </div>
 
-        <button
+        {/* <button
           type="submit"
           disabled={isSubmitting}
           className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
         >
           {isSubmitting
+            ? isCreateBannerModalOpen
+              ? "Creating..."
+              : "Updating..."
+            : isCreateBannerModalOpen
+            ? "Create Banner"
+            : "Update Banner"}
+        </button> */}
+        <button
+          type="submit"
+          disabled={isMutating}
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+        >
+          {isMutating
             ? isCreateBannerModalOpen
               ? "Creating..."
               : "Updating..."
