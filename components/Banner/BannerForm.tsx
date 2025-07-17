@@ -53,7 +53,7 @@ const BannerForm = () => {
   };
 
   const isEditing = !!selectedBanner;
-  const updateBanner = useUpdate<Banner>("/banners", "banners");
+  const updateBanner = useUpdate("/banners", "banners");
   const createBanner = useCreate<Banner>("/banners", "banners");
 
   const onSubmit = async (data: Banner) => {
@@ -65,30 +65,30 @@ const BannerForm = () => {
       formData.append("route", data.route || "");
 
       if (file) {
-        formData.append("media_url", file); // must match backend field name
+        formData.append("media", file); // must match backend field name
       }
 
       if (isEditing) {
-        // Use raw object if your backend expects JSON
-        updateBanner.mutate(
-          { ...data, id: selectedBanner?.id },
-          {
-            onSuccess: () => {
-              toast.success("Banner updated successfully");
-              setSelectedBanner(null);
-              setIsEditBannerModalOpen(false);
-            },
-            onError: (error: unknown) => {
-              if (isAxiosError(error)) {
-                toast.error(error.response?.data?.message || "Update failed");
-              } else {
-                toast.error("An unexpected error occurred.");
-              }
-            },
-          }
-        );
+        // Add ID to formData for PUT/PATCH
+        formData.append("id", selectedBanner?.id || "");
+
+        updateBanner.mutate(formData, {
+          onSuccess: () => {
+            toast.success("Banner updated successfully");
+            setSelectedBanner(null);
+            setIsEditBannerModalOpen(false);
+          },
+          onError: (error: unknown) => {
+            if (isAxiosError(error)) {
+              toast.error(error.response?.data?.message || "Update failed");
+            } else {
+              toast.error("An unexpected error occurred.");
+            }
+          },
+        });
       } else {
         // Send formData instead of data
+        console.log("formdata");
         createBanner.mutate(formData, {
           onSuccess: () => {
             toast.success("Banner created successfully");
@@ -109,8 +109,9 @@ const BannerForm = () => {
       toast.error("Something went wrong");
     }
   };
-  console.log("preview", preview);
-  const isVideo = file?.type.startsWith("video");
+  const isVideo = file
+    ? file.type.startsWith("video")
+    : preview?.match(/\.(mp4|webm|ogg)$/i) !== null;
 
   return (
     <div className="border-2 border-gray-400 max-w-[800px] mx-auto mt-10 p-6 backdrop:brightness-50  bg-white rounded shadow ">

@@ -24,28 +24,30 @@ export default function AdminSignup() {
 
   const onSubmit = async (data: SignupForm) => {
     try {
-      signupMutation.mutate(
-        { ...data, role: "admin" },
-        {
-          onSuccess: (res) => {
-            toast.success("Signup successful!");
-            router.push("/admin/login");
-          },
-          onError: (error: unknown) => {
-            if (isAxiosError(error)) {
-              console.log("error", error);
-              toast.error(error.response?.data?.message || "Signup failed");
-            } else {
-              toast.error("Something went wrong.");
-            }
-          },
-        }
-      );
+      const payload = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        role: "admin",
+      };
+
+      signupMutation.mutate(payload, {
+        onSuccess: () => {
+          toast.success("Signup successful!");
+          router.push("/admin/login");
+        },
+        onError: (error: unknown) => {
+          if (isAxiosError(error)) {
+            toast.error(error.response?.data?.error || "Signup failed");
+          } else {
+            toast.error("Something went wrong.");
+          }
+        },
+      });
     } catch (error) {
       toast.error("Unexpected error occurred.");
     }
   };
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <ToastContainer position="top-center" />

@@ -84,12 +84,20 @@ export default function page() {
                 key={index}
                 className="relative border rounded-lg py-5 px-3 shadow bg-white"
               >
-                {/* <video
-                  src={banner?.media}
-                  controls
-                  className="h-42 w-full object-cover rounded mb-2"
-                /> */}
-                <img src={banner?.media_url} alt="" />
+                {banner?.media_url?.match(/\.(mp4|webm|ogg)$/i) ? (
+                  <video
+                    src={banner?.media_url}
+                    controls
+                    className="h-42 w-full object-cover rounded mb-2"
+                  />
+                ) : (
+                  <img
+                    src={banner?.media_url}
+                    alt={banner?.heading || "Banner"}
+                    className="h-42 w-full object-cover rounded mb-2"
+                  />
+                )}
+
                 <p className="bg-gray-200 inline rounded-lg px-2 py-1">
                   {banner?.category}
                 </p>

@@ -5,6 +5,7 @@ export interface Banner {
   description: string;
   route: string;
   media_url: string;
+  media_type:string
 }
 
 export interface LoginForm  {
