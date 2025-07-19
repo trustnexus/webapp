@@ -6,6 +6,7 @@ import { useState } from "react";
 import { LoginForm } from "@/types/types";
 import { useCreate } from "@/hooks/useCreate";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import Link from "next/link";
 
 export default function AdminLogin() {
   const {
@@ -22,6 +23,7 @@ export default function AdminLogin() {
 
   const onSubmit = async (data: LoginForm) => {
     try {
+      console.log("login data", data);
       loginMutation.mutate(data, {
         onSuccess: (res) => {
           console.log("Login successful:", res);
@@ -98,6 +100,12 @@ export default function AdminLogin() {
         >
           {isSubmitting || loginMutation.isPending ? "Logging in..." : "Login"}
         </button>
+        <div className="my-2 text-sm text-center">
+          Already have an account{" "}
+          <Link className="text-sm" href="/admin/signup">
+            Signup
+          </Link>
+        </div>
       </form>
     </div>
   );

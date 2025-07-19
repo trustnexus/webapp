@@ -9,6 +9,7 @@ import { SignupForm } from "@/types/types";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { isAxiosError } from "axios";
+import Link from "next/link";
 
 export default function AdminSignup() {
   const {
@@ -34,7 +35,7 @@ export default function AdminSignup() {
       signupMutation.mutate(payload, {
         onSuccess: () => {
           toast.success("Signup successful!");
-          router.push("/admin/login");
+          router.push("/admin/panel/dashboard");
         },
         onError: (error: unknown) => {
           if (isAxiosError(error)) {
@@ -127,6 +128,12 @@ export default function AdminSignup() {
             ? "Signing up..."
             : "Signup"}
         </button>
+        <div className="my-2 text-sm text-center">
+          Already have an account{" "}
+          <Link className="text-sm" href="/admin/login">
+            Login
+          </Link>
+        </div>
       </form>
     </div>
   );

@@ -352,7 +352,7 @@ const Footer = () => {
           <li>Sitemap</li>
           <li>Cookie Policy</li>
         </ul>
-        <button onClick={() => router.push("/admin/signup")}>ap</button>
+        <button onClick={() => router.push("/admin/login")}>ap</button>
         <p className="text-center">
           &copy; {new Date().getFullYear()} Trust Nexus. All Rights Reserved.
         </p>
