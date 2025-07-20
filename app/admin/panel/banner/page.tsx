@@ -32,11 +32,9 @@ export default function page() {
   useEffect(() => {
     if (data && data.data) {
       setBanners(data.data);
-      console.log("data", data);
     }
   }, [data]);
 
-  console.log(banners);
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {

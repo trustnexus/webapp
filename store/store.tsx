@@ -1,4 +1,4 @@
-import { Banner } from "@/types/types";
+import { Banner, ServiceForm } from "@/types/types";
 import { create } from "zustand";
 
 interface AppStates {
@@ -45,6 +45,11 @@ interface AppStates {
 
   isLogoutModalOpen: boolean;
   setIsLogoutModalOpen: (data: boolean) => void;
+  services: ServiceForm[];
+  setServices: (services: ServiceForm[]) => void;
+
+  selectedService: null | ServiceForm;
+  setSelectedService: (service: ServiceForm | null) => void;
 }
 
 const useAppStore = create<AppStates>((set) => ({
@@ -111,6 +116,11 @@ const useAppStore = create<AppStates>((set) => ({
 
   isLogoutModalOpen: false,
   setIsLogoutModalOpen: (data: boolean) => set({ isLogoutModalOpen: data }),
+
+  services: [],
+  setServices: (services) => set({ services }),
+  selectedService: null,
+  setSelectedService: (service) => set({ selectedService: service }),
 }));
 
 export default useAppStore;

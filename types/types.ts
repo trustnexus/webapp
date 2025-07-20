@@ -18,3 +18,10 @@ export interface SignupForm  {
   password: string;
   role?: string;
 };
+
+export interface ServiceForm {
+  id:string;
+ title:string
+ description:string
+ route:string
+}

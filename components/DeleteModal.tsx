@@ -16,9 +16,11 @@ const DeleteModal = () => {
     setIsDeleteAnInsightModalOpen,
     isDeleteAnInsightModalOpen,
     setSelectedBanner,
+    selectedService,
+    setSelectedService,
   } = useAppStore();
-  console.log("selectedBanner", selectedBanner?.id);
-  const deleteMutation = useDelete("/banners", "banners");
+  const deleteBannerMutation = useDelete("/banners", "banners");
+  const deleteServiceMutation = useDelete("/services", "services");
   const handleBannerDelete = () => {
     try {
       const bannerId = selectedBanner?.id;
@@ -26,7 +28,7 @@ const DeleteModal = () => {
         toast.error("Invalid banner ID");
         return;
       }
-      deleteMutation.mutate(bannerId, {
+      deleteBannerMutation.mutate(bannerId, {
         onSuccess: () => {
           toast.success("Banner deleted successfully");
           setSelectedBanner(null);
@@ -46,7 +48,29 @@ const DeleteModal = () => {
   };
 
   const handleServiceDelete = () => {
-    alert("service");
+    try {
+      const serviceId = selectedService?.id;
+      if (!serviceId) {
+        toast.error("Invalid service ID");
+        return;
+      }
+      deleteServiceMutation.mutate(serviceId, {
+        onSuccess: () => {
+          toast.success("Service deleted successfully");
+          setSelectedService(null);
+          setIsDeleteServiceModalOpen(false);
+        },
+        onError: (error: unknown) => {
+          if (isAxiosError(error)) {
+            toast.error(error.response?.data?.message || "Delete failed");
+          } else {
+            toast.error("An unexpected error occurred.");
+          }
+        },
+      }); // ✅ Pass string, not object
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
   };
   return (
     <div className="flex mx-auto items-center h-full my-auto backdrop:brightness-50 justify-center max-w-[600px] rounded-lg">

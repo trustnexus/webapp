@@ -89,8 +89,6 @@ const BannerForm = () => {
           },
         });
       } else {
-        // Send formData instead of data
-        console.log("formdata");
         createBanner.mutate(formData, {
           onSuccess: () => {
             toast.success("Banner created successfully");

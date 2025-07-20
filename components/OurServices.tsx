@@ -5,10 +5,25 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "next/navigation";
+import useAppStore from "@/store/store";
+import { ServiceForm } from "@/types/types";
+import { useFetch } from "@/hooks/useFetch";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const OurServices = () => {
+  const { services, setServices } = useAppStore();
+  console.log("services ................0", services);
+  const { data, isLoading } = useFetch<{ data: ServiceForm[] }>(
+    "/services",
+    "services"
+  );
+
+  useEffect(() => {
+    if (data && data.data) {
+      setServices(data?.data);
+    }
+  }, [data]);
   const impactRef = useRef(null);
   const innovationRef = useRef(null);
   const possibilitiesRef = useRef(null);
@@ -18,29 +33,6 @@ const OurServices = () => {
 
   const headingRef = useRef(null); // already used for the section
   const router = useRouter();
-  const services = [
-    {
-      heading: "AI Transformation",
-      desc: "lorem sadh jkasd jaks dkjsa kjdsa dksa kd ksa d...",
-      link: "LEARN MORE ",
-    },
-    {
-      heading: "Data & Analytics",
-      desc: "lorem sadh jkasd jaks dkjsa kjdsa dksa kd ksa d...",
-      link: "LEARN MORE ",
-    },
-    {
-      heading: "Digital",
-      desc: "lorem sadh jkasd jaks dkjsa kjdsa dksa kd ksa d...",
-      link: "LEARN MORE ",
-    },
-    {
-      heading: "Cloud",
-      desc: "lorem sadh jkasd jaks dkjsa kjdsa dksa kd ksa d...",
-      link: "LEARN MORE ",
-    },
-  ];
-
   useEffect(() => {
     ScrollTrigger.matchMedia({
       // Mobile < 640px
@@ -295,17 +287,17 @@ const OurServices = () => {
           ref={servicesRef}
           className="flex max-w-[661px] lg:mt-10 mx-[54px] my-10 md:my-0  flex-col gap-6"
         >
-          {services.map((service, index) => (
+          {services?.map((service, index) => (
             <div className=" md:max-w-[661px] service-card" key={index}>
               <div className=" p-[5px] md:p-[54px]">
-                <h4>{service.heading}</h4>
-                <p>{service.desc}</p>
+                <h4>{service.title}</h4>
+                <p>{service.description}</p>
                 <Link
                   style={{ color: "#00D1D1", textDecoration: "none" }}
                   className="flex hover:underline cursor-pointer items-center gap-1"
-                  href="/"
+                  href={service.route}
                 >
-                  {service.link} <BiRightArrowAlt size={20} />
+                  Learn more <BiRightArrowAlt size={20} />
                 </Link>
               </div>
               <hr className="border-gray-500" />

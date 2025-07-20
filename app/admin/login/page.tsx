@@ -30,7 +30,7 @@ export default function AdminLogin() {
           router.push("/admin/panel/dashboard");
         },
         onError: (error: any) => {
-          console.log("error", error?.response);
+          console.log("error", error);
           setErrorMessage(error?.response?.data?.error || "Login failed");
         },
       });

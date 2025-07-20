@@ -1,29 +1,35 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-const slides = [
-  {
-    video:
-      "https://www.systemsltd.com/sites/default/files/2024-03/City%20Scape%205%20sec.mp4",
-    heading: `We reimagine tommorrow`,
-    text: "Experience the best services with us.",
-    button: "Get in Touch",
-  },
-  {
-    video:
-      "https://www.systemsltd.com/sites/default/files/2025-03/Gen%20AI%20Pg%205.mp4",
-    heading: "Innovate with Confidence",
-    text: "We empower your business through technology.",
-    button: "Learn More",
-  },
-];
+import { useFetch } from "@/hooks/useFetch";
+import { Banner } from "@/types/types";
+import useAppStore from "@/store/store";
+import Image from "next/image";
 
 export default function VideoCarousel() {
   const [current, setCurrent] = useState(0);
-  const total = slides.length;
+  const { banners, setBanners } = useAppStore();
+  const total = banners?.length;
+
+  const { data, isLoading } = useFetch<{ data: Banner[] }>(
+    "banners",
+    "/banners"
+  );
+  useEffect(() => {
+    if (data && data.data) {
+      const filteredBanners = data.data.filter(
+        (banner) => banner.category.toLowerCase() === "homepage"
+      );
+      console.log(
+        "Filtered Banner URLs:",
+        filteredBanners.map((b) => b.media_type)
+      );
+      setBanners(filteredBanners);
+    }
+  }, [data]);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? total - 1 : prev - 1));
@@ -33,42 +39,54 @@ export default function VideoCarousel() {
     setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
   };
 
-  const navigate = useRouter();
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {slides.map((slide, index) => (
+      {banners?.map((banner, index) => (
         <div
           key={index}
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
             index === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <video
-            src={slide.video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
+          {banner.media_type === "video" && (
+            <video
+              src={banner.media_url || "/web-logo.png"}
+              autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover"
+            />
+          )}
+          {banner.media_type === "image" && (
+            <Image
+              src={banner.media_url || "./web-logo.png"}
+              alt={banner.media_type}
+              fill
+              className="object-cover w-full h-full"
+            />
+          )}
+
           <div className="absolute inset-0 bg-black bg-opacity-50 z-[100] flex px-4">
             <div className="absolute top-[40%] left-8 md:left-34 text-white max-w-[90%] sm:max-w-[70%] lg:max-w-[60%]">
               <p className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
-                {slide.heading}
+                {banner.heading}
               </p>
               <p className="text-base sm:text-lg md:text-xl mb-6">
-                {slide.text}
+                {banner.description}
               </p>
+
               <Link
                 style={{ textDecoration: "none" }}
                 href={
-                  slide.button === "Get in Touch"
+                  banner.route === "Get in Touch"
                     ? "/contact-us"
                     : "/learn-more"
                 }
                 className="bg-white text-black text-sm sm:text-base font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded hover:bg-opacity-80 transition"
               >
-                {slide.button.toUpperCase()}
+                {banner.route === "Get in Touch"
+                  ? "GET IN TOUCH"
+                  : "Learn more"}
               </Link>
             </div>
           </div>
@@ -91,12 +109,3 @@ export default function VideoCarousel() {
     </div>
   );
 }
-
-// import React from 'react'
-
-// const Carousal = () => {
-//   return (
-// <div className="webgl-canvas-container svelte-1tvxrr"><canvas width="1901" height="868" style={{width: '1901.25px',height: '868.75px' ,maxWidth: '1521px', maxHeight:' 695px'}}></canvas></div>  )
-// }
-
-// export default Carousal
